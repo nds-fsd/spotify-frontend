@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin:0;
+}
+.container-layout{
+    background:#000;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+}
+
+
+

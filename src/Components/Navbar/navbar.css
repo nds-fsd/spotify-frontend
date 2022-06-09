@@ -1,0 +1,10 @@
+.container-navbar{
+    background-color: green;
+    height: 80px;
+    width: 80%;
+    z-index: 50;
+    display: flex;
+    
+
+   
+}
