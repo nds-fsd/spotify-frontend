@@ -1,10 +1,9 @@
 .container-navbar{
-    background-color: green;
-    height: 80px;
-    width: 80%;
-    z-index: 50;
-    display: flex;
-    
+    background-color: rgb(102, 102, 102);
+    height: 90px;
+    display:flex;
+    flex-direction: row;
+    width: 100%;
 
    
 }

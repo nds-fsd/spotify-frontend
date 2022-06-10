@@ -1,7 +1,6 @@
 import './layout.css'
-import Sidebar from '../SideBar/siderbar';
-import Display from '../Display/display';
-import Navbar from '../Navbar/navbar';
+import Display from './Display/display'
+import Navbar from '../Navbar/navbar'
 
 const Layout = () => {
 
@@ -15,8 +14,7 @@ const Layout = () => {
      
 
      <div className="container-layout">
-       <Navbar></Navbar>
-      <Sidebar></Sidebar>
+      <Navbar/>
       <Display></Display>
       
 
