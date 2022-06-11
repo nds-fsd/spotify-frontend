@@ -1,6 +1,9 @@
+import Footer from './Footer/footer';
 import './layout.css'
-import Display from './Display/display'
-import Navbar from '../Navbar/navbar'
+import Sidebar from './Sidebar/sidebar';
+import SpotifyBody from './Spotifybody/spotifybody';
+
+
 
 const Layout = () => {
 
@@ -11,16 +14,15 @@ const Layout = () => {
  return (
      
      
-     
+     <>
 
-     <div className="container-layout">
-      <Navbar/>
-      <Display></Display>
+     <div className="conteiner-layout">
       
-
-
+      <Sidebar/>
+      <SpotifyBody/>
      </div>
-
+     <Footer/>
+     </>
 
 )
 };

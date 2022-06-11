@@ -1,0 +1,28 @@
+.Sidebar-container{
+flex: .2;
+height: 100vh;
+background-color:#000000;
+color: aquamarine;
+min-width: 240px;
+color: #fff;
+
+
+
+}
+.Sidebar-container img{
+
+    height: 67px;
+    padding: 10px;
+    margin-right: auto;
+    
+}
+
+.Sidebar-container hr {
+ border: 1px solid #3a3a3a;
+ width: 90%;
+ margin: 10px auto;
+}
+.Playlist-container{
+    margin: 5px 10px;
+
+}
