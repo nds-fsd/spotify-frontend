@@ -11,6 +11,8 @@ return (
         <SectionDisplay/>
         <SectionDisplay/>
         <SectionDisplay/>
+        <SectionDisplay/>
+        <SectionDisplay/>
    
 
         </div>
