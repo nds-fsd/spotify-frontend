@@ -1,0 +1,9 @@
+.FooterMenuPrincipal-container{
+    flex: .4;
+    display: flex;
+justify-content: center;
+align-items: center;
+max-width: 300px;
+gap: 10px;
+
+}

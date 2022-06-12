@@ -5,7 +5,9 @@ background-color:#000000;
 color: aquamarine;
 min-width: 240px;
 color: #fff;
-
+position: fixed;
+left: 0;
+width: 20%;
 
 
 }

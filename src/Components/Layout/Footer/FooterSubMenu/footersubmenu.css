@@ -1,0 +1,16 @@
+.FooterSubMenu-container{
+ 
+    flex:.3;
+    display:grid;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 17px;
+   padding-right: 20px;
+   
+
+}
+
+.FooterSubMenu-container .MuiSlider-root{
+    color:#0cf718 ;
+}
