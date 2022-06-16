@@ -10,11 +10,6 @@ return (
         <Header/>
         <SectionDisplay/>
         <SectionDisplay/>
-        <SectionDisplay/>
-        <SectionDisplay/>
-        <SectionDisplay/>
-   
-
         </div>
         
 )}

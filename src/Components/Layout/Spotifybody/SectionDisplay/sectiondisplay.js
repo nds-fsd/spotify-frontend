@@ -13,7 +13,7 @@ const SectionDisplay = () => {
   return (
     <div className="SectionDisplay-container">
       {cards.length > 0 ? (
-        cards.map((c) => <Cards genre={c.genre} title={c.title} duration={c.duration} releaseDate={c.releaseDate} />)
+        cards.map((c) => <Cards genre={c.genre} title={c.title} duration={c.duration} releaseDate={c.releaseDate} photo={c.photo}/>)
       ) : (
         <div>No cards receive from server!</div>
       )}

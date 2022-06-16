@@ -1,3 +1,15 @@
 .cards-container{
     color: #FFF;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.288);
+  
 }
+
+.cards-container img{
+    width: 180px;
+    height: 170px;
+    object-fit: contain;
+    
+}
+
+

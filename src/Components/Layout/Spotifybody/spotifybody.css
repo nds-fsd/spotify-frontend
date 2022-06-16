@@ -1,8 +1,8 @@
 .Spotifybody-container{
     flex:.8;
     padding: 0 10px;
-    background: linear-gradient(#fff .2%, rgb(15, 15, 15) 2%);
-   
+   /*background: linear-gradient(#fff .2%, rgb(15, 15, 15) 2%);*/
+   height: 100%;
 
  
     
