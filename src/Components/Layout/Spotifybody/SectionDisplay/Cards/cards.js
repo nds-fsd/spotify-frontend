@@ -1,13 +1,13 @@
 import './cards.css';
 
-const Cards = ({photo,titulo,descripcion}) => {
+const Cards = ({photo,genre,title}) => {
 
     return(
     
     <div className="cards-container">
-    <img src={photo} alt={titulo} />
-    <h3>{titulo}</h3>
-    <h5>{descripcion}</h5>
+    <img src={photo} alt={genre} />
+    <h3>{genre}</h3>
+    <h5>{title}</h5>
     </div>
 
 
