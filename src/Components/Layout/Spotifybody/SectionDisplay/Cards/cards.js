@@ -1,6 +1,6 @@
 import './cards.css';
 
-const Cards = ({photo,genre,title}) => {
+const Cards = ({photo,genre,title,releaseDate,duration}) => {
 
     return(
     
@@ -8,6 +8,8 @@ const Cards = ({photo,genre,title}) => {
     <img src={photo} alt={genre} />
     <h3>{genre}</h3>
     <h5>{title}</h5>
+    <h6>{duration}</h6>
+    <h7>{ releaseDate}</h7>
     </div>
 
 
