@@ -1,22 +1,28 @@
-import './cards.css';
+import "./cards.css";
+import { useModal } from "../../../../../Utils/cardModals/useModal";
+import Modal from "../../../../../Utils/cardModals/Modal";
 
-const Cards = ({photo,genre,title,releaseDate,duration}) => {
+const Cards = ({ photo, genre, title, releaseDate, duration, onClick }) => {
+  const [isOpen, openModal, closeModal] = useModal(false);
 
-    return(
-    
-    <div className="cards-container">
-    <img src={photo} alt={genre} />
-    <h3>{genre}</h3>
-    <h5>{title}</h5>
-    <h6>{duration}</h6>
-    <h7>{ releaseDate}</h7>
-    </div>
-
-
-
-
-
-
-)}
+  return (
+    <button className="cards-container" onClick={openModal}>
+      <h4>{title}</h4>
+      <img src={photo} alt={genre} />
+      <h5>{genre}</h5>
+      {/* <h6>{duration}</h6>
+      <h7>{releaseDate}</h7> */}
+      <Modal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        title={title}
+        genre={genre}
+        duration={duration}
+        releaseDate={releaseDate}
+        photo={photo}
+      ></Modal>
+    </button>
+  );
+};
 
 export default Cards;
