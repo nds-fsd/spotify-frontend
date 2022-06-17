@@ -1,0 +1,6 @@
+.HeaderDisplay-container{
+    flex: .5;
+    min-width: 80px;
+    
+    color:#181818
+}

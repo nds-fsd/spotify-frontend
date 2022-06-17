@@ -1,0 +1,21 @@
+.cards-container {
+  color: #fff;
+  /* z-index: 1; */
+  background-color: rgba(0, 0, 0, 0.288);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px 20px;
+  padding: 5px;
+  line-height: 35px;
+  font-size: 18px;
+  border: 2px solid rgba(27, 25, 25, 0.85);
+  border-radius: 10px;
+  padding-left: 2px;
+}
+
+.cards-container img {
+  margin: 8px;
+  width: 180px;
+  height: 170px;
+  object-fit: contain;
+}
