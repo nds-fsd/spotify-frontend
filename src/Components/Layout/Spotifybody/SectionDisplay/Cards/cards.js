@@ -1,15 +1,26 @@
 import "./cards.css";
-import { useModal } from "../../../../../Utils/cardModals/useModal";
-import Modal from "../../../../../Utils/cardModals/Modal";
+import { useModal } from "../../../../../Utils/Modals/cardModals/useModal";
+import Modal from "../../../../../Utils/Modals/cardModals/Modal";
 
 const Cards = ({ photo, genre, title, releaseDate, duration, onClick }) => {
   const [isOpen, openModal, closeModal] = useModal(false);
 
+  // const secondsToMinutes = ({ duration }) => {
+  //   let seconds = Math.floor(({ duration } / 60) % 60);
+  //   let minutes = Math.floor(({ duration } / (1000 * 60)) % 60);
+
+  //   minutes = minutes < 10 ? "0" + minutes : minutes;
+  //   seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  //   return minutes + ":" + seconds;
+  // };
+  // console.log(secondsToMinutes({ duration }));
+
   return (
     <button className="cards-container" onClick={openModal}>
-      <h4>{title}</h4>
+      <h3 className="card-info">{title}</h3>
       <img src={photo} alt={genre} />
-      <h5>{genre}</h5>
+      <h4 className="card-info">{genre}</h4>
       {/* <h6>{duration}</h6>
       <h7>{releaseDate}</h7> */}
       <Modal
@@ -17,7 +28,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, onClick }) => {
         closeModal={closeModal}
         title={title}
         genre={genre}
-        duration={duration}
+        duration={duration + "" + "seg"}
         releaseDate={releaseDate}
         photo={photo}
       ></Modal>

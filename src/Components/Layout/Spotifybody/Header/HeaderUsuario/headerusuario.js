@@ -1,10 +1,11 @@
 import "./headerusuario.css";
 import { Avatar } from "@material-ui/core";
+import LoginbuttonHomepage from "../../../../Buttons/LoginbuttonHomepage/LoginbuttonHomepage";
 const HeaderUsuario = () => {
   return (
     <div className="HeaderUsuario-container">
       <Avatar />
-      <h3>Nuclio Digital</h3>
+      <LoginbuttonHomepage />
     </div>
   );
 };

@@ -1,24 +1,33 @@
-.Sidemenu-container{
-    display: flex;
-    align-items: center;
-    color:grey;
-    height: 40px; 
-    cursor: pointer;
-    transition: 300ms color ease-in;
-    margin-left: 5px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-
-
+.Sidemenu-container {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  padding-top: 7px;
 }
-.Sidemenu-container:hover{
-    color: #fff;
+.sidebar-button:hover {
+  color: #fff;
 }
 
-h2{
-    margin:5px;
+h3 {
+  margin: 5px;
+  padding: 7px;
 }
 
-p{
-    margin-left: 5px;
+p {
+  margin-left: 5px;
+}
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  color: grey;
+  height: 48px;
+  cursor: pointer;
+  transition: 300ms color ease-in;
+  margin-left: 5px;
+  padding-top: 7px;
+  border: none;
+  background-color: transparent;
+  font-size: 17px;
+  font-weight: 900;
 }

@@ -2,10 +2,16 @@ import "./sidebar.css";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
-
+// import { useNavigate } from "react-router";
 import SidebarMenu from "./Sidebarmenu/sibebarmenu";
 
-const Sidebar = () => {
+const Sidebar = ({ onClick }) => {
+  // const navigate = useNavigate();
+
+  // const handleHomeClick = () => {
+  //   navigate("/login", { required: true });
+  // };
+
   return (
     <div className="Sidebar-container">
       <img
@@ -14,7 +20,11 @@ const Sidebar = () => {
       />
       <br />
       <br />
-      <SidebarMenu title="Home" Icon={HomeIcon} />
+      <SidebarMenu
+        // onClick={(e) => handleHomeClick()}
+        title="Home"
+        Icon={HomeIcon}
+      />
       <SidebarMenu title="Search" Icon={SearchIcon} />
       <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} />
       <br />

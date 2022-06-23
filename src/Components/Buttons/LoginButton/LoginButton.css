@@ -1,0 +1,20 @@
+.login-button {
+  margin-top: 25px;
+  width: 100px;
+  height: 44px;
+  border-radius: 20px;
+  background-color: #ffb700;
+  color: black;
+  font-size: 15px;
+  border: none;
+}
+
+.login-button:hover {
+  width: 105px;
+  height: 48px;
+  font-size: 17px;
+  border-radius: 22px;
+  margin-right: 3px;
+  opacity: 0.9;
+  transition: 0.3s;
+}
