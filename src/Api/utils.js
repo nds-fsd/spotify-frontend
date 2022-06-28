@@ -12,7 +12,7 @@ const createCard = async (song) => {
 };
 
 const editCard = async (song) => {
-  let response = await fetch(`http://localhost:3001`, {
+  let response = await fetch("http://localhost:3001", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ const editCard = async (song) => {
 };
 
 const getAllCards = async () => {
-  const response = await fetch("http://localhost:3001/song");
+  const response = await fetch("http://localhost:3001/songs");
   return await response.json();
 };
 
@@ -32,7 +32,7 @@ const getCard = (id) => {
 };
 
 const deleteCard = async (song) => {
-  let response = await fetch(`http://localhost:3001`, {
+  let response = await fetch("http://localhost:3001", {
     method: "DELETE",
     headers: {
       "Content-type": "application/json; charset=UTF-8", // Indicates the content

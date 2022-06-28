@@ -2,7 +2,7 @@ import "./LoginForm.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import LoginButton from "../../Components/Buttons/LoginButton/LoginButton";
-import authLogin from "../../Utils/auth";
+import authLogin from "../../Api/auth";
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();

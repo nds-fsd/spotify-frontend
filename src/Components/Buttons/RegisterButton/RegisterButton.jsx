@@ -1,7 +1,7 @@
-import "./SignupButton.css";
+import "./RegisterButton.css";
 import { useNavigate } from "react-router";
 
-const SignupButton = () => {
+const RegisterButton = () => {
   const navigate = useNavigate();
 
   const signUp = () => {
@@ -9,12 +9,12 @@ const SignupButton = () => {
   };
 
   return (
-    <footer>
+    <div>
       <button className="signup-button" type="button" onClick={signUp}>
         SIGN UP FOR NUCLIFY
       </button>
-    </footer>
+    </div>
   );
 };
 
-export default SignupButton;
+export default RegisterButton;

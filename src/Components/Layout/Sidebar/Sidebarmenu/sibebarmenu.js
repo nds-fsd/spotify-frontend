@@ -1,6 +1,6 @@
 import "./sidebarmenu.css";
 
-const SidebarMenu = ({ title, Icon, onClick }) => {
+const SidebarMenu = ({ title, Icon }) => {
   return (
     <div className="Sidemenu-container">
       <button className="sidebar-button">

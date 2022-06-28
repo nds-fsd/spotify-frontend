@@ -22,6 +22,13 @@
   object-fit: contain;
 }
 
+.cards-container img:hover {
+  width: 185px;
+  height: 175px;
+  margin: 2px;
+  object-fit: contain;
+}
+
 .cards-container:hover {
   background-color: rgba(6, 52, 78, 0.75);
   /* border: 2px solid rgba(12, 58, 82, 0.85); */

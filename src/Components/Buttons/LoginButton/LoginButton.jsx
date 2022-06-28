@@ -1,10 +1,10 @@
 import "./LoginButton.css";
 
-const LoginButton = ({ onClick }) => {
+const LoginButton = () => {
   return (
     <div className="button-container">
       <button className="login-button" type="submit">
-        LOG IN
+        SIGN IN
       </button>
     </div>
   );

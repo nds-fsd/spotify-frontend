@@ -1,11 +1,12 @@
 import "./headerusuario.css";
 import { Avatar } from "@material-ui/core";
-import LoginbuttonHomepage from "../../../../Buttons/LoginbuttonHomepage/LoginbuttonHomepage";
+import SignInButton from "../../../../Buttons/SignInButton/SignInButton";
+
 const HeaderUsuario = () => {
   return (
     <div className="HeaderUsuario-container">
       <Avatar />
-      <LoginbuttonHomepage />
+      <SignInButton />
     </div>
   );
 };

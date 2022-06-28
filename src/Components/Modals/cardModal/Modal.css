@@ -54,6 +54,12 @@
   object-fit: contain;
 }
 
+.modal-container img:hover {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
 .songModal-header2 {
   margin-top: 8px;
   padding: 8px;

@@ -1,7 +1,7 @@
 import "./LoginPage.css";
 import "./LoginForm.css";
 import LoginForm from "./LoginForm";
-import SignupButton from "../../Components/Buttons/SignupButton/SignupButton";
+import RegisterButton from "../../Components/Buttons/RegisterButton/RegisterButton";
 import { useNavigate } from "react-router";
 
 const LoginPage = ({ onClick }) => {
@@ -29,7 +29,7 @@ const LoginPage = ({ onClick }) => {
       <section className="signup-container">
         <hr></hr>
         <h2 className="header-signup">Don't have an account?</h2>
-        <SignupButton />
+        <RegisterButton />
       </section>
     </div>
   );

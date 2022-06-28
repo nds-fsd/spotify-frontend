@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.loginbuttonHomepage {
+.signinButtonHomepage {
   letter-spacing: 1.5px;
   width: 115px;
   height: 44px;
@@ -17,7 +17,7 @@
   margin-left: 12px;
 }
 
-.loginbuttonHomepage:hover {
+.signinButtonHomepage:hover {
   color: white;
   transition: 0.3s;
   background-color: #ffb700;
