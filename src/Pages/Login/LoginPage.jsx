@@ -1,15 +1,20 @@
 import "./LoginPage.css";
 import "./LoginForm.css";
 import LoginForm from "./LoginForm";
-import SignupButton from "../../Components/Buttons/SignupButton";
+import SignupButton from "../../Components/Buttons/SignupButton/SignupButton";
+import { useNavigate } from "react-router";
 
+const LoginPage = ({ onClick }) => {
+  const navigate = useNavigate();
+  const handleClickLogo = () => {
+    navigate("/", { replace: true });
+  };
 
-
-const LoginPage = () => {
   return (
     <div className="login-container">
       <header className="header-container">
         <img
+          onClick={(e) => handleClickLogo()}
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1024px-Spotify_logo_with_text.svg.png"
           alt="logo"
         />

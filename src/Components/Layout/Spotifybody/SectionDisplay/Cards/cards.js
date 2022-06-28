@@ -1,6 +1,6 @@
 import "./cards.css";
-import { useModal } from "../../../../../Utils/Modals/cardModals/useModal";
-import Modal from "../../../../../Utils/Modals/cardModals/Modal";
+import { useModal } from "../../../../Modals/cardModal/useModal";
+import Modal from "../../../../Modals/cardModal/Modal";
 
 const Cards = ({ photo, genre, title, releaseDate, duration, onClick }) => {
   const [isOpen, openModal, closeModal] = useModal(false);

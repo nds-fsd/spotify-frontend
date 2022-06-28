@@ -1,8 +1,6 @@
 import "./sidebarmenu.css";
 
 const SidebarMenu = ({ title, Icon, onClick }) => {
-
-
   return (
     <div className="Sidemenu-container">
       <button className="sidebar-button">

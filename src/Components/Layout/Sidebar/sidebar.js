@@ -9,7 +9,7 @@ const Sidebar = ({ onClick }) => {
   // const navigate = useNavigate();
 
   // const handleHomeClick = () => {
-  //   navigate("/login", { required: true });
+  //   navigate("/login", { replace: true });
   // };
 
   return (
