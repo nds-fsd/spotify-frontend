@@ -1,0 +1,12 @@
+.intro {
+    width: 50%;
+    display:grid;
+}
+.form{
+    width: 50%;
+    display:grid;
+}
+.buttons{
+    width: 50%;
+    display:grid;
+}
