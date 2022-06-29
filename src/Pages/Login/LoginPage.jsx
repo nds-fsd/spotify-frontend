@@ -13,11 +13,15 @@ const LoginPage = ({ onClick }) => {
   return (
     <div className="login-container">
       <header className="header-container">
-        <img
+        {/* <img
           onClick={(e) => handleClickLogo()}
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1024px-Spotify_logo_with_text.svg.png"
           alt="logo"
-        />
+        /> */}
+
+        <div className="logoLogin" onClick={(e) => handleClickLogo()}>
+          NUCLIFY
+        </div>
       </header>
 
       <section className="loginForm-container">

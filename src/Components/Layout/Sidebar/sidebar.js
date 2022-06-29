@@ -14,10 +14,11 @@ const Sidebar = ({ onClick }) => {
 
   return (
     <div className="Sidebar-container">
-      <img
+      {/* <img
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1024px-Spotify_logo_with_text.svg.png"
         alt="logo"
-      />
+      /> */}
+      <div className="logo">NUCLIFY</div>
       <br />
       <br />
       <SidebarMenu

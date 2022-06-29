@@ -16,6 +16,7 @@ footer {
   font-size: 18px;
   font-weight: 700;
   border: solid grey;
+  margin-bottom: 15px;
 }
 
 .signup-button:hover {
