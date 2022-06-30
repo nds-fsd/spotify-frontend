@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-button {
+  display: flex;
+  margin-top: 190px;
+  width: 400px;
+  justify-content: center;
+  height: 50px;
+  align-items: center;
+  border-radius: 20px;
+  color: grey;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: solid grey;
+  margin-bottom: 15px;
+}
+
+.signup-button:hover {
+  border: solid black;
+}

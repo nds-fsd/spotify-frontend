@@ -16,14 +16,14 @@ const Modal = ({
     <div className={`modal ${isOpen && "is-open"}`} onClick={closeModal}>
       <div className="modal-container" onClick={handleModalContainerClick}>
         <button className="modal-close" onClick={closeModal}>
-          X
+          x
         </button>
         {children}
-        <h2>{title}</h2>
+        <h2 className="songModal-header2">{title}</h2>
         <img src={photo} alt={genre} />
-        <h2>{genre}</h2>
-        <h4>{duration}</h4>
-        <h4>{releaseDate}</h4>
+        <h3 className="songModal-header3">{genre}</h3>
+        <h3 className="songModal-header3">{duration}</h3>
+        <h3 className="songModal-header3">{releaseDate}</h3>
       </div>
     </div>
   );

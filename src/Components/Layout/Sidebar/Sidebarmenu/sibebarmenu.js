@@ -1,21 +1,16 @@
-import './sidebarmenu.css';
-const SidebarMenu = ({ title, Icon}) => {
+import "./sidebarmenu.css";
 
-    return(
-
-     <div className="Sidemenu-container">
-
-         {Icon && <Icon classname='iconoS'/>}
-         {Icon ? <h2>{title}</h2> : <p>{title}</p>}
-
-     </div>
-
-      
-      
-        
-    
-)
-}
-
+const SidebarMenu = ({ title, Icon }) => {
+  return (
+    <div className="Sidemenu-container">
+      <button className="sidebar-button">
+        {Icon && <Icon classname="iconoS" />}
+      </button>
+      <button className="sidebar-button">
+        {Icon ? <h3>{title}</h3> : <p>{title}</p>}
+      </button>
+    </div>
+  );
+};
 
 export default SidebarMenu;

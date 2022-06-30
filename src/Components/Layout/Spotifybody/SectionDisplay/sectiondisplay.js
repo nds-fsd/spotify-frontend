@@ -1,6 +1,6 @@
 import Cards from "./Cards/cards.js";
 import "./sectiondisplay.css";
-import { getAllCards } from "../../../../Utils/utils.js";
+import { getAllCards } from "../../../../Api/utils.js";
 import { useState, useEffect } from "react";
 
 const SectionDisplay = () => {
