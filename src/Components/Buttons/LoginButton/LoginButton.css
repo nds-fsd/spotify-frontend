@@ -18,3 +18,8 @@
   opacity: 0.9;
   transition: 0.3s;
 }
+
+.button-container {
+  width: 412px;
+  height: 44px;
+}

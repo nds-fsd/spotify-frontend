@@ -1,5 +1,5 @@
 const authLogin = async (data) => {
-  return await fetch("http://localhost:3001/auth/login", {
+  return await fetch("http://localhost:3001/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
