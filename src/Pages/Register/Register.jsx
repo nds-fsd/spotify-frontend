@@ -13,11 +13,14 @@ const Register = () => {
     console.log("hola",data)
   //     const {data} = setValue();
  if (data.password !== data.confirmPassword) {
- console.log("Su contraseña no es válida");
+ console.log("Su contraseña no es válida");}
+ else {
   await authRegister({name:data.name, lastName:data.lastName,
         email:data.email, password:data.password, confirmPassword:data.confirmPassword });
-        navigate('/');
-        return console.log(data.password, data.name);
+        console.log(data.password, data.name)
+        window.alert("Tu usuario se ha creado correctamente, "+data.name+". Haz click en 'Aceptar' para ir a la página de inicio");
+        navigate('/',{ replace: true });
+        return ;
 
       };
          return console.log(data.password, data.confirmPassword);

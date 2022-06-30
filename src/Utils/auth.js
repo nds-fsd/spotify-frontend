@@ -9,7 +9,7 @@ const Register = ({name, lastName, email, password, confirmPassword})=>{
         password, 
         confirmPassword
     }
-    return fetch(`${BACKEND}/auth/register`,{
+    return fetch(`${BACKEND}/register`,{
     method: 'POST',
     headers: {
         'Accept':'application/json',
