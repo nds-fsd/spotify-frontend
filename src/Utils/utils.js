@@ -23,7 +23,7 @@ const editCard = async (song) => {
 };
 
 const getAllCards = async () => {
-  const response = await fetch("http://localhost:3001/song");
+  const response = await fetch("http://localhost:3001/songs");
   return await response.json();
 };
 

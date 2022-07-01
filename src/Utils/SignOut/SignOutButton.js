@@ -11,7 +11,7 @@ const LogOutButton = ()=>{
 
 
 <button onClick="deleteLocalStorage">Sign Out</button>
-navigate('/');
+navigate('/', { replace: true });
 }
 
 
