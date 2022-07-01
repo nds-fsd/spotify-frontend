@@ -4,7 +4,7 @@ const LoginButton = () => {
   return (
     <div className="button-container">
       <button className="login-button" type="submit">
-        SIGN IN
+        LOG IN
       </button>
     </div>
   );

@@ -9,7 +9,7 @@ const SignInButton = ({ onClick }) => {
 
   return (
     <button className="signinButtonHomepage" onClick={(e) => handleClick()}>
-      Sign In
+      LOG IN
     </button>
   );
 };

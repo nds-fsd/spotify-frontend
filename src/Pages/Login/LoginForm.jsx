@@ -13,12 +13,17 @@ const LoginForm = () => {
       alert(
         "The email or password provided is not correct. Please verify and try again."
       );
+      navigate("/login", { replace: true });
+    } else {
+      const redirect = await authLogin({
+        email: data.email,
+        password: data.password,
+      });
+      console.log(navigate);
+      if (redirect) navigate("/", { replace: true });
     }
-    await authLogin({ email: data.email, password: data.password });
-    // navigate("/", { replace: true });
 
-    return console.log(data.password, data.email);
-  };
+  }
 
   return (
     <div className="form-container">

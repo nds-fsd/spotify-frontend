@@ -1,14 +1,19 @@
 const authLogin = async (data) => {
-  return await fetch("http://localhost:3001/login", {
+  const response = await fetch("http://localhost:3001/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
     body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((response) => window.localStorage.setItem("token", response.token));
+  });
+  const token = await response.json();
+  console.log(token);
+  if (token.token) {
+    window.localStorage.setItem("token", token.token)
+    return true;
+  }
+  return false;
 };
 
 export default authLogin;
