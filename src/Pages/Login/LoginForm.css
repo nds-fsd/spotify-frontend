@@ -1,0 +1,41 @@
+.form-container {
+  display: flex;
+  width: 250px;
+  height: 310px;
+  justify-content: center;
+  margin-top: 85px;
+}
+
+.input-container {
+  width: 700px;
+  justify-content: center;
+  line-height: 60px;
+  margin-top: 26px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-inputs {
+  width: 400px;
+  height: 38px;
+  border-radius: 5px;
+  border: solid grey;
+  padding: 3px;
+}
+
+.form-inputs:hover {
+  border: solid black;
+}
+
+.form-inputs::placeholder {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}

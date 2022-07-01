@@ -1,13 +1,7 @@
-import './headerdisplay.css';
+import "./headerdisplay.css";
 
 const HeaderDisplay = () => {
-    return(
-    
-    <div className="HeaderDisplay-container">
-        display
-    </div>
-    
-    
-    )}
+  return <div className="HeaderDisplay-container"></div>;
+};
 
-    export default HeaderDisplay
+export default HeaderDisplay;

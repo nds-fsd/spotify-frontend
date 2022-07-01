@@ -1,0 +1,80 @@
+.header-container {
+  width: 100%;
+  justify-content: center;
+  line-height: 100px;
+  display: flex;
+}
+
+img {
+  width: 200px;
+  height: 60px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+img:hover {
+  width: 210px;
+  height: 63px;
+  transition: 0.3s;
+}
+
+.loginForm-container hr {
+  border: 0.5px solid rgb(68, 67, 67);
+  position: absolute;
+  display: flex;
+  width: 100%;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-container hr {
+  border: 0.5px solid rgb(68, 67, 67);
+  position: absolute;
+  display: flex;
+  width: 400px;
+  margin-top: 80px;
+}
+
+.loginForm-container {
+  line-height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-login {
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  padding: 10px;
+  display: flex;
+  font-size: 19px;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+.header-signup {
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  padding: 10px;
+  display: flex;
+  font-size: 20px;
+  margin-top: 120px;
+}
+
+.logoLogin {
+  display: flex;
+  justify-content: center;
+  font-size: 52px;
+  margin: 15px;
+  margin-top: 25px;
+  padding: 8px;
+  font-weight: 1000;
+  color: #ffb700;
+  letter-spacing: 6px;
+}

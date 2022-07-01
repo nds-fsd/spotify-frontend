@@ -21,12 +21,10 @@ const Register = () => {
         window.alert("Tu usuario se ha creado correctamente, "+data.name+". Haz click en 'Aceptar' para ir a la página de inicio");
         navigate('/',{ replace: true });
         return ;
-
       };
          return console.log(data.password, data.confirmPassword);
    
    }
-
   return (
     <div>
       <div className="Intro">
@@ -43,35 +41,35 @@ const Register = () => {
         />
         <br/>
         Last name:
-        <input
-          {...register("lastName", { required: true })}  
+        <input {...register("lastName", { required: true })}  
           type="text"
           placeholder="Your Lastname"
-        /><br/>
+        />
+        <br/>
         Email: 
         <input
-          {...register("email", { required: true , pattern: {
+          {...register("email", { required: "Email is required" , pattern: {
             value: /\S+@\S+\.\S+/,
-            message: "Entered value does not match email format"
+            message: "Make sure to write your emal with the correct format"
           }})}
           type="email"
           placeholder="Your Email"
         /><br/>
         Password:
         <input
-          {...register("password", { required: true, minLength: 8,  message:"Password needs to have 8 characters or more"
-          //  pattern: /"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"/
+          {...register("password", { required: true, minLength: 8,  message:"Password needs to have 8 characters or more",
+            pattern: /"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"/
         })}
           type="password"
-          placeholder="Your Password (min 8 characters, "
+          placeholder="Insert your password "
         /><br/>
         Repeat your password:
         <input
-          {...register("confirmPassword", { required: true,  minLength: 8,  message:"Password needs to have 8 characters or more"
-          //  pattern: /"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"/
+          {...register("confirmPassword", { required: true,  minLength: 8,  message:"Password needs to have 8 characters or more",
+            pattern: /"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"/
           })}
           type="password"
-          placeholder="Confirm your Password"
+          placeholder="Repeat your Password"
         /><br/>
         </div>
         <div className="buttons">

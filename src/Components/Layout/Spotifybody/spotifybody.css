@@ -1,10 +1,8 @@
-.Spotifybody-container{
-    flex:.8;
-    padding: 0 10px;
-   /*background: linear-gradient(#fff .2%, rgb(15, 15, 15) 2%);*/
-   height: 100%;
-
- 
-    
-    
+.Spotifybody-container {
+  flex: 0.8;
+  padding: 0 10px;
+  /*background: linear-gradient(#fff .2%, rgb(15, 15, 15) 2%);*/
+  height: 100%;
+  background-color: rgb(0, 31, 49);
+  opacity: 0.85;
 }
