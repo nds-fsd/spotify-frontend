@@ -22,8 +22,7 @@ const LoginForm = () => {
       console.log(navigate);
       if (redirect) navigate("/", { replace: true });
     }
-
-  }
+  };
 
   return (
     <div className="form-container">
