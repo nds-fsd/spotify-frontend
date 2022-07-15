@@ -1,0 +1,9 @@
+.container-menuItem {
+  background-color: #ffb700 !important;
+  color: white !important;
+  font-weight: 800 !important;
+  width: 100px;
+  padding-left: 12px;
+  position: absolute !important;
+  transform: translate(-95px, 100px) !important;
+}
