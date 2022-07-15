@@ -3,7 +3,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
 // import { useNavigate } from "react-router";
-import SidebarMenu from "./Sidebarmenu/sibebarmenu";
+import SidebarMenu from "./sidebarmenu/Sidebarmenu/sibebarmenu";
 
 const Sidebar = ({ onClick }) => {
   // const navigate = useNavigate();
