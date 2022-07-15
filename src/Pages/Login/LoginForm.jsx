@@ -20,10 +20,9 @@ const LoginForm = () => {
         password: data.password,
       });
       console.log(navigate);
-      if (redirect) navigate("/", { replace: true });
+      if (redirect) navigate("/layout", { replace: true });
     }
-
-  }
+  };
 
   return (
     <div className="form-container">

@@ -4,7 +4,7 @@ import "./menuItem.css";
 
 const UserNavigationMenu = ({ options }) => {
   const deleteLocalStorage = () => {
-    window.localStorage.clear(); 
+    window.localStorage.clear();
     console.log("cache borrada");
   };
   return (
