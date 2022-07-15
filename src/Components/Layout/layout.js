@@ -6,18 +6,9 @@ import SpotifyBody from './Spotifybody/spotifybody';
 
 
 const Layout = () => {
-
-
-
-
-
  return (
-     
-     
      <>
-
      <div className="conteiner-layout">
-      
       <Sidebar/>
       <SpotifyBody/>
      </div>
