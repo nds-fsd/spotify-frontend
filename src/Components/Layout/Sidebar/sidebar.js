@@ -2,8 +2,11 @@ import "./sidebar.css";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+//import AddIcon from '@material-ui/icons/Add';
 // import { useNavigate } from "react-router";
-import SidebarMenu from "./sidebarmenu/Sidebarmenu/sibebarmenu";
+import SidebarMenu from "./Sidebarmenu/sibebarmenu";
+import AddNamePlaylist from "./AddPlaylist/AddPlaylist";
+import PlayListName from "./AddPlaylist/PlayList/PlayList";
 
 const Sidebar = ({ onClick }) => {
   // const navigate = useNavigate();
@@ -25,14 +28,16 @@ const Sidebar = ({ onClick }) => {
         // onClick={(e) => handleHomeClick()}
         title="Home"
         Icon={HomeIcon}
+        link="http://localhost:3000/"
       />
-      <SidebarMenu title="Search" Icon={SearchIcon} />
-      <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} />
+      <SidebarMenu title="Search" Icon={SearchIcon}  link="#" />
+      <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} link="#"/>
       <br />
       <div className="Playlist-container">Playlist</div>
       <hr />
-      <SidebarMenu title="THE BEST" />
-      <SidebarMenu title="NUCLIO DIGITAL" />
+      <AddNamePlaylist/>
+      <PlayListName/>
+      
     </div>
   );
 };

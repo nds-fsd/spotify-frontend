@@ -9,7 +9,6 @@ return (
         <div className='Spotifybody-container'>
         <Header/>
         <SectionDisplay/>
-        <SectionDisplay/>
         </div>
         
 )}
