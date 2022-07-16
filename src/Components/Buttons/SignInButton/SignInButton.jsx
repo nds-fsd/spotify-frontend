@@ -1,14 +1,14 @@
-import "./SignInButton.css";
-import { useNavigate } from "react-router";
+import './SignInButton.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignInButton = ({ onClick }) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/login", { required: true });
+    navigate('/login', { required: true });
   };
 
   return (
-    <button className="signinButtonHomepage" onClick={(e) => handleClick()}>
+    <button type="button" className="signinButtonHomepage" onClick={(e) => handleClick()}>
       LOG IN
     </button>
   );

@@ -1,8 +1,9 @@
-import "./LoginForm.css";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
-import LoginButton from "../../Components/Buttons/LoginButton/LoginButton";
-import authLogin from "../../Api/auth";
+import './LoginForm.css';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import LoginButton from '../../Components/Buttons/LoginButton/LoginButton';
+import api from '../../Utils/api';
+import { setUserSession } from '../../Utils/session';
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
@@ -10,17 +11,17 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     if (!data.email || !data.password) {
-      alert(
-        "The email or password provided is not correct. Please verify and try again."
-      );
-      navigate("/login", { replace: true });
+      alert('The email or password provided is not correct. Please verify and try again.');
     } else {
-      const redirect = await authLogin({
-        email: data.email,
-        password: data.password,
+      api('POST', 'login', {
+        body: {
+          email: data.email,
+          password: data.password,
+        },
+      }).then((userSession) => {
+        setUserSession(userSession);
+        navigate('/', { replace: true });
       });
-      console.log(navigate);
-      if (redirect) navigate("/layout", { replace: true });
     }
   };
 
@@ -31,7 +32,7 @@ const LoginForm = () => {
         &nbsp;
         <input
           className="form-inputs"
-          {...register("email", {
+          {...register('email', {
             required: true,
             pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
           })}
@@ -42,10 +43,10 @@ const LoginForm = () => {
         &nbsp;
         <input
           className="form-inputs"
-          {...register("password", {
+          {...register('password', {
             required: true,
             // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-          })} //Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
+          })} // Minimum eight characters, at least one uppercase letter, one lowercase letter and one number
           type="password"
           placeholder="Enter your password"
         />
