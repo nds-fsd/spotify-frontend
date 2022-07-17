@@ -6,7 +6,7 @@ const PlayListName = () => {
   const [list, setList] = useState([]);
   useEffect(() => {
     getAlllist().then((data) => setList(data));
-  }, [list]);
+  }, []);
 
   return (
     <div className="Conteiner-Playlist">
