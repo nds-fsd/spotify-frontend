@@ -14,7 +14,7 @@ const PlayListsShow = () => {
   const [listOne, setListOne] = useState([]);
   useEffect(() => {
     getOne().then((data) => setListOne(data));
-  });
+  }, []);
 
   const [cards, setCards] = useState([]);
 
