@@ -1,7 +1,7 @@
 import { getToken } from './session';
 
 const API_URL =
-  window.location.hostname === 'nucliofy.netlify.app' ? 'https://nucliofy.herokuapp.com' : 'http://localhost:8080';
+  window.location.hostname === 'nuclify.netlify.app' ? 'https://nuclify.herokuapp.com' : 'http://localhost:8080';
 
 // Custom API error to throw
 function ApiError(message, data, status) {
