@@ -1,18 +1,12 @@
 import './spotifybody.css';
-import Header from './Header/header';
+import Navbar from './Navbar/navbar';
 import SectionDisplay from './SectionDisplay/sectiondisplay';
 
+const SpotifyBody = () => (
+  <div className="Spotifybody-container">
+    <Navbar />
+    <SectionDisplay />
+  </div>
+);
 
-const  SpotifyBody = () => {
- 
-return ( 
-        <div className='Spotifybody-container'>
-        <Header/>
-        <SectionDisplay/>
-        </div>
-        
-)}
-
-
-
-    export default SpotifyBody;
+export default SpotifyBody;

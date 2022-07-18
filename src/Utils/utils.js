@@ -1,30 +1,30 @@
 const createCard = async (song) => {
   console.log(song);
 
-  let response = await fetch("http://localhost:3001", {
-    method: "POST",
+  const response = await fetch('http://localhost:3001', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(song),
   });
-  return await response.status;
+  return response.status;
 };
 
 const editCard = async (song) => {
-  let response = await fetch(`http://localhost:3001`, {
-    method: "PUT",
+  const response = await fetch(`http://localhost:3001`, {
+    method: 'PUT',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(song),
   });
-  return await response.status;
+  return response.status;
 };
 
 const getAllCards = async () => {
-  const response = await fetch("http://localhost:3001/songs");
-  return await response.json();
+  const response = await fetch('http://localhost:3001/songs');
+  return response.json();
 };
 
 const getCard = (id) => {
@@ -32,14 +32,14 @@ const getCard = (id) => {
 };
 
 const deleteCard = async (song) => {
-  let response = await fetch(`http://localhost:3001`, {
-    method: "DELETE",
+  const response = await fetch(`http://localhost:3001`, {
+    method: 'DELETE',
     headers: {
-      "Content-type": "application/json; charset=UTF-8", // Indicates the content
+      'Content-type': 'application/json; charset=UTF-8', // Indicates the content
     },
     body: JSON.stringify(song),
   });
-  return await response.status;
+  return response.status;
 };
 
 export { createCard, editCard, getAllCards, getCard, deleteCard };

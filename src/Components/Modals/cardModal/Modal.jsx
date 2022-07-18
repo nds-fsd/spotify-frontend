@@ -1,21 +1,12 @@
-import "./Modal.css";
+import './Modal.css';
 
-const Modal = ({
-  title,
-  duration,
-  releaseDate,
-  genre,
-  photo,
-  children,
-  isOpen,
-  closeModal,
-}) => {
+const Modal = ({ title, duration, releaseDate, genre, photo, children, isOpen, closeModal }) => {
   const handleModalContainerClick = (e) => e.stopPropagation();
 
   return (
-    <div className={`modal ${isOpen && "is-open"}`} onClick={closeModal}>
+    <div className={`modal ${isOpen && 'is-open'}`} onClick={closeModal}>
       <div className="modal-container" onClick={handleModalContainerClick}>
-        <button className="modal-close" onClick={closeModal}>
+        <button className="modal-close" onClick={closeModal} type="button">
           x
         </button>
         {children}

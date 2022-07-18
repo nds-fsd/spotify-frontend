@@ -1,11 +1,11 @@
-import "./RegisterButton.css";
-import { useNavigate } from "react-router";
+import './RegisterButton.css';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterButton = () => {
   const navigate = useNavigate();
 
   const signUp = () => {
-    navigate("/register", { replace: true });
+    navigate('/register', { replace: false });
   };
 
   return (

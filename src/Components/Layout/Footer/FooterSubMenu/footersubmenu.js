@@ -2,21 +2,20 @@ import './footersubmenu.css';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 
-import {Slider,Grid} from '@material-ui/core';
-const FooterSubMenu = () =>{
-    return (
-        <div className="FooterSubMenu-container">
-            <Grid item><PlaylistPlayIcon/> </Grid>
-            <Grid item><VolumeDownIcon/> </Grid>
-            <Grid item xs><Slider/> </Grid>
-            
+import { Slider, Grid } from '@material-ui/core';
 
-            
-            
-
-        </div>
-    )
-}
-
+const FooterSubMenu = () => (
+  <div className="FooterSubMenu-container">
+    <Grid item>
+      <PlaylistPlayIcon />{' '}
+    </Grid>
+    <Grid item>
+      <VolumeDownIcon />{' '}
+    </Grid>
+    <Grid item xs>
+      <Slider />{' '}
+    </Grid>
+  </div>
+);
 
 export default FooterSubMenu;

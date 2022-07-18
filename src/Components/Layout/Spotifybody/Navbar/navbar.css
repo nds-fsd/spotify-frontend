@@ -1,7 +1,7 @@
 .Header-container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: right;
   margin-bottom: 40px;
   padding-top: 15px;
   position: sticky;

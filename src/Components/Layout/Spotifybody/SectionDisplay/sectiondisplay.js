@@ -1,16 +1,10 @@
-import "./sectiondisplay.css";
-import { Outlet } from "react-router-dom";
+import './sectiondisplay.css';
+import { Outlet } from 'react-router-dom';
 
-const SectionDisplay = () => {
-
-
-  return (
-    <div className="SectionDisplay-container">
-     <Outlet/> 
-
-     
-    </div>
-  );
-};
+const SectionDisplay = () => (
+  <div className="SectionDisplay-container">
+    <Outlet />
+  </div>
+);
 
 export default SectionDisplay;
