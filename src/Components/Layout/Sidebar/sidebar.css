@@ -1,0 +1,39 @@
+.Sidebar-container {
+  flex: 0.2;
+  height: 100vh;
+  background-color: #00101ab4;
+  min-width: 240px;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  padding-left: 10px;
+  width: 18%;
+  line-height: 20px;
+}
+.Sidebar-container img {
+  height: 67px;
+  padding-top: 15px;
+  margin: 8px;
+  justify-content: center;
+}
+
+.Sidebar-container hr {
+  border: 1px solid #3a3a3a;
+  width: 75%;
+  margin: 25px 7px;
+}
+.Playlist-container {
+  margin: 30px 10px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  margin: 12px;
+  margin-top: 25px;
+  padding: 8px;
+  padding-top: 40px;
+  font-weight: bolder;
+  color: #ffb700;
+}

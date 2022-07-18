@@ -1,0 +1,9 @@
+.HeaderUsuario-container {
+  flex: 0.5;
+  width: 100px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 35px;
+  color: #fff;
+}
