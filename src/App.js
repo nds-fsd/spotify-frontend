@@ -6,7 +6,6 @@ import PlayListsShow from './Pages/PlaylistShow/PlayListShow';
 import AdminPage from './Pages/AdminPage/AdminPage/AdminPage';
 import SongCategory from './Pages/AdminPage/SongCategory/SongCategory';
 import Home from './Pages/Home/Home';
-import MainAdminPage from './Pages/AdminPage/MainAdminPage/MainAdminPage';
 
 function App() {
   return (
@@ -16,8 +15,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/adminpage" element={<AdminPage />}>
-            <Route path="/adminpage" element={<MainAdminPage />} />
-            <Route path="/adminpage/songcategory" element={<SongCategory />} />
+            <Route path="/adminpage/songs" element={<SongCategory />} />
           </Route>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />

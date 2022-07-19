@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { getAllCards } from '../../../Api/utils';
@@ -7,19 +7,21 @@ import api from '../../../Utils/api';
 import './SongCategory.css';
 
 const SongCategory = () => {
-  const { song, setSong } = useListContext();
-  const navigate = useNavigate();
-
+  const { songs, setSongs } = useListContext();
+  const [refresh, setRefresh] = useState(true);
   useEffect(() => {
-    getAllCards().then((data) => setSong(data));
-  }, []);
+    if (refresh) {
+      getAllCards().then((data) => {
+        setSongs(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
 
   const handleDeleteItem = (id) => {
-    console.log('paso por aqui');
     api('DELETE', `songs/${id}`, {}, {}).then(() => {
-      navigate('/adminpage/songs', { replace: true });
+      setRefresh(true);
     });
-    console.log('ok delete song');
   };
 
   return (
@@ -31,20 +33,20 @@ const SongCategory = () => {
         </Button>
       </div>
 
-      {song.map((s) => (
+      {songs.map((s) => (
         <>
           <div className="songCategoryContainer">
             <img className="songPhoto" src={s.photo} alt="song picture" />
 
             <h3>{s.title}</h3>
-            <h3>{s.artist}</h3>
+            <h3>{s.artist?.name}</h3>
             <h3>{s.duration}</h3>
             <h3>{s.genre}</h3>
             <h3>{s.releaseDate}</h3>
             <Button className="adminButton" variant="contained">
               Edit
             </Button>
-            <Button onClick={() => handleDeleteItem()} className="adminButton" variant="contained">
+            <Button onClick={() => handleDeleteItem(s._id)} className="adminButton" variant="contained">
               Delete
             </Button>
           </div>
