@@ -4,6 +4,7 @@ import LoginPage from './Pages/Login/LoginPage';
 import Register from './Pages/Register/Register';
 import PlayListsShow from './Pages/PlaylistShow/PlayListShow';
 import Home from './Pages/Home/Home';
+import Refactor from './Pages/Home/HomeRefactor/HomeRefactor';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Refactor />} />
             <Route path="/playlist/:id" element={<PlayListsShow />} />
           </Route>
         </Routes>
