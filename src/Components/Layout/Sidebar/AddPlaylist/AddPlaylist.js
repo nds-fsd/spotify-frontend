@@ -23,7 +23,8 @@ const AddNamePlaylist = () => {
           onClick={() => {
             if (!addPlayist ? setAddPlaylist(true) : setAddPlaylist(false)) addPlaylistInput.current.focus();
           }}
-          className="button-daown">
+          className="button-daown"
+        >
           Add Playlist
         </button>
       </div>
