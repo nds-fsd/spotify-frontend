@@ -1,0 +1,27 @@
+.container-album{
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ 
+
+}
+
+.container-albums{
+ 
+ text-align: right;
+ display: flex;
+ overflow-x: scroll;
+ overflow-x: hidden;
+ width: 100%;
+ margin-left: -12px;
+}
+
+.title {
+    color: #fff;
+    
+}
+.title2{
+    color: #fff;
+    text-align: end;
+    margin-right: 12px;
+}

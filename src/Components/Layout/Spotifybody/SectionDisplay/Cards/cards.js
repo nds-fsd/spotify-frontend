@@ -22,7 +22,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, onClick }) => {
       <img src={photo} alt={genre} />
       <h4 className="card-info">{genre}</h4>
       {/* <h6>{duration}</h6>
-      <h7>{releaseDate}</h7> */}
+       <h7>{releaseDate}</h7> */}
       <Modal
         isOpen={isOpen}
         closeModal={closeModal}

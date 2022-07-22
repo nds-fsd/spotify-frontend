@@ -1,8 +1,8 @@
 .Sidebar-container {
   flex: 0.2;
-  height: 100vh;
   background-color: #00101ab4;
   min-width: 240px;
+  min-height: 100vh;
   color: #fff;
   position: fixed;
   left: 0;
