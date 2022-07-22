@@ -28,7 +28,7 @@ const getAllCards = async () => {
 };
 
 const getAllAlbums = async () => {
-  const response = await fetch('http://localhost:8080/albums');
+  const response = await fetch('http://localhost:8080/album');
   return response.json();
 };
 

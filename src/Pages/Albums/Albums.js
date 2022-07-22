@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import albums from '../../Components/Layout/Spotifybody/SectionDisplay/Albums/albums';
+import AlbumCards from '../../Components/Layout/Spotifybody/SectionDisplay/Albums/albumCard';
 import { getAllAlbums } from '../../Api/utils';
 
 const Albums = () => {
@@ -9,11 +9,12 @@ const Albums = () => {
     getAllAlbums().then((data) => setCards(data));
   }, []);
 
+  console.log(cards);
   return (
     <>
       {' '}
       {cards.length > 0 ? (
-        cards.map((c) => <Albums name={c.name} photo={c.photo} artist={c.artist} />)
+        cards.map((c) => <AlbumCards name={c.name} photo={c.photo} artist={c.artist} />)
       ) : (
         <div>No cards receive from server!</div>
       )}

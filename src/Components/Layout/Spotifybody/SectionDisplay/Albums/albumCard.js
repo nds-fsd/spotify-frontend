@@ -2,7 +2,7 @@ import './albums.css';
 import { useModal } from '../../../../Modals/cardModal/useModal';
 import Modal from '../../../../Modals/cardModal/Modal';
 
-const Album = ({ name, photo, artist, onClick }) => {
+const AlbumCards = ({ name, photo, artist, onClick }) => {
   const [isOpen, openModal, closeModal] = useModal(false);
   /* const secondsToMinutes = ({ duration }) => {
   //   let seconds = Math.floor(({ duration } / 60) % 60);
@@ -27,4 +27,4 @@ const Album = ({ name, photo, artist, onClick }) => {
   );
 };
 
-export default Album;
+export default AlbumCards;
