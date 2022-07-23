@@ -2,26 +2,17 @@ import './EditAlbumForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const EditAlbumForm = ({ isOpenEdit, closeModalEdit, album, artist, editAlbum }) => {
+const EditAlbumForm = ({ isOpenEdit, closeModalEdit, editAlbum }) => {
   // console.log('artist', artist);
   // console.log(editAlbum);
   const { register, handleSubmit } = useForm({
     defaultValues: {
       name: editAlbum?.name,
       photo: editAlbum?.photo,
-      releaseYear: editAlbum.releaseYear,
-      artist: editAlbum.artist,
+      releaseYear: editAlbum?.releaseYear,
+      artist: editAlbum?.artist,
     },
   });
-
-  // useEffect(() => {
-  //   console.log('test');
-  //   api('GET', 'album', {}, {}).then((data) => {
-  //     console.log('request response', data);
-  //     setAlbum(data);
-  //     setRefresh(false);
-  //   });
-  // }, [editArtist]);
 
   const onSubmit = (updateData) => {
     console.log('updateData', updateData, editAlbum?._id);

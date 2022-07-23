@@ -2,8 +2,9 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { ListContextProvider } from '../context';
 import UserMenu from '../../../Components/Layout/Spotifybody/Navbar/UserMenu/userMenu';
 import './AdminPage.css';
+import CategorySelect from './CategorySelect';
 
-const AdminPage = () => {
+const AdminPage = ({ refresh, setRefresh }) => {
   const navigate = useNavigate();
 
   return (
@@ -28,25 +29,26 @@ const AdminPage = () => {
 
         <aside className="dashboard">
           <div className="dashboardContainer">
-            <h3 className="dashboardTitle">CATEGORIES</h3>
-            <button className="buttonCategory" type="submit">
-              Song
+            <h3 className="dashboardTitle">DASHBOARD</h3>
+            <CategorySelect />
+            {/* <button onClick={() => navigate('songs')} className="buttonCategory" type="submit">
+              Songs
             </button>
-            <button className="buttonCategory" type="submit">
-              Artist
+            <button onClick={() => navigate('artists')} className="buttonCategory" type="submit">
+              Artists
             </button>
-            <button className="buttonCategory" type="submit">
-              Album
+            <button onClick={() => navigate('albums')} className="buttonCategory" type="submit">
+              Albums
             </button>
-            <button className="buttonCategory" type="submit">
-              Genre
+            <button onClick={() => navigate('genres')} className="buttonCategory" type="submit">
+              Genres
             </button>
-            <button className="buttonCategory" type="submit">
-              Playlist
+            <button onClick={() => navigate('playlists')} className="buttonCategory" type="submit">
+              Playlists
             </button>
-            <button className="buttonCategory" type="submit">
-              User
-            </button>
+            <button onClick={() => navigate('users')} className="buttonCategory" type="submit">
+              Users
+            </button> */}
           </div>
           {/* probar select */}
         </aside>

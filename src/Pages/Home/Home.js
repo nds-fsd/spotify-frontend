@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import Cards from '../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards';
-import { getAllCards } from '../../Api/utils';
+import api from '../../Utils/api';
 
 const Home = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getAllCards().then((data) => setCards(data));
+    api('GET', 'songs', {}, {}).then((data) => {
+      setCards(data);
+    });
   }, []);
 
   return (

@@ -9,6 +9,7 @@ import ArtistCategory from './Pages/AdminPage/ArtistModel/ArtistCategory/ArtistC
 import AlbumCategory from './Pages/AdminPage/AlbumModel/AlbumCategory/AlbumCategory';
 import GenreCategory from './Pages/AdminPage/GenreModel/GenreCategory/GenreCategory';
 import PlaylistCategory from './Pages/AdminPage/PlaylistModel/PlaylistCategory/PlaylistCategory';
+import UserCategory from './Pages/AdminPage/UserModel/UserCategory/UserCategory';
 import Home from './Pages/Home/Home';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/adminpage/albums" element={<AlbumCategory />} />
             <Route path="/adminpage/genres" element={<GenreCategory />} />
             <Route path="/adminpage/playlists" element={<PlaylistCategory />} />
+            <Route path="/adminpage/users" element={<UserCategory />} />
           </Route>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />

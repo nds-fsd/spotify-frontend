@@ -10,7 +10,7 @@ import EditForm from '../EditForm/EditForm';
 const SongCategory = ({ photo, genre, title, releaseDate, duration, artist }) => {
   const { songs, setSongs, refresh, setRefresh } = useListContext();
   const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit, setIsOpenEdit] = useModalEdit(false);
+  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
   const [editSong, setEditSong] = useState({});
 
   useEffect(() => {

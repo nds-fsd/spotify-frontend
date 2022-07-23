@@ -7,7 +7,7 @@ import PlaylistEditForm from '../PlaylistEditForm/PlaylistEditForm';
 import PlaylistCreateForm from '../PlaylistCreateForm/PlaylistCreateForm';
 
 const PlaylistCategory = ({ name, song, photo, description, user }) => {
-  const { playlist, setPlaylist, refresh, setRefresh } = useListContext();
+  const { playlists, setPlaylists, refresh, setRefresh } = useListContext();
   const [isOpen, openModal, closeModal] = useModal(false);
   const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
   const [editPlaylist, setEditPlaylist] = useState({});
@@ -16,7 +16,7 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
     if (refresh) {
       api('GET', 'playlist', {}, {}).then((data) => {
         console.log(data);
-        setPlaylist(data);
+        setPlaylists(data);
         setRefresh(false);
       });
     }
@@ -28,7 +28,7 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
     });
   };
 
-  console.log('playlist', playlist);
+  console.log('playlist', playlists);
 
   return (
     <div className="categoryContainer">
@@ -48,30 +48,27 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
         </button>
       </div>
 
-      {playlist.map((playlistName) => (
+      {playlists?.map((playlist) => (
         <>
-          <div className="artistCategoryContainer">
-            <img className="playlistPhoto" src={playlistName.photo} alt="album picture" />
-
-            <h3>{playlistName.name}</h3>
-            <h3>{playlistName.description}</h3>
-            {playlistName.song.map((songName) => (
+          <div className="playlistCategoryContainer">
+            <img className="playlistPhoto" src={playlist.photo} alt="album picture" />
+            <h3>{playlist.name}</h3>
+            <h3>{playlist.description}</h3>
+            {playlist.song?.map((songName) => (
               <h3>{songName.title}</h3>
             ))}
-            {playlistName.user.map((users) => (
-              <h3>{users.name}</h3>
-            ))}
+            <h3>{playlist?.user?.name || 'No user'}</h3>
 
             <button
               onClick={() => {
-                setEditPlaylist(playlistName);
+                setEditPlaylist(playlist);
                 openModalEdit();
               }}
               className="adminButton"
               type="button">
               Edit
             </button>
-            <button onClick={() => handleDeleteItem(playlistName._id)} className="adminButton" type="button">
+            <button onClick={() => handleDeleteItem(playlist._id)} className="adminButton" type="button">
               Delete
             </button>
           </div>
