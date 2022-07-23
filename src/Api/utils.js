@@ -27,6 +27,11 @@ const getAllCards = async () => {
   return response.json();
 };
 
+const getAllArtists = async () => {
+  const response = await fetch('http://localhost:8080/artist');
+  return response.json();
+};
+
 const getCard = (id) => {
   // GET BY ID APi
 };
@@ -60,4 +65,4 @@ const getAlllist = async () => {
   return response.json();
 };
 
-export { createCard, editCard, getAllCards, getCard, deleteCard, createList, getAlllist };
+export { createCard, editCard, getAllCards, getCard, deleteCard, createList, getAlllist, getAllArtists };

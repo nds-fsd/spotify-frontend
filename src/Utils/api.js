@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import { getToken } from './session';
 
 const API_URL =
@@ -42,6 +43,9 @@ const api = (method = 'GET', path, userOptions = {}, query) => {
       ...userOptions.headers,
     },
   };
+
+  console.log('aaaaaa');
+  console.log(options);
 
   // Build Url
   const url = `${API_URL}/${path}`;

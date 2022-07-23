@@ -5,19 +5,28 @@ const ListContext = createContext();
 export const ListContextProvider = ({ children }) => {
   const [lists, setLists] = useState([]);
   const [songs, setSongs] = useState([]);
-  const [artists, setArtists] = useState([]);
+  const [song, setSong] = useState('');
+  const [artist, setArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [genres, setGenres] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const [users, setUsers] = useState([]);
+  const [refresh, setRefresh] = useState(true);
 
   const value = {
+    song,
+    setSong,
+    refresh,
+    setRefresh,
     lists,
     setLists,
     songs,
     setSongs,
-    artists,
-    setArtists,
+    artist,
+    setArtist: (date) => {
+      console.log(date);
+      setArtist(date);
+    },
     albums,
     setAlbums,
     genres,

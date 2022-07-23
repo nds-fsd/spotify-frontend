@@ -1,0 +1,130 @@
+.adminPage {
+  background-color: #ddd;
+  font-family: sans-serif, Arial, Helvetica;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    'header header header header'
+    'navbar navbar navbar navbar'
+    'asidebar content content content';
+
+  grid-template-rows: 140px 40px auto;
+}
+
+.logoContainer {
+  grid-area: header;
+  background-color: rgb(134, 133, 133);
+  color: white;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+  height: 120px;
+}
+.logoContainer > h1 {
+  margin-top: 30px;
+  line-height: 60px;
+  letter-spacing: 10px;
+  font-size: 45px;
+  justify-content: center;
+}
+
+.logoContainer > p {
+  margin-top: 38px;
+  line-height: 60px;
+  letter-spacing: 10px;
+  font-size: 24px;
+  justify-content: center;
+  padding-left: 8px;
+}
+
+.userMenuDropdown {
+  justify-content: flex-end !important;
+  /* grid-area: header; */
+  display: flex !important;
+  font-size: 15px !important;
+  height: 30px !important;
+  justify-content: flex-end !important;
+  transform: translate(600, 50px) !important;
+}
+
+.searchContainer {
+  grid-area: navbar;
+}
+.fixedSearchContainer {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  background-color: rgb(12, 58, 82);
+  align-items: center;
+  margin-top: -4px;
+  position: fixed;
+  width: 100%;
+  height: 19px;
+  z-index: 1000;
+}
+
+input[type='text'] {
+  padding: 3px;
+  margin: 5px;
+  margin-right: 30px;
+  align-items: center;
+}
+
+.searchlabel {
+  display: flex;
+  align-items: center;
+}
+
+.categoriesContent {
+  grid-area: content;
+  height: 100%;
+  min-width: 600px;
+  transform: translate(-60px, 0px);
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.dashboard {
+  grid-area: asidebar;
+  background-color: rgb(134, 133, 133);
+  justify-content: center;
+  padding: 20px;
+  width: 200px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboardTitle {
+  display: flex;
+  font-size: 30px;
+  color: white;
+  padding: 4px;
+  margin-bottom: 30px;
+  margin-top: 22px;
+  justify-content: center;
+}
+
+.dashboardContainer {
+  position: fixed;
+  width: 200px;
+}
+
+.buttonCategory {
+  /* display: flex; */
+  width: 100px;
+  margin: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 11px;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+}
