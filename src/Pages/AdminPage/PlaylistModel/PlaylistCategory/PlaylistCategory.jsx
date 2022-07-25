@@ -31,29 +31,29 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
   console.log('playlist', playlists);
 
   return (
-    <div className="categoryContainer">
-      <div>
-        <span className="categoryTitle">PLAYLISTS</span>
-        <button onClick={openModal} className="addButton" type="button">
-          +
-          <PlaylistCreateForm
-            isOpen={isOpen}
-            closeModal={closeModal}
-            name={name}
-            song={song}
-            photo={photo}
-            description={description}
-            user={user}
-          />
-        </button>
-      </div>
+    // <div className="categoryContainer">
+    <div>
+      <span className="playlistCategoryTitle">PLAYLISTS</span>
+      <button onClick={openModal} className="addPlaylistButton" type="button">
+        ADD NEW +
+        <PlaylistCreateForm
+          isOpen={isOpen}
+          closeModal={closeModal}
+          name={name}
+          song={song}
+          photo={photo}
+          description={description}
+          user={user}
+        />
+      </button>
+      {/* </div> */}
 
       {playlists?.map((playlist) => (
         <>
           <div className="playlistCategoryContainer">
             <img className="playlistPhoto" src={playlist.photo} alt="album picture" />
             <h3>{playlist.name}</h3>
-            <h3>{playlist.description}</h3>
+            <div className="playlistDescription">{playlist.description}</div>
             {playlist.song?.map((songName) => (
               <h3>{songName.title}</h3>
             ))}
@@ -64,11 +64,11 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
                 setEditPlaylist(playlist);
                 openModalEdit();
               }}
-              className="adminButton"
+              className="adminPlaylistButton"
               type="button">
-              Edit
+              Update
             </button>
-            <button onClick={() => handleDeleteItem(playlist._id)} className="adminButton" type="button">
+            <button onClick={() => handleDeleteItem(playlist._id)} className="adminPlaylistButton" type="button">
               Delete
             </button>
           </div>

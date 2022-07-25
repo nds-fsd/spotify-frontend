@@ -34,72 +34,78 @@ const EditForm = ({ isOpenEdit, closeModalEdit, song, editSong }) => {
   };
 
   return (
-    <>
-      <div className={`modalsongedit ${isOpenEdit && 'isopentoedit'}`}>
-        <form className="editInputContainer" onSubmit={handleSubmit(onSubmit)}>
-          <div className="editFormInput">
-            <label>Title</label>
-            &nbsp;
-            <input
-              {...register('title', {
-                required: true,
-              })}
-              type="text"
-            />
-            {/* <label>Artist</label>
-            &nbsp; */}
-            {/* <input
-              {...register('artist', {
-                required: true,
-              })}
-             value="Artist">{editSong?.artist?.name}
-            /> */}
-            <label>Artist</label>
-            &nbsp;
-            <input
-              {...register('artist', {
-                required: true,
-              })}
-              type="text"
-            />
-            <label>Photo</label>
-            &nbsp;
-            <input
-              {...register('photo', {
-                required: false,
-              })}
-              type="text"
-              alt="song photo"
-            />
-            <label>Duration</label>
-            &nbsp;
-            <input
-              {...register('duration', {
-                required: true,
-              })}
-              type="number"
-            />
-            <label>Genre</label>
-            &nbsp;
-            <input
-              {...register('genre', {
-                required: true,
-              })}
-              type="text"
-            />
-            <label>Release Date</label>
-            &nbsp;
-            <input
-              {...register('releaseDate', {
-                required: true,
-              })}
-              type="date"
-            />
-            <input className="editButton" type="submit" value="Update" />
-          </div>
-        </form>
-      </div>
-    </>
+    <div className={`modalsong ${isOpenEdit && 'isopen'}`} onClick={closeModalEdit}>
+      <form className="songCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="songCreateFormInput">
+          <label className="songLabel">Title</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('title', {
+              required: true,
+            })}
+            type="text"
+          />
+          {/* <select
+            name="Artist"
+            {...register('artist', {
+              required: true,
+            })}>
+            {editSong.artist.map((a) => (
+              <option value="Album">{a.name}</option>
+            ))}
+          </select> */}
+          <label className="songLabel">Artist</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('artist', {
+              required: true,
+            })}
+            type="text"
+          />
+          <label className="songLabel">Photo</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('photo', {
+              required: false,
+            })}
+            type="text"
+            alt="song photo"
+          />
+          <label className="songLabel">Duration</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('duration', {
+              required: true,
+            })}
+            type="number"
+          />
+          <label className="songLabel">Genre</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('genre', {
+              required: true,
+            })}
+            type="text"
+          />
+          <label className="songLabel">Release Date</label>
+          &nbsp;
+          <input
+            className="releaseDateInput"
+            {...register('releaseDate', {
+              required: true,
+            })}
+            type="date"
+          />
+          <input className="songCreateButton" type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
+    // </div>
   );
 };
 

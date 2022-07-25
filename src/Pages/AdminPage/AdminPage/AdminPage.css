@@ -1,23 +1,16 @@
 .adminPage {
-  background-color: #ddd;
+  background-color: white;
   font-family: sans-serif, Arial, Helvetica;
   text-align: center;
-  padding: 0px;
-  margin: 0px;
+  /* padding: 0px;
+  margin: 0px; */
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-areas:
-    'header header header header'
-    'navbar navbar navbar navbar'
-    'asidebar content content content';
-
-  grid-template-rows: 140px 40px auto;
+  display: flex;
 }
 
 .logoContainer {
-  grid-area: header;
-  background-color: rgb(134, 133, 133);
+  background-color: #001f31;
   color: white;
   display: flex;
   justify-content: center;
@@ -26,6 +19,7 @@
   position: fixed;
   width: 100%;
   height: 120px;
+  color: rgba(197, 158, 59, 0.9);
 }
 .logoContainer > h1 {
   margin-top: 30px;
@@ -33,6 +27,7 @@
   letter-spacing: 10px;
   font-size: 45px;
   justify-content: center;
+  color: #ddd;
 }
 
 .logoContainer > p {
@@ -46,36 +41,33 @@
 
 .userMenuDropdown {
   justify-content: flex-end !important;
-  /* grid-area: header; */
   display: flex !important;
   font-size: 15px !important;
   height: 30px !important;
   justify-content: flex-end !important;
-  transform: translate(600, 50px) !important;
+  transform: translate(500px, 50px) !important;
 }
 
-.searchContainer {
-  grid-area: navbar;
-}
 .fixedSearchContainer {
-  color: white;
+  color: #ddd;
   display: flex;
   justify-content: flex-end;
   padding: 15px;
-  background-color: rgb(12, 58, 82);
+  background-color: rgba(197, 158, 59, 0.9);
   align-items: center;
-  margin-top: -4px;
+  margin-top: 136px;
   position: fixed;
   width: 100%;
-  height: 19px;
+  height: 15px;
   z-index: 1000;
 }
 
-input[type='text'] {
+.searchInput {
   padding: 3px;
   margin: 5px;
-  margin-right: 30px;
+  margin-right: 50px;
   align-items: center;
+  width: 230px;
 }
 
 .searchlabel {
@@ -84,28 +76,30 @@ input[type='text'] {
 }
 
 .categoriesContent {
-  grid-area: content;
   height: 100%;
-  min-width: 600px;
-  transform: translate(-60px, 0px);
-  margin-right: 20px;
-  padding: 5px;
+  width: 75%;
+  margin-left: 55px;
+  transform: translate(255px, 195px);
 }
 
 .dashboard {
-  grid-area: asidebar;
-  background-color: rgb(134, 133, 133);
+  background-color: #001f31;
   justify-content: center;
   padding: 20px;
   width: 200px;
   flex-direction: column;
   align-items: center;
+  height: 2500px; /*preguntar como se ajusta esto a la pagina completa */
+  position: absolute;
+  margin-top: 180px;
+  color: #ddd;
 }
 
 .dashboardTitle {
   display: flex;
   font-size: 30px;
-  color: white;
+  color: #ddd;
+
   padding: 4px;
   margin-bottom: 30px;
   margin-top: 22px;
@@ -127,4 +121,10 @@ input[type='text'] {
   align-items: center;
   color: white;
   font-size: 22px;
+}
+
+.modelsContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: -105px;
 }

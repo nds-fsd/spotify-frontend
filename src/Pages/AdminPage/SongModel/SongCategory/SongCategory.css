@@ -2,56 +2,79 @@
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin-left: 8px;
-  margin: 12px;
-  margin-bottom: 18px;
-  overflow: scroll;
 }
 
-.categoryTitle {
-  font-size: 30px;
+.songCategoryTitle {
+  font-size: 50px;
   color: black;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  width: 100%;
+  margin-top: 40px;
+  padding: 10px;
   display: flex;
-  justify-content: flex-start;
-  margin-left: 17px;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 55px;
 }
 
 .songCategoryContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   border: 1px rgba(12, 58, 82, 0.85) solid;
-  background-color: rgba(12, 58, 82, 0.85);
+  /* background-color: rgba(12, 58, 82, 0.85); */
+  background-color: rgba(0, 31, 49, 0.9);
   color: white;
   margin: 6px;
   height: 110px;
+  width: 950px;
 }
 
 .songPhoto {
-  width: 80px;
+  width: 100px;
+  height: 80px;
+}
+.songPhoto:hover {
+  width: 100px;
   height: 80px;
 }
 
-.addButton {
+.addSongButton {
   height: 50px;
-  width: 50px;
+  width: 125px;
   color: black;
-  font-size: 25px;
-  border: 2px solid black;
-  border-radius: 30px;
-  transform: translate(150px, -68px);
-  display: flex;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  /* display: flex; */
+  margin-right: 73px;
+  margin-bottom: 10px;
   justify-content: center;
   align-items: center;
+  /* transform: translate(370px, -14px); */
 }
 
-.adminButton {
-  background-color: white;
-  width: 60px;
-  padding: 4px;
+.addSongButton:hover {
+  border: 1px solid rgba(12, 58, 82, 0.85);
+  border-radius: 5px;
+}
+
+.songAdminButton {
+  padding: 5px;
+  width: 70px;
   justify-content: center;
-  margin-right: 18px;
+  margin-top: 8px;
+  margin-left: 2px;
+  background-color: rgba(197, 158, 59, 0.9);
+  color: #ddd;
+  font-size: 18px;
+  border: transparent;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.songHeaders {
+  font-size: 16px;
+}
+
+.releaseDate {
+  width: 150px;
 }

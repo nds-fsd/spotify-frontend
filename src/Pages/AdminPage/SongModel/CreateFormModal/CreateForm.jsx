@@ -32,11 +32,12 @@ const CreateForm = ({ isOpen, closeModal, refresh, setRefresh, artist, setArtist
 
   return (
     <div className={`modalsong ${isOpen && 'isopen'}`} onClick={closeModal}>
-      <form className="createInputContainer" onSubmit={handleSubmit(onSubmit)}>
-        <div className="createFormInput">
-          <label>Title</label>
+      <form className="songCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="songCreateFormInput">
+          <label className="songLabel">Title</label>
           &nbsp;
           <input
+            className="songInput"
             {...register('title', {
               required: true,
             })}
@@ -51,48 +52,53 @@ const CreateForm = ({ isOpen, closeModal, refresh, setRefresh, artist, setArtist
               <option value="Album">{a.name}</option>
             ))}
           </select> */}
-          <label>Artist</label>
+          <label className="songLabel">Artist</label>
           &nbsp;
           <input
+            className="songInput"
             {...register('artist', {
               required: true,
             })}
             type="text"
           />
-          <label>Photo</label>
+          <label className="songLabel">Photo</label>
           &nbsp;
           <input
+            className="songInput"
             {...register('photo', {
               required: false,
             })}
             type="text"
             alt="song photo"
           />
-          <label>Duration</label>
+          <label className="songLabel">Duration</label>
           &nbsp;
           <input
+            className="songInput"
             {...register('duration', {
               required: true,
             })}
             type="number"
           />
-          <label>Genre</label>
+          <label className="songLabel">Genre</label>
           &nbsp;
           <input
+            className="songInput"
             {...register('genre', {
               required: true,
             })}
             type="text"
           />
-          <label>Release Date</label>
+          <label className="songLabel">Release Date</label>
           &nbsp;
           <input
+            className="releaseDateInput"
             {...register('releaseDate', {
               required: true,
             })}
             type="date"
           />
-          <input className="createButton" type="submit" value="Add" />
+          <input className="songCreateButton" type="submit" value="Add" />
         </div>
       </form>
     </div>

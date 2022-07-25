@@ -30,9 +30,9 @@ const UserCategory = ({ name, password, email, createdAt, updatedAt, role }) => 
   console.log('users', users);
 
   return (
-    <div className="categoryContainer">
-      {/* <div> */}
-      <span className="categoryTitle">USERS</span>
+    // <div className="categoryContainer">
+    <div>
+      <span className="userCategoryTitle">USERS</span>
       {/* <button onClick={openModal} className="addButton" type="button">
           +
           <PlaylistCreateForm
@@ -51,22 +51,22 @@ const UserCategory = ({ name, password, email, createdAt, updatedAt, role }) => 
       {users?.map((user) => (
         <>
           <div className="userCategoryContainer">
-            <h3>{user.name}</h3>
-            <h3>{user.password}</h3>
-            <h3>{user.email}</h3>
-            <h3>{user.createdAt}</h3>
-            <h3>{user.updatedAt}</h3>
+            <div className="userContainer">{user.name}</div>
+            {/* <div className="userContainer">{user.password}</div> */}
+            <div className="userContainer">{user.email}</div>
+            <div className="userContainer">{user.createdAt}</div>
+            <div className="userContainer">{user.updatedAt}</div>
             <h3>{user.role}</h3>
             <button
               onClick={() => {
                 setEditUsers(user);
                 openModalEdit();
               }}
-              className="adminButton"
+              className="adminUserButton"
               type="button">
-              Edit
+              Update
             </button>
-            <button onClick={() => handleDeleteItem(user?._id)} className="adminButton" type="button">
+            <button onClick={() => handleDeleteItem(user?._id)} className="adminUserButton" type="button">
               Delete
             </button>
           </div>

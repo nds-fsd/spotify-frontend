@@ -16,12 +16,12 @@ const AdminPage = ({ refresh, setRefresh }) => {
           <UserMenu className="userMenuDropdown" />"
         </header>
 
-        <nav className="searchContainer">
+        <nav>
           <div className="fixedSearchContainer">
             <form>
               <label className="searchlabel">
                 Search
-                <input type="text" name="search" />
+                <input className="searchInput" type="text" name="search" />
               </label>
             </form>
           </div>
@@ -31,30 +31,13 @@ const AdminPage = ({ refresh, setRefresh }) => {
           <div className="dashboardContainer">
             <h3 className="dashboardTitle">DASHBOARD</h3>
             <CategorySelect />
-            {/* <button onClick={() => navigate('songs')} className="buttonCategory" type="submit">
-              Songs
-            </button>
-            <button onClick={() => navigate('artists')} className="buttonCategory" type="submit">
-              Artists
-            </button>
-            <button onClick={() => navigate('albums')} className="buttonCategory" type="submit">
-              Albums
-            </button>
-            <button onClick={() => navigate('genres')} className="buttonCategory" type="submit">
-              Genres
-            </button>
-            <button onClick={() => navigate('playlists')} className="buttonCategory" type="submit">
-              Playlists
-            </button>
-            <button onClick={() => navigate('users')} className="buttonCategory" type="submit">
-              Users
-            </button> */}
           </div>
-          {/* probar select */}
         </aside>
 
         <section className="categoriesContent">
-          <Outlet />
+          <div className="modelsContainer">
+            <Outlet />
+          </div>
         </section>
       </div>
     </ListContextProvider>

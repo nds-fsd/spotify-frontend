@@ -32,20 +32,14 @@ const GenreCategory = ({ name, photo, description }) => {
   //   console.log(albums);
 
   return (
-    <div className="categoryContainer">
-      <div>
-        <span className="categoryTitle">GENRES</span>
-        <button onClick={openModal} className="addButton" type="button">
-          +
-          <GenreCreateForm
-            isOpen={isOpen}
-            closeModal={closeModal}
-            name={name}
-            photo={photo}
-            description={description}
-          />
-        </button>
-      </div>
+    // <div className="categoryContainer">
+    <div>
+      <span className="genreCategoryTitle">GENRES</span>
+      <button onClick={openModal} className="addGenreButton" type="button">
+        ADD NEW +
+        <GenreCreateForm isOpen={isOpen} closeModal={closeModal} name={name} photo={photo} description={description} />
+      </button>
+      {/* </div> */}
 
       {genres.map((genre) => {
         console.log('genre', genre);
@@ -56,18 +50,18 @@ const GenreCategory = ({ name, photo, description }) => {
               <img className="genrePhoto" src={genre.photo} alt="genre picture" />
 
               <h3>{genre.name}</h3>
-              <h3>{genre.description}</h3>
+              <div className="genreDescription">{genre.description}</div>
 
               <button
                 onClick={() => {
                   setEditGenre(genre);
                   openModalEdit();
                 }}
-                className="adminButton"
+                className="adminGenreButton"
                 type="button">
-                Edit
+                Update
               </button>
-              <button onClick={() => handleDeleteItem(genre._id)} className="adminButton" type="button">
+              <button onClick={() => handleDeleteItem(genre._id)} className="adminGenreButton" type="button">
                 Delete
               </button>
             </div>

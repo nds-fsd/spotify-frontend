@@ -31,21 +31,21 @@ const ArtistCategory = ({ name, bio, monthlyUsers, albums }) => {
   console.log('editArtist', artist);
 
   return (
-    <div className="categoryContainer">
-      <div>
-        <span className="categoryTitle">ARTISTS</span>
-        <button onClick={openModal} className="addButton" type="button">
-          +
-          <CreateArtistForm
-            isOpen={isOpen}
-            closeModal={closeModal}
-            name={name}
-            bio={bio}
-            monthlyUsers={monthlyUsers}
-            albums={albums}
-          />
-        </button>
-      </div>
+    // <div className="categoryContainer">
+    <div>
+      <span className="artistsCategoryTitle">ARTISTS</span>
+      <button onClick={openModal} className="addArtistButton" type="button">
+        ADD NEW +
+        <CreateArtistForm
+          isOpen={isOpen}
+          closeModal={closeModal}
+          name={name}
+          bio={bio}
+          monthlyUsers={monthlyUsers}
+          albums={albums}
+        />
+      </button>
+      {/* </div> */}
 
       {artist?.map((a) => (
         <>
@@ -53,20 +53,23 @@ const ArtistCategory = ({ name, bio, monthlyUsers, albums }) => {
             <h3>{a.name}</h3>
             <h3 className="bio">{a.bio}</h3>
             <h3>{a.monthlyUsers}</h3>
-            {a.albums.map((album) => (
-              <h3>{album.name}</h3>
-            ))}
+
+            <div className="albumList">
+              {a.albums.map((album) => (
+                <li className="artistAlbums">{album.name || 'No albums'}</li>
+              ))}
+            </div>
 
             <button
               onClick={() => {
                 setEditArtist(a);
                 openModalEdit();
               }}
-              className="adminButton"
+              className="artistAdminButton"
               type="button">
-              Edit
+              Update
             </button>
-            <button onClick={() => handleDeleteItem(a._id)} className="adminButton" type="button">
+            <button onClick={() => handleDeleteItem(a._id)} className="artistAdminButton" type="button">
               Delete
             </button>
           </div>

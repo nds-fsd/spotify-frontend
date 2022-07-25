@@ -1,3 +1,4 @@
+import './CategorySelect.css';
 import { useNavigate } from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -15,10 +16,13 @@ const CategorySelect = () => {
 
   return (
     <div>
-      <FormControl sx={{ m: 2, minWidth: 170 }}>
-        <InputLabel id="categoriesContaines">CATEGORIES</InputLabel>
-        <Select>
+      <FormControl sx={{ m: 1, minWidth: 180 }}>
+        <InputLabel className="categoriesContainer" id="categoriesContainer">
+          CATEGORIES
+        </InputLabel>
+        <Select className="selectContainer">
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('/', { replace: true });
               setRefresh(true);
@@ -27,6 +31,7 @@ const CategorySelect = () => {
             Home
           </MenuItem>
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('songs');
               setRefresh(true);
@@ -35,6 +40,7 @@ const CategorySelect = () => {
             Songs
           </MenuItem>
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('artists');
               setRefresh(true);
@@ -43,6 +49,7 @@ const CategorySelect = () => {
             Artists
           </MenuItem>
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('albums');
               setRefresh(true);
@@ -51,6 +58,7 @@ const CategorySelect = () => {
             Albums
           </MenuItem>
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('genres');
               setRefresh(true);
@@ -59,6 +67,7 @@ const CategorySelect = () => {
             Genres
           </MenuItem>
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('playlists');
               setRefresh(true);
@@ -67,6 +76,7 @@ const CategorySelect = () => {
             Playlists
           </MenuItem>
           <MenuItem
+            className="menuItem"
             onClick={() => {
               navigate('users');
               setRefresh(true);

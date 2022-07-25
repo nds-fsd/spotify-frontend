@@ -32,22 +32,22 @@ const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
   //   console.log(albums);
 
   return (
-    <div className="categoryContainer">
-      <div>
-        <span className="categoryTitle">ALBUMS</span>
-        <button onClick={openModal} className="addButton" type="button">
-          +
-          <CreateAlbumForm
-            isOpen={isOpen}
-            closeModal={closeModal}
-            name={name}
-            photo={photo}
-            releaseYear={releaseYear}
-            artist={artist}
-            // songs={songs}
-          />
-        </button>
-      </div>
+    // <div className="categoryContainer">
+    <div>
+      <span className="albumCategoryTitle">ALBUMS</span>
+      <button onClick={openModal} className="addAlbumButton" type="button">
+        ADD NEW +
+        <CreateAlbumForm
+          isOpen={isOpen}
+          closeModal={closeModal}
+          name={name}
+          photo={photo}
+          releaseYear={releaseYear}
+          artist={artist}
+          // songs={songs}
+        />
+      </button>
+      {/* </div> */}
 
       {albums.map((albumName) => {
         console.log('albumName', albumName);
@@ -57,9 +57,9 @@ const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
             <div className="albumCategoryContainer">
               <img className="albumPhoto" src={albumName.photo} alt="album picture" />
 
-              <h3>{albumName.name}</h3>
-              <h3>{albumName.releaseYear}</h3>
-              <h3>{albumName.artist?.name}</h3>
+              <h3 className="albumHeaders">{albumName.name}</h3>
+              <div className="releaseYear">{albumName.releaseYear}</div>
+              <h3>{albumName.artist?.name || 'No Artist'}</h3>
               {/* <h3>{albums.songs?.title}</h3> */}
 
               <button
@@ -67,11 +67,11 @@ const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
                   setEditAlbum(albumName);
                   openModalEdit();
                 }}
-                className="adminButton"
+                className="adminAlbumButton"
                 type="button">
-                Edit
+                Update
               </button>
-              <button onClick={() => handleDeleteItem(albumName._id)} className="adminButton" type="button">
+              <button onClick={() => handleDeleteItem(albumName._id)} className="adminAlbumButton" type="button">
                 Delete
               </button>
             </div>
