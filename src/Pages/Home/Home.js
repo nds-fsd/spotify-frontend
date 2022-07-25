@@ -1,18 +1,17 @@
 import './Home.css';
 import { useState, useEffect } from 'react';
 import Cards from '../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards';
-import { getAllCards } from '../../Api/utils';
 
-const Home = () => {
+const Home = ({ title, fetchData }) => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getAllCards().then((data) => setCards(data));
+    fetchData().then((data) => setCards(data));
   }, []);
 
   return (
     <div className="container-album">
-      <div className="title">Album </div>
+      <div className="title">{title}</div>
       <div className="container-albums">
         {cards.length > 0 ? (
           cards.map((c) => (

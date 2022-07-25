@@ -26,6 +26,14 @@ const getAllCards = async () => {
   const response = await fetch('http://localhost:8080/songs');
   return response.json();
 };
+const getGenre = async () => {
+  const response = await fetch('http://localhost:8080/genre');
+  return response.json();
+};
+const getAlbum = async () => {
+  const response = await fetch('http://localhost:8080/album');
+  return response.json();
+};
 
 const getCard = (id) => {
   // GET BY ID APi
@@ -60,4 +68,4 @@ const getAlllist = async () => {
   return response.json();
 };
 
-export { createCard, editCard, getAllCards, getCard, deleteCard, createList, getAlllist };
+export { createCard, editCard, getAllCards, getCard, deleteCard, createList, getAlllist, getAlbum, getGenre };
