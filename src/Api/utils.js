@@ -35,6 +35,11 @@ const getAlbum = async () => {
   return response.json();
 };
 
+const getAllAlbums = async () => {
+  const response = await fetch('http://localhost:8080/album');
+  return response.json();
+};
+
 const getCard = (id) => {
   // GET BY ID APi
 };
@@ -68,4 +73,15 @@ const getAlllist = async () => {
   return response.json();
 };
 
-export { createCard, editCard, getAllCards, getCard, deleteCard, createList, getAlllist, getAlbum, getGenre };
+export {
+  createCard,
+  editCard,
+  getAllCards,
+  getAllAlbums,
+  getCard,
+  deleteCard,
+  createList,
+  getAlllist,
+  getGenre,
+  getAlbum,
+};

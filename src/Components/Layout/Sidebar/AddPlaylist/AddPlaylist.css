@@ -1,49 +1,43 @@
-.button-add{
-background:#ffb700 ;
-width: 100px; 
-height: 30px;
-color: white;
-border-radius: 5px;
-font-size: 1em;
-outline: none;
-transform: translate(30px);
-
-
+.button-add {
+  background: #ffb700;
+  width: 100px;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  transform: translate(30px);
 }
 
-.button-daown{
- background: none;
- border: none;
- font-size: 1em;
- color: white;
- font-weight: 600;
-margin-left: 10px;
+.button-daown {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: white;
+  font-weight: 600;
+  margin-left: 10px;
 }
-.playlist-add{
+.playlist-add {
   height: 30px;
   border-radius: 5px;
   outline: none;
   margin-left: 8px;
   margin-top: 5px;
- 
 }
-.container-Icon{
+.container-Icon {
   display: flex;
   width: 55px;
   width: 235px;
   align-items: center;
-  margin-left:6px ;
-  
-
+  margin-left: 6px;
 }
 
-.container-Icon h3{
+.container-Icon h3 {
   font-size: 1.2em;
   color: grey;
 }
 
-.container-Icon h3:hover{
-  color:#fff;
+.container-Icon h3:hover {
+  color: #fff;
   cursor: pointer;
 }
-

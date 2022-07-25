@@ -1,77 +1,67 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-  }
- .conteiner-layout-list{
-    width: 100%;
-    height: 100%;
-    color: #fff;
-
-  }
-  
-  .List-names{
-    height: 100%;
-    background-color: #00000031;
-    display: flex;
-    flex-direction: column;
-    
-
-
-  }
-
-  .banner-conteiner{
-    display: flex;
-    justify-content: space-between;
-    
-  }
-
-  .banner-conteiner p{
-    flex: .7;
-  }
- 
-  .banner-logo{
-    flex: .3;
-   
-    width: 232px;
-    height: 192px;
-  }
-
-  .banner-logo:hover{
-
-    width: 232px;
-    height: 192px;
-   }
-    
-h3{
-  font-size: .9rem;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.conteiner-layout-list {
+  width: 100%;
+  height: 100%;
+  color: #fff;
 }
 
-   .conteiner-name{
+.List-names {
+  height: 100%;
+  background-color: #00000031;
+  display: flex;
+  flex-direction: column;
+}
 
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    height: 55px;
-    align-items: center;
-    grid-auto-columns: 2px;
-    border: 1px solid rgba(255, 255, 255, 0.13);
-   }
-   .conteiner-name div {
-    display: flex;
+.banner-conteiner {
+  display: flex;
+  justify-content: space-between;
+}
 
-    justify-items: center;
-   }
-   .conteiner-name div img{  
-    height: 40px; 
-    width: 40px;
-    object-fit:contain ;
-    
-  }
+.banner-conteiner p {
+  flex: 0.7;
+}
 
-  .conteiner-name:hover{
-    background: rgba(255, 255, 255, 0.151);
-    cursor: pointer;
+.banner-logo {
+  flex: 0.3;
 
+  width: 232px;
+  height: 192px;
+}
 
-  }
+.banner-logo:hover {
+  width: 232px;
+  height: 192px;
+}
+
+h3 {
+  font-size: 0.9rem;
+}
+
+.conteiner-name {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 55px;
+  align-items: center;
+  grid-auto-columns: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+.conteiner-name div {
+  display: flex;
+
+  justify-items: center;
+}
+.conteiner-name div img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+.conteiner-name:hover {
+  background: rgba(255, 255, 255, 0.151);
+  cursor: pointer;
+}
