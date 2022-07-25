@@ -1,20 +1,19 @@
 import './EditForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const EditForm = ({ isOpenEdit, closeModalEdit, song, editSong }) => {
-  console.log('song', editSong.title);
+const EditForm = ({ editData }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      title: editSong?.title,
-      artist: editSong.artist?.name,
-      photo: editSong?.photo,
-      duration: editSong.duration,
-      genre: editSong.genre,
-      releaseDate: editSong.releaseDate,
+      title: editData?.title,
+      artist: editData?.artist?.name,
+      photo: editData?.photo,
+      duration: editData?.duration,
+      genre: editData?.genre,
+      releaseDate: editData?.releaseDate,
     },
   });
+  console.log('songs', editData);
 
   // useEffect(() => {
   //   if (refresh) {
@@ -27,14 +26,13 @@ const EditForm = ({ isOpenEdit, closeModalEdit, song, editSong }) => {
   // }, [refresh]);
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editSong?._id);
-    api('PATCH', `songs/${editSong?._id}`, { body: updateData }, {}).then(() => {});
-    closeModalEdit();
+    api('PATCH', `songs/${editData?._id}`, { body: updateData }, {}).then(() => {});
+
     // setRefresh(true);
   };
 
   return (
-    <div className={`modalsong ${isOpenEdit && 'isopen'}`} onClick={closeModalEdit}>
+    <div className="mainEditContainer">
       <form className="songCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
         <div className="songCreateFormInput">
           <label className="songLabel">Title</label>

@@ -1,16 +1,25 @@
-import { useEffect, useState } from 'react';
-import CreateForm from '../CreateFormModal/CreateForm';
-import { useModal, useModalEdit } from '../../../../Components/Modals/cardModal/useModal';
+import { useEffect } from 'react';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import './SongCategory.css';
+import CreateForm from '../CreateFormModal/CreateForm';
 import EditForm from '../EditForm/EditForm';
 
-const SongCategory = ({ photo, genre, title, releaseDate, duration, artist }) => {
-  const { songs, setSongs, refresh, setRefresh } = useListContext();
-  const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
-  const [editSong, setEditSong] = useState({});
+const SongCategory = () => {
+  const {
+    songs,
+    setSongs,
+    createItemInput,
+    editItemInput,
+    refresh,
+    setRefresh,
+    setCreateItem,
+    createItem,
+    editItem,
+    setEditItem,
+  } = useListContext();
+
+  const [editData, setEditData] = [{}];
 
   useEffect(() => {
     if (refresh) {
@@ -27,60 +36,54 @@ const SongCategory = ({ photo, genre, title, releaseDate, duration, artist }) =>
     });
   };
 
-  console.log('editSong', editSong);
-  console.log(songs);
-
   return (
     // <div className="categoryContainer">
     <div>
       <span className="songCategoryTitle">SONGS</span>
-      <button onClick={openModal} className="addSongButton" type="button">
+      <button
+        onClick={() => {
+          if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+        }}
+        className="addSongButton"
+        type="button">
         ADD NEW +
-        <CreateForm
-          isOpen={isOpen}
-          closeModal={closeModal}
-          title={title}
-          artist={artist}
-          genre={genre}
-          duration={`${duration}` + `seg`}
-          releaseDate={releaseDate}
-          photo={photo}
-        />
       </button>
-      {/* </div> */}
+      {createItem && <CreateForm />}
+      {editItem && <EditForm editData={editData} />}
 
-      {songs?.map((s) => {
-        console.log(s);
+      {songs?.map((song) => {
+        console.log(song);
         return (
           <>
             <div className="songCategoryContainer">
-              <img className="songPhoto" src={s.photo} alt="song picture" />
+              <img className="songPhoto" src={song.photo} alt="song picture" />
 
-              <h3 className="songHeaders">{s.title}</h3>
-              <h3>{s?.artist?.name || 'No artist'}</h3>
+              <h3 className="songHeaders">{song.title}</h3>
+              <h3>{song?.artist?.name || 'No artist'}</h3>
               {/* {s?.artist?.map((artistname) => (
                 <h3>{artistname.name}</h3>
               ))} */}
-              <h3>{s.duration}</h3>
-              <h3>{s.genre}</h3>
-              <div className="releaseDate">{s.releaseDate}</div>
+              <h3>{song.duration}</h3>
+              <h3>{song.genre}</h3>
+              <div className="releaseDate">{song.releaseDate}</div>
+
               <button
                 onClick={() => {
-                  setEditSong(s);
-                  openModalEdit();
+                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                  setEditData(song);
                 }}
                 className="songAdminButton"
                 type="button">
                 Update
               </button>
-              <button onClick={() => handleDeleteItem(s._id)} className="songAdminButton" type="button">
+
+              <button onClick={() => handleDeleteItem(song._id)} className="songAdminButton" type="button">
                 Delete
               </button>
             </div>
           </>
         );
       })}
-      {isOpenEdit && <EditForm isOpenEdit={isOpenEdit} closeModalEdit={closeModalEdit} editSong={editSong} />}
     </div>
   );
 };

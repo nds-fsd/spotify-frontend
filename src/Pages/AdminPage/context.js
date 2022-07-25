@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useRef, createContext, useContext, useState } from 'react';
 
 const ListContext = createContext();
 
@@ -13,8 +13,18 @@ export const ListContextProvider = ({ children }) => {
   const [playlists, setPlaylists] = useState([]);
   const [users, setUsers] = useState([]);
   const [refresh, setRefresh] = useState(true);
+  const [createItem, setCreateItem] = useState(false);
+  const [editItem, setEditItem] = useState(false);
+  const createItemInput = useRef(null);
+  const editItemInput = useRef(null);
 
   const value = {
+    createItem,
+    setCreateItem,
+    editItem,
+    setEditItem,
+    createItemInput,
+    editItemInput,
     home,
     setHome,
     song,

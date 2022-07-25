@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateForm = ({ isOpen, closeModal, refresh, setRefresh, artist, setArtist, editSong }) => {
+const CreateForm = ({ refresh, setRefresh, artist, setArtist, editSong }) => {
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -27,11 +27,10 @@ const CreateForm = ({ isOpen, closeModal, refresh, setRefresh, artist, setArtist
         releaseDate: data.releaseDate,
       },
     });
-    closeModal();
   };
 
   return (
-    <div className={`modalsong ${isOpen && 'isopen'}`} onClick={closeModal}>
+    <div className="mainContainer">
       <form className="songCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
         <div className="songCreateFormInput">
           <label className="songLabel">Title</label>

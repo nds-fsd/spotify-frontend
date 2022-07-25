@@ -1,27 +1,13 @@
-.modalsong {
-  position: fixed;
-  z-index: 1999;
-  top: 0;
-  left: 0;
-  transform: translate(218px, 189px);
-  display: none; /*esto es lo que permite que despareza el modal*/
-  justify-content: center;
-  align-items: center;
-}
-
-.modalsong.isopen {
-  display: flex;
-}
-
 .songCreateInputContainer {
-  background-color: rgb(12, 58, 82);
-  color: white;
+  /* background-color: rgb(12, 58, 82); */
+  color: BLACK;
   display: flex;
   flex-direction: row;
   width: 685px;
   height: 220px;
   padding: 8px;
-  margin: -86px;
+  /* margin: -86px; */
+  margin-left: 80px;
 }
 
 .songCreateFormInput {
