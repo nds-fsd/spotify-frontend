@@ -44,6 +44,9 @@ const PlayListsShow = () => {
                 <div>
                   <img src={objeto.photo} />
                 </div>
+                <button className="btn-play" type="submit">
+                  dale player
+                </button>
                 <h3>{objeto.title}</h3>
                 <h3>{objeto.genre}</h3>
                 <h3>{objeto.releaseDate}</h3>

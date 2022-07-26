@@ -17,22 +17,27 @@ const Cards = ({ photo, genre, title, releaseDate, duration, onClick }) => {
   // console.log(secondsToMinutes({ duration }));
 
   return (
-    <button className="cards-container" onClick={openModal} type="button">
-      <h3 className="card-info">{title}</h3>
-      <img src={photo} alt={genre} />
-      <h4 className="card-info">{genre}</h4>
-      {/* <h6>{duration}</h6>
+    <>
+      <button className="cards-container" onClick={openModal} type="button">
+        <h3 className="card-info">{title}</h3>
+        <img src={photo} alt={genre} />
+        <h4 className="card-info">{genre}</h4>
+        {/* <h6>{duration}</h6>
       <h7>{releaseDate}</h7> */}
-      <Modal
-        isOpen={isOpen}
-        closeModal={closeModal}
-        title={title}
-        genre={genre}
-        duration={`${duration}` + `seg`}
-        releaseDate={releaseDate}
-        photo={photo}
-      />
-    </button>
+        <button type="submit" className="button-play">
+          dale play
+        </button>
+        <Modal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          title={title}
+          genre={genre}
+          duration={`${duration}` + `seg`}
+          releaseDate={releaseDate}
+          photo={photo}
+        />
+      </button>
+    </>
   );
 };
 
