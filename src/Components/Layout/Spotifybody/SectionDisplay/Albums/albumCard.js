@@ -13,7 +13,7 @@ const AlbumCards = ({ name, photo, artist, onClick }) => {
 
   //   return minutes + ":" + seconds;
   // };
-  // console.log(secondsToMinutes({ duration }));*/
+  // console.log(secondsToMinutes({ duration })); */
 
   return (
     <button className="cards-container" onClick={openModal} type="button">
