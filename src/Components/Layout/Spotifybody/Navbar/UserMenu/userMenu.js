@@ -1,6 +1,8 @@
 import './userMenu.css';
 import { useState } from 'react';
-import { Avatar, Menu, MenuItem } from '@material-ui/core';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import Avatar from '@mui/material/Avatar';
 import { useNavigate } from 'react-router-dom';
 import { removeUserSession } from '../../../../../Utils/session';
 

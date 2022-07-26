@@ -1,8 +1,9 @@
 import './footersubmenu.css';
-import VolumeDownIcon from '@material-ui/icons/VolumeDown';
-import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
+import VolumeDownIcon from '@mui/icons-material/VolumeDown';
+import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 
-import { Slider, Grid } from '@material-ui/core';
+import Slider from '@mui/material/Slider';
+import Grid from '@mui/material/Grid';
 
 const FooterSubMenu = () => (
   <div className="FooterSubMenu-container">

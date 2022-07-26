@@ -1,8 +1,8 @@
 import './sidebar.css';
-import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
-import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
-// import AddIcon from '@material-ui/icons/Add';
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+// import AddIcon from '@mui/icons-material/Add';
 // import { useNavigate } from "react-router";
 import SidebarMenu from './Sidebarmenu/sibebarmenu';
 import AddNamePlaylist from './AddPlaylist/AddPlaylist';
