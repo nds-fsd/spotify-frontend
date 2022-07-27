@@ -7,22 +7,26 @@ import PlayListsShow from './Pages/PlaylistShow/PlayListShow';
 import GenrePage from './Pages/Genre/GenreHome';
 import Home from './Pages/Home/Home';
 import Albums from './Pages/Albums/Albums';
+import PlayerProvider from './Providers/player-provider';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/artist" element={<ArtistPage />} />
-            <Route path="/genre" element={<GenrePage />} />
-            <Route path="/playlist/:id" element={<PlayListsShow />} />
-            <Route path="/albums" element={<Albums />} />
-          </Route>
-        </Routes>
+        <PlayerProvider>
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<LoginPage />} />
+
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/artist" element={<ArtistPage />} />
+              <Route path="/genre" element={<GenrePage />} />
+              <Route path="/playlist/:id" element={<PlayListsShow />} />
+              <Route path="/albums" element={<Albums />} />
+            </Route>
+          </Routes>
+        </PlayerProvider>
       </BrowserRouter>
     </div>
   );

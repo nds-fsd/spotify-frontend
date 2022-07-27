@@ -2,10 +2,11 @@ import './PlayListsShow.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllCards } from '../../Api/utils';
+import usePlayer from '../../Hooks/use-player';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-
+  const { playSong, setPlaying } = usePlayer();
   const getOne = async () => {
     const response = await fetch(`http://localhost:8080/playlist/${id}`);
     return response.json();
@@ -44,8 +45,15 @@ const PlayListsShow = () => {
                 <div>
                   <img src={objeto.photo} />
                 </div>
-                <button className="btn-play" type="submit">
-                  dale player
+                <button
+                  className="btn-play"
+                  type="button"
+                  onClick={() => {
+                    playSong(objeto.soundUrl);
+                    setPlaying();
+                  }}
+                >
+                  Play
                 </button>
                 <h3>{objeto.title}</h3>
                 <h3>{objeto.genre}</h3>
