@@ -6,7 +6,7 @@ import usePlayer from '../../Hooks/use-player';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const { playSong, setPlaying } = usePlayer();
+  const { playSong, isPlaying } = usePlayer();
   const getOne = async () => {
     const response = await fetch(`http://localhost:8080/playlist/${id}`);
     return response.json();
@@ -50,7 +50,7 @@ const PlayListsShow = () => {
                   type="button"
                   onClick={() => {
                     playSong(objeto.soundUrl);
-                    setPlaying();
+                    isPlaying();
                   }}
                 >
                   Play

@@ -8,6 +8,7 @@ import GenrePage from './Pages/Genre/GenreHome';
 import Home from './Pages/Home/Home';
 import Albums from './Pages/Albums/Albums';
 import PlayerProvider from './Providers/player-provider';
+import HomeRefactor from './Pages/Home/HomeRefactor/homeRefactor';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
 
             <Route path="/" element={<Layout />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<HomeRefactor />} />
               <Route path="/artist" element={<ArtistPage />} />
               <Route path="/genre" element={<GenrePage />} />
               <Route path="/playlist/:id" element={<PlayListsShow />} />
