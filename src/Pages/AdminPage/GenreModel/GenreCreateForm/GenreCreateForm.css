@@ -1,0 +1,64 @@
+.genreCreateInputContainer {
+  /* background-color: rgb(12, 58, 82); */
+  color: BLACK;
+  display: flex;
+  flex-direction: row;
+  width: 575px;
+  height: 185px;
+  padding: 8px;
+  /* margin: -86px; */
+  margin-left: 130px;
+}
+
+.genreCreateFormInput {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 33px;
+}
+.genreInput {
+  display: flex;
+  padding: 3px;
+  width: 190px;
+
+  height: 25px;
+}
+.descriptionInput {
+  display: flex;
+  padding: 3px;
+  width: 190px;
+
+  height: 25px;
+  transform: translate(-118px, -8px);
+}
+
+.descriptionLabel {
+  width: 140px;
+  margin-right: -99px;
+  margin-left: 60px;
+  font-size: 19px;
+  padding: 5px;
+  transform: translate(-118px, -8px);
+}
+
+.genreLabel {
+  font-size: 19px;
+  padding: 5px;
+}
+
+.genreCreateButton {
+  padding: 5px;
+  width: 70px;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 2px;
+  background-color: rgba(197, 158, 59, 0.9);
+  color: #ddd;
+  font-size: 18px;
+  border: transparent;
+  height: 30px;
+  border-radius: 5px;
+  transform: translate(-125px, -15px);
+}

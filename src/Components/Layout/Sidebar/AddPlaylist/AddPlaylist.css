@@ -6,7 +6,8 @@
   border-radius: 5px;
   font-size: 1em;
   outline: none;
-  transform: translate(30px);
+  transform: translate(9px);
+  margin-top: 10px;
 }
 
 .button-daown {
@@ -22,7 +23,8 @@
   border-radius: 5px;
   outline: none;
   margin-left: 8px;
-  margin-top: 5px;
+  margin-top: 9px;
+  width: 220px;
 }
 .container-Icon {
   display: flex;

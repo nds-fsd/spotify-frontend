@@ -1,0 +1,64 @@
+.albumCreateInputContainer {
+  /* background-color: rgb(12, 58, 82); */
+  color: BLACK;
+  display: flex;
+  flex-direction: row;
+  width: 685px;
+  height: 180px;
+  padding: 8px;
+  /* margin: -86px; */
+  margin-left: 150px;
+  padding-bottom: 50px;
+}
+
+.albumCreateFormInput {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 33px;
+}
+.albumInput {
+  display: flex;
+  padding: 3px;
+  width: 200px;
+
+  height: 25px;
+}
+
+.releaseYear {
+  display: flex;
+  padding: 3px;
+  width: 55px;
+  margin-right: 5px;
+  height: 25px;
+}
+
+.albumreleaseYearInput {
+  display: flex;
+  padding: 3px;
+  width: 200px;
+  margin-left: -50px;
+  height: 25px;
+}
+
+.albumLabel {
+  font-size: 19px;
+  padding: 5px;
+}
+
+.albumCreateButton {
+  padding: 5px;
+  width: 70px;
+  justify-content: center;
+  margin-top: 2px;
+  margin-left: 2px;
+  background-color: rgba(197, 158, 59, 0.9);
+  color: #ddd;
+  font-size: 18px;
+  border: transparent;
+  height: 30px;
+  border-radius: 5px;
+  transform: translate(-330px, 56px);
+}

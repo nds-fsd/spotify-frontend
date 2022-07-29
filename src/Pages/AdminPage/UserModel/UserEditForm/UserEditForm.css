@@ -1,0 +1,46 @@
+.userEditInputContainer {
+  /* background-color: rgb(12, 58, 82); */
+  color: BLACK;
+  display: flex;
+  flex-direction: row;
+  width: 680px;
+  height: 220px;
+  padding: 8px;
+  /* margin: -86px; */
+  margin-left: 120px;
+}
+
+.userEditFormInput {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 33px;
+}
+.userInput {
+  display: flex;
+  padding: 3px;
+  width: 200px;
+  margin-left: 8px;
+  height: 25px;
+}
+
+.userLabel {
+  font-size: 19px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.userEditButton {
+  padding: 5px;
+  width: 70px;
+  justify-content: center;
+  margin-top: 2px;
+  margin-left: 293px;
+  background-color: rgba(197, 158, 59, 0.9);
+  color: #ddd;
+  font-size: 18px;
+  border: transparent;
+  height: 30px;
+  border-radius: 5px;
+}

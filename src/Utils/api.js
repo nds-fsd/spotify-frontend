@@ -1,7 +1,9 @@
+/* eslint-disable no-debugger */
+import queryString from 'query-string';
 import { getToken } from './session';
 
 const API_URL =
-  window.location.hostname === 'nucliofy.netlify.app' ? 'https://nucliofy.herokuapp.com' : 'http://localhost:8080';
+  window.location.hostname === 'nuclify.netlify.app' ? 'https://nuclify.herokuapp.com' : 'http://localhost:8080';
 
 // Custom API error to throw
 function ApiError(message, data, status) {
@@ -43,8 +45,17 @@ const api = (method = 'GET', path, userOptions = {}, query) => {
     },
   };
 
+  console.log('aaaaaa');
+  console.log(options);
+
   // Build Url
-  const url = `${API_URL}/${path}`;
+  let url = `${API_URL}/${path}`;
+  if (query) {
+    const queryParams = queryString.stringify(query, { arrayFormat: 'comma' });
+    if (queryParams) {
+      url = `${url}?${queryParams}`;
+    }
+  }
 
   // Detect is we are uploading a file
   const isFile = options.body instanceof File;

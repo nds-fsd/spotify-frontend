@@ -1,0 +1,111 @@
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.albumCategoryTitle {
+  font-size: 50px;
+  color: black;
+  margin-top: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 55px;
+}
+
+.albumCategoryContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px rgba(12, 58, 82, 0.85) solid;
+  /* background-color: rgba(12, 58, 82, 0.85); */
+  background-color: rgba(0, 31, 49, 0.9);
+  color: white;
+  margin: 6px;
+  height: 110px;
+  width: 950px;
+}
+
+.albumPhoto {
+  width: 100px;
+  height: 80px;
+}
+.albumPhoto:hover {
+  width: 100px;
+  height: 80px;
+}
+
+.addAlbumButton {
+  height: 50px;
+  width: 125px;
+  color: black;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  /* display: flex; */
+  margin-right: 73px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  /* transform: translate(370px, -14px); */
+}
+
+.addAlbumButton:hover {
+  border: 1px solid rgba(12, 58, 82, 0.85);
+  border-radius: 5px;
+}
+
+.adminAlbumButton {
+  padding: 5px;
+  width: 70px;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 2px;
+  background-color: rgba(197, 158, 59, 0.9);
+  color: #ddd;
+  font-size: 18px;
+  border: transparent;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.albumHeaders {
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.releaseYear {
+  width: 150px;
+}
+
+.searchInput {
+  padding: 3px;
+  margin: 5px;
+  margin-right: 50px;
+  align-items: center;
+  width: 230px;
+}
+
+.searchlabelAlbums {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: flex-end;
+  margin-right: 10px;
+  transform: translate(0px, -137px);
+}
+::placeholder {
+  color: black;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+
+.searchIcon {
+  height: 200px !important;
+  margin: 5px;
+  margin-left: -80px !important;
+}

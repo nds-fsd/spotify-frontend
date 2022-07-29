@@ -27,6 +27,8 @@ const getAllCards = async () => {
   return response.json();
 };
 
+const getAllArtists = async () => {
+  const response = await fetch('http://localhost:8080/artist');
 const getAllAlbums = async () => {
   const response = await fetch('http://localhost:8080/album');
   return response.json();
