@@ -41,7 +41,7 @@
 
 .songCreateButton {
   padding: 5px;
-  width: 50px;
+  width: 70px;
   justify-content: center;
   margin-top: 8px;
   margin-left: 2px;
@@ -52,16 +52,3 @@
   height: 30px;
   border-radius: 5px;
 }
-
-/* .modal-close {
-  position: absolute;
-  top: 9px;
-  right: 11px;
-  width: 29px;
-  height: 12px;
-  background-color: white;
-  border: none;
-  font-size: 22px;
-  color: white;
-  font-weight: bold;
-} */

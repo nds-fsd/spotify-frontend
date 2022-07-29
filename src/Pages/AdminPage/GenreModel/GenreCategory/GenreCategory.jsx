@@ -1,16 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import GenreCreateForm from '../GenreCreateForm/GenreCreateForm';
-import { useModal, useModalEdit } from '../../../../Components/Modals/cardModal/useModal';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import './GenreCategory.css';
 import GenreEditForm from '../GenreEditForm/GenreEditForm';
 
-const GenreCategory = ({ name, photo, description }) => {
-  const { genres, setGenres, refresh, setRefresh } = useListContext();
-  const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
-  const [editGenre, setEditGenre] = useState({});
+const GenreCategory = () => {
+  const {
+    genres,
+    setGenres,
+    createItemInput,
+    editItemInput,
+    refresh,
+    setRefresh,
+    setCreateItem,
+    createItem,
+    editItem,
+    setEditItem,
+    editData,
+    setEditData,
+  } = useListContext();
 
   useEffect(() => {
     if (refresh) {
@@ -28,18 +37,20 @@ const GenreCategory = ({ name, photo, description }) => {
     });
   };
 
-  //   console.log('editAlbum', editAlbum);
-  //   console.log(albums);
-
   return (
-    // <div className="categoryContainer">
     <div>
       <span className="genreCategoryTitle">GENRES</span>
-      <button onClick={openModal} className="addGenreButton" type="button">
+
+      <button
+        onClick={() => {
+          if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+        }}
+        className="addGenreButton"
+        type="button">
         ADD NEW +
-        <GenreCreateForm isOpen={isOpen} closeModal={closeModal} name={name} photo={photo} description={description} />
       </button>
-      {/* </div> */}
+      {createItem && <GenreCreateForm />}
+      {editItem && <GenreEditForm editData={editData} />}
 
       {genres.map((genre) => {
         console.log('genre', genre);
@@ -54,8 +65,8 @@ const GenreCategory = ({ name, photo, description }) => {
 
               <button
                 onClick={() => {
-                  setEditGenre(genre);
-                  openModalEdit();
+                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                  setEditData(genre);
                 }}
                 className="adminGenreButton"
                 type="button">
@@ -68,7 +79,6 @@ const GenreCategory = ({ name, photo, description }) => {
           </>
         );
       })}
-      {isOpenEdit && <GenreEditForm isOpenEdit={isOpenEdit} closeModalEdit={closeModalEdit} editGenre={editGenre} />}
     </div>
   );
 };

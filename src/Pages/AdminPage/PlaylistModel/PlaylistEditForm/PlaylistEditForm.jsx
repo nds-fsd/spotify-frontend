@@ -1,49 +1,49 @@
 import './PlaylistEditForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const PlaylistEditForm = ({ isOpenEdit, closeModalEdit, editPlaylist }) => {
+const PlaylistEditForm = ({ editData }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      name: editPlaylist?.name,
-      photo: editPlaylist?.photo,
-      description: editPlaylist?.description,
-      song: editPlaylist.song,
-      user: editPlaylist.user,
+      name: editData?.name,
+      photo: editData?.photo,
+      description: editData?.description,
+      song: editData?.song,
+      user: editData?.user,
     },
   });
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editPlaylist?._id);
-    api('PATCH', `playlist/${editPlaylist?._id}`, { body: updateData }, {}).then(() => {
-      closeModalEdit();
-    });
+    console.log('aaa', updateData, editData?._id);
+    api('PATCH', `playlist/${editData?._id}`, { body: updateData }, {}).then(() => {});
   };
 
   return (
-    <div className={`modalsongedit ${isOpenEdit && 'isopentoedit'}`} onClick={closeModalEdit}>
-      <form className="editInputContainer" onSubmit={handleSubmit(onSubmit)}>
-        <div className="editFormInput">
-          <label>Name</label>
+    <div className="mainContainer">
+      <form className="playlistCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="playlistCreateFormInput">
+          <label className="playlistLabel">Name</label>
           &nbsp;
           <input
+            className="playlistInput"
             {...register('name', {
               required: true,
             })}
             type="text"
           />
-          <label>Photo</label>
+          <label className="playlistLabel">Photo</label>
           &nbsp;
           <input
+            className="playlistInput"
             {...register('bio', {
               required: true,
             })}
             type="text"
           />
-          <label>Description</label>
+          <label className="playlistLabel">Description</label>
           &nbsp;
-          <input
+          <textarea
+            className="playlistInput"
             {...register('description', {
               required: true,
             })}
@@ -51,20 +51,22 @@ const PlaylistEditForm = ({ isOpenEdit, closeModalEdit, editPlaylist }) => {
           />
           &nbsp;
           <select
+            className="playlistLabel"
             name="Songs"
             {...register('song', {
               required: true,
             })}>
-            {editPlaylist.song.map((songName) => (
+            {editData?.song?.map((songName) => (
               <option value="Songs">{songName.title}</option>
             ))}
           </select>
           <select
+            className="playlistLabel"
             name="Users"
             {...register('user', {
               required: true,
             })}>
-            {editPlaylist.user.map((userName) => (
+            {editData?.user?.map((userName) => (
               <option value="Songs">{userName.name}</option>
             ))}
           </select>
@@ -83,11 +85,10 @@ const PlaylistEditForm = ({ isOpenEdit, closeModalEdit, editPlaylist }) => {
             })}
             type="text"
           /> */}
-          <input className="createButton" type="submit" value="Add" />
+          <input className="playlistCreateButton" type="submit" value="Update" />
         </div>
       </form>
     </div>
-    // </div>
   );
 };
 

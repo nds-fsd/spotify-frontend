@@ -1,16 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CreateAlbumForm from '../CreateAlbumForm/CreateAlbumForm';
-import { useModal, useModalEdit } from '../../../../Components/Modals/cardModal/useModal';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import './AlbumCategory.css';
 import EditAlbumForm from '../EditAlbumForm/EditAlbumForm';
 
-const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
-  const { albums, setAlbums, refresh, setRefresh } = useListContext();
-  const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
-  const [editAlbum, setEditAlbum] = useState({});
+const AlbumCategory = () => {
+  const {
+    albums,
+    setAlbums,
+    refresh,
+    setRefresh,
+    createItemInput,
+    editItemInput,
+    setCreateItem,
+    createItem,
+    editItem,
+    setEditItem,
+    editData,
+    setEditData,
+  } = useListContext();
 
   useEffect(() => {
     if (refresh) {
@@ -28,30 +37,23 @@ const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
     });
   };
 
-  //   console.log('editAlbum', editAlbum);
-  //   console.log(albums);
-
   return (
-    // <div className="categoryContainer">
     <div>
       <span className="albumCategoryTitle">ALBUMS</span>
-      <button onClick={openModal} className="addAlbumButton" type="button">
+      <button
+        onClick={() => {
+          if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+        }}
+        className="addAlbumButton"
+        type="button">
         ADD NEW +
-        <CreateAlbumForm
-          isOpen={isOpen}
-          closeModal={closeModal}
-          name={name}
-          photo={photo}
-          releaseYear={releaseYear}
-          artist={artist}
-          // songs={songs}
-        />
       </button>
-      {/* </div> */}
+      {createItem && <CreateAlbumForm />}
+      {editItem && <EditAlbumForm editData={editData} />}
 
       {albums.map((albumName) => {
         console.log('albumName', albumName);
-        console.log('photo', photo);
+
         return (
           <>
             <div className="albumCategoryContainer">
@@ -64,8 +66,8 @@ const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
 
               <button
                 onClick={() => {
-                  setEditAlbum(albumName);
-                  openModalEdit();
+                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                  setEditData(albumName);
                 }}
                 className="adminAlbumButton"
                 type="button">
@@ -78,7 +80,6 @@ const AlbumCategory = ({ name, photo, releaseYear, artist }) => {
           </>
         );
       })}
-      {isOpenEdit && <EditAlbumForm isOpenEdit={isOpenEdit} closeModalEdit={closeModalEdit} editAlbum={editAlbum} />}
     </div>
   );
 };

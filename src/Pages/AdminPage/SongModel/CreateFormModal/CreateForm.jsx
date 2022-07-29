@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateForm = ({ refresh, setRefresh, artist, setArtist, editSong }) => {
+const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist, editSong }) => {
         photo: data.photo,
         duration: data.duration,
         genre: data.genre,
+        soundUrl: data.soundUrl,
         releaseDate: data.releaseDate,
       },
     });
@@ -42,13 +43,14 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist, editSong }) => {
             })}
             type="text"
           />
+          {/* <label className="songLabel">Artist</label> */}
           {/* <select
             name="Artist"
             {...register('artist', {
               required: true,
             })}>
-            {editSong.artist.map((a) => (
-              <option value="Album">{a.name}</option>
+            {artist.map((a) => (
+              <option value="Album">{a?.name}</option>
             ))}
           </select> */}
           <label className="songLabel">Artist</label>
@@ -87,6 +89,16 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist, editSong }) => {
               required: true,
             })}
             type="text"
+          />
+          <label className="songLabel">Url</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('photo', {
+              required: false,
+            })}
+            type="text"
+            alt="song photo"
           />
           <label className="songLabel">Release Date</label>
           &nbsp;

@@ -10,10 +10,11 @@ const EditForm = ({ editData }) => {
       photo: editData?.photo,
       duration: editData?.duration,
       genre: editData?.genre,
+      songUrl: editData?.songUrl,
       releaseDate: editData?.releaseDate,
     },
   });
-  console.log('songs', editData);
+  console.log('editData', editData);
 
   // useEffect(() => {
   //   if (refresh) {
@@ -89,6 +90,16 @@ const EditForm = ({ editData }) => {
               required: true,
             })}
             type="text"
+          />
+          <label className="songLabel">Url</label>
+          &nbsp;
+          <input
+            className="songInput"
+            {...register('photo', {
+              required: false,
+            })}
+            type="text"
+            alt="song photo"
           />
           <label className="songLabel">Release Date</label>
           &nbsp;

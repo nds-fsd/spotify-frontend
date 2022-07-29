@@ -2,62 +2,59 @@ import './GenreEditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const GenreEditForm = ({ isOpenEdit, closeModalEdit, editGenre }) => {
-  // console.log('artist', artist);
-  // console.log(editAlbum);
+const GenreEditForm = ({ editData }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      name: editGenre?.name,
-      photo: editGenre?.photo,
-      description: editGenre.description,
+      name: editData?.name,
+      photo: editData?.photo,
+      description: editData.description,
     },
   });
 
   //   traigo editGenres del genreCategory, esto me extra todas los eleementos y sus valores dentro del map que hice
 
   const onSubmit = (updateData) => {
-    console.log('updateData', updateData, editGenre?._id);
-    api('PATCH', `genre/${editGenre?._id}`, { body: updateData }, {}).then(() => {
-      closeModalEdit();
-    });
+    console.log('updateData', updateData, editData?._id);
+    api('PATCH', `genre/${editData?._id}`, { body: updateData }, {}).then(() => {});
 
     // setRefresh(true);
   };
 
   return (
-    <>
-      <div className={`modalsongedit ${isOpenEdit && 'isopentoedit'}`}>
-        <form className="editInputContainer" onSubmit={handleSubmit(onSubmit)}>
-          <div className="editFormInput">
-            <label>Name</label>
-            &nbsp;
-            <input
-              {...register('name', {
-                required: true,
-              })}
-              type="text"
-            />
-            <label>Photo</label>
-            &nbsp;
-            <input
-              {...register('photo', {
-                required: true,
-              })}
-              type="text"
-            />
-            <label>Description</label>
-            &nbsp;
-            <input
-              {...register('description', {
-                required: true,
-              })}
-              type="text"
-            />
-            <input className="editButton" type="submit" value="Update" />
-          </div>
-        </form>
-      </div>
-    </>
+    <div className="mainContainer">
+      <form className="genreCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="genreCreateFormInput">
+          <label className="genreLabel">Name</label>
+          &nbsp;
+          <input
+            className="genreInput"
+            {...register('name', {
+              required: true,
+            })}
+            type="text"
+          />
+          <label className="genreLabel">Photo</label>
+          &nbsp;
+          <input
+            className="genreInput"
+            {...register('photo', {
+              required: true,
+            })}
+            type="text"
+          />
+          <label className="descriptionLabel">Description</label>
+          &nbsp;
+          <textarea
+            className="descriptionInput"
+            {...register('description', {
+              required: true,
+            })}
+            type="text"
+          />
+          <input className="genreCreateButton" type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
   );
 };
 

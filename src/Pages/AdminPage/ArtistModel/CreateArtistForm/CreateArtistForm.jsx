@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateArtistForm = ({ isOpen, closeModal, refresh, album, setAlbum, setRefresh }) => {
+const CreateArtistForm = ({ refresh, album, setAlbum, setRefresh }) => {
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -25,40 +25,43 @@ const CreateArtistForm = ({ isOpen, closeModal, refresh, album, setAlbum, setRef
         albums: data.albums,
       },
     });
-    closeModal();
   };
 
   return (
-    <div className={`modalsong ${isOpen && 'isopen'}`} onClick={closeModal}>
-      <form className="createInputContainer" onSubmit={handleSubmit(onSubmit)}>
-        <div className="createFormInput">
-          <label>Name</label>
+    <div className="mainContainer">
+      <form className="artistCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="artistCreateFormInput">
+          <label className="artistLabel">Name</label>
           &nbsp;
           <input
+            className="artistInput"
             {...register('name', {
               required: true,
             })}
             type="text"
           />
-          <label>Biography</label>
+          <label className="artistLabel">Biography</label>
           &nbsp;
           <input
+            className="artistInput"
             {...register('bio', {
               required: true,
             })}
             type="text"
           />
-          <label>Monthly Users</label>
+          <label className="artistLabel">Monthly Users</label>
           &nbsp;
           <input
+            className="artistInput"
             {...register('monthlyUsers', {
               required: true,
             })}
             type="number"
           />
           &nbsp;
-          <label>Albums</label>
+          <label className="artistLabel">Albums</label>
           <input
+            className="artistInput"
             {...register('albums', {
               required: true,
             })}

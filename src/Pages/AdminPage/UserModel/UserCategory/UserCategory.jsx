@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useModalEdit } from '../../../../Components/Modals/cardModal/useModal';
+import { useEffect } from 'react';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import UserEditForm from '../UserEditForm/UserEditForm';
 import './UserCategory.css';
 
-const UserCategory = ({ name, password, email, createdAt, updatedAt, role }) => {
-  const { users, setUsers, refresh, setRefresh } = useListContext();
-  //   const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
-  const [editUser, setEditUsers] = useState({});
+const UserCategory = () => {
+  const { users, setUsers, editItemInput, refresh, setRefresh, editItem, setEditItem, editData, setEditData } =
+    useListContext();
 
   useEffect(() => {
     if (refresh) {
@@ -30,24 +27,9 @@ const UserCategory = ({ name, password, email, createdAt, updatedAt, role }) => 
   console.log('users', users);
 
   return (
-    // <div className="categoryContainer">
     <div>
       <span className="userCategoryTitle">USERS</span>
-      {/* <button onClick={openModal} className="addButton" type="button">
-          +
-          <PlaylistCreateForm
-            isOpen={isOpen}
-            closeModal={closeModal}
-            name={name}
-            password={password}
-            email={email}
-            createdAt={createdAt}
-            updatedAt={updatedAt}
-            role={role}
-          />
-        </button>
-      </div> */}
-
+      {editItem && <UserEditForm editData={editData} />}
       {users?.map((user) => (
         <>
           <div className="userCategoryContainer">
@@ -59,8 +41,8 @@ const UserCategory = ({ name, password, email, createdAt, updatedAt, role }) => 
             <h3>{user.role}</h3>
             <button
               onClick={() => {
-                setEditUsers(user);
-                openModalEdit();
+                if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                setEditData(user);
               }}
               className="adminUserButton"
               type="button">
@@ -72,7 +54,6 @@ const UserCategory = ({ name, password, email, createdAt, updatedAt, role }) => 
           </div>
         </>
       ))}
-      {isOpenEdit && <UserEditForm isOpenEdit={isOpenEdit} closeModalEdit={closeModalEdit} editUser={editUser} />}
     </div>
   );
 };

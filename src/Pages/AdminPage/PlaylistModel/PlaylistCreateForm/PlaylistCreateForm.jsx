@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const PlaylistCreateForm = ({ isOpen, closeModal, refresh, song, setSong, setRefresh, user, setUser }) => {
+const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser }) => {
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -35,54 +35,58 @@ const PlaylistCreateForm = ({ isOpen, closeModal, refresh, song, setSong, setRef
         user: data.user,
       },
     });
-    closeModal();
   };
 
   return (
-    <div className={`modalsong ${isOpen && 'isopen'}`} onClick={closeModal}>
-      <form className="createInputContainer" onSubmit={handleSubmit(onSubmit)}>
-        <div className="createFormInput">
-          <label>Name</label>
+    <div className="mainContainer">
+      <form className="playlistCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="playlistCreateFormInput">
+          <label className="playlistLabel">Name</label>
           &nbsp;
           <input
+            className="playlistInput"
             {...register('name', {
               required: true,
             })}
             type="text"
           />
-          <label>Photo</label>
+          <label className="playlistLabel">Photo</label>
           &nbsp;
           <input
+            className="playlistInput"
             {...register('bio', {
               required: true,
             })}
             type="text"
           />
-          <label>Description</label>
+          <label className="descriptionPlaylistLabel">Description</label>
           &nbsp;
-          <input
+          <textarea
+            className="playlistInput"
             {...register('description', {
               required: true,
             })}
             type="text"
           />
           &nbsp;
-          <label>Songs</label>
+          <label className="playlistLabel">Songs</label>
           <input
+            className="playlistInput"
             {...register('song', {
               required: true,
             })}
             type="text"
           />
-          <label>Users</label>
+          <label className="playlistLabel">Users</label>
           &nbsp;
           <input
+            className="playlistInput"
             {...register('user', {
               required: true,
             })}
             type="text"
           />
-          <input className="createButton" type="submit" value="Add" />
+          <input className="playlistCreateButton" type="submit" value="Add" />
         </div>
       </form>
     </div>

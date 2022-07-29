@@ -15,10 +15,16 @@ export const ListContextProvider = ({ children }) => {
   const [refresh, setRefresh] = useState(true);
   const [createItem, setCreateItem] = useState(false);
   const [editItem, setEditItem] = useState(false);
+  const [editData, setEditData] = useState([]);
+  const [searchText, setSearchText] = useState('');
   const createItemInput = useRef(null);
   const editItemInput = useRef(null);
 
   const value = {
+    searchText,
+    setSearchText,
+    editData,
+    setEditData,
     createItem,
     setCreateItem,
     editItem,

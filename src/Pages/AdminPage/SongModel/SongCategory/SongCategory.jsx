@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
-import './SongCategory.css';
+import styles from './SongCategory.module.css';
 import CreateForm from '../CreateFormModal/CreateForm';
 import EditForm from '../EditForm/EditForm';
 
 const SongCategory = () => {
   const {
+    searchText,
     songs,
     setSongs,
     createItemInput,
@@ -17,18 +19,22 @@ const SongCategory = () => {
     createItem,
     editItem,
     setEditItem,
+    editData,
+    setEditData,
   } = useListContext();
-
-  const [editData, setEditData] = [{}];
 
   useEffect(() => {
     if (refresh) {
-      api('GET', 'songs', {}, {}).then((data) => {
+      const query = {};
+      if (searchText !== '') {
+        query.search = searchText;
+      }
+      api('GET', 'songs', {}, query).then((data) => {
         setSongs(data);
         setRefresh(false);
       });
     }
-  }, [refresh]);
+  }, [refresh, searchText]);
 
   const handleDeleteItem = (id) => {
     api('DELETE', `songs/${id}`, {}, {}).then(() => {
@@ -37,54 +43,53 @@ const SongCategory = () => {
   };
 
   return (
-    // <div className="categoryContainer">
-    <div>
-      <span className="songCategoryTitle">SONGS</span>
-      <button
-        onClick={() => {
-          if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
-        }}
-        className="addSongButton"
-        type="button">
-        ADD NEW +
-      </button>
-      {createItem && <CreateForm />}
-      {editItem && <EditForm editData={editData} />}
+    <>
+      <div>
+        <span className="playlistCategoryTitle">SONGS</span>
+        <button
+          onClick={() => {
+            if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+          }}
+          className={styles.addSongButton}
+          type="button">
+          ADD NEW +
+        </button>
+        {createItem && <CreateForm />}
+        {editItem && <EditForm editData={editData} />}
 
-      {songs?.map((song) => {
-        console.log(song);
-        return (
-          <>
-            <div className="songCategoryContainer">
-              <img className="songPhoto" src={song.photo} alt="song picture" />
+        {songs?.map((song) => {
+          console.log(song);
+          return (
+            <>
+              <div className={styles.container}>
+                <img className={styles.songPhoto} src={song.photo} alt="song picture" />
 
-              <h3 className="songHeaders">{song.title}</h3>
-              <h3>{song?.artist?.name || 'No artist'}</h3>
-              {/* {s?.artist?.map((artistname) => (
-                <h3>{artistname.name}</h3>
-              ))} */}
-              <h3>{song.duration}</h3>
-              <h3>{song.genre}</h3>
-              <div className="releaseDate">{song.releaseDate}</div>
+                <h3 className={styles.songHeaders}>{song.title}</h3>
+                <h3>{song?.artist?.name || 'No artist'}</h3>
+                <h3>{song.duration}</h3>
+                <h3>{song.genre}</h3>
+                <h3 className={styles.songUrl}>{song.soundUrl}</h3>
+                <div className={styles.releaseDate}>{song.releaseDate}</div>
 
-              <button
-                onClick={() => {
-                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
-                  setEditData(song);
-                }}
-                className="songAdminButton"
-                type="button">
-                Update
-              </button>
+                <button
+                  onClick={() => {
+                    if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                    setEditData(song);
+                  }}
+                  className={styles.songAdminButton}
+                  type="button">
+                  Update
+                </button>
 
-              <button onClick={() => handleDeleteItem(song._id)} className="songAdminButton" type="button">
-                Delete
-              </button>
-            </div>
-          </>
-        );
-      })}
-    </div>
+                <button onClick={() => handleDeleteItem(song._id)} className={styles.songAdminButton} type="button">
+                  Delete
+                </button>
+              </div>
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

@@ -1,16 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useModal, useModalEdit } from '../../../../Components/Modals/cardModal/useModal';
+import { useEffect } from 'react';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import './PlaylistCategory.css';
 import PlaylistEditForm from '../PlaylistEditForm/PlaylistEditForm';
 import PlaylistCreateForm from '../PlaylistCreateForm/PlaylistCreateForm';
 
-const PlaylistCategory = ({ name, song, photo, description, user }) => {
-  const { playlists, setPlaylists, refresh, setRefresh } = useListContext();
-  const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
-  const [editPlaylist, setEditPlaylist] = useState({});
+const PlaylistCategory = () => {
+  const {
+    playlists,
+    setPlaylists,
+    createItemInput,
+    editItemInput,
+    refresh,
+    setRefresh,
+    setCreateItem,
+    createItem,
+    editItem,
+    setEditItem,
+    editData,
+    setEditData,
+  } = useListContext();
 
   useEffect(() => {
     if (refresh) {
@@ -28,25 +37,20 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
     });
   };
 
-  console.log('playlist', playlists);
-
   return (
-    // <div className="categoryContainer">
     <div>
       <span className="playlistCategoryTitle">PLAYLISTS</span>
-      <button onClick={openModal} className="addPlaylistButton" type="button">
+
+      <button
+        onClick={() => {
+          if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+        }}
+        className="addPlaylistButton"
+        type="button">
         ADD NEW +
-        <PlaylistCreateForm
-          isOpen={isOpen}
-          closeModal={closeModal}
-          name={name}
-          song={song}
-          photo={photo}
-          description={description}
-          user={user}
-        />
       </button>
-      {/* </div> */}
+      {createItem && <PlaylistCreateForm />}
+      {editItem && <PlaylistEditForm editData={editData} />}
 
       {playlists?.map((playlist) => (
         <>
@@ -54,15 +58,15 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
             <img className="playlistPhoto" src={playlist.photo} alt="album picture" />
             <h3>{playlist.name}</h3>
             <div className="playlistDescription">{playlist.description}</div>
-            {playlist.song?.map((songName) => (
+            {playlist?.song?.map((songName) => (
               <h3>{songName.title}</h3>
             ))}
             <h3>{playlist?.user?.name || 'No user'}</h3>
 
             <button
               onClick={() => {
-                setEditPlaylist(playlist);
-                openModalEdit();
+                if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                setEditData(playlist);
               }}
               className="adminPlaylistButton"
               type="button">
@@ -74,9 +78,6 @@ const PlaylistCategory = ({ name, song, photo, description, user }) => {
           </div>
         </>
       ))}
-      {isOpenEdit && (
-        <PlaylistEditForm isOpenEdit={isOpenEdit} closeModalEdit={closeModalEdit} editPlaylist={editPlaylist} />
-      )}
     </div>
   );
 };

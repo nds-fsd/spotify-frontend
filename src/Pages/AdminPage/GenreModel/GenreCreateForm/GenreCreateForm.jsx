@@ -1,9 +1,8 @@
 import './GenreCreateForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const GenreCreateForm = ({ isOpen, closeModal, refresh, setRefresh }) => {
+const GenreCreateForm = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -15,38 +14,40 @@ const GenreCreateForm = ({ isOpen, closeModal, refresh, setRefresh }) => {
         description: data.description,
       },
     });
-    closeModal();
   };
 
   return (
-    <div className={`modalsong ${isOpen && 'isopen'}`} onClick={closeModal}>
-      <form className="createInputContainer" onSubmit={handleSubmit(onSubmit)}>
-        <div className="createFormInput">
-          <label>Name</label>
+    <div className="mainContainer">
+      <form className="genreCreateInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="genreCreateFormInput">
+          <label className="genreLabel">Name</label>
           &nbsp;
           <input
+            className="genreInput"
             {...register('name', {
               required: true,
             })}
             type="text"
           />
-          <label>Photo</label>
+          <label className="genreLabel">Photo</label>
           &nbsp;
           <input
+            className="genreInput"
             {...register('photo', {
               required: true,
             })}
             type="text"
           />
-          <label>Description</label>
+          <label className="descriptionLabel">Description</label>
           &nbsp;
-          <input
+          <textarea
+            className="descriptionInput"
             {...register('description', {
               required: true,
             })}
             type="text"
           />
-          <input className="createButton" type="submit" value="Add" />
+          <input className="genreCreateButton" type="submit" value="Add" />
         </div>
       </form>
     </div>

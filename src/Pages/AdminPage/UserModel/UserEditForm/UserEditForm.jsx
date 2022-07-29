@@ -1,81 +1,84 @@
 import './UserEditForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const UserEditForm = ({ isOpenEdit, closeModalEdit, editUser }) => {
+const UserEditForm = ({ editData }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      name: editUser?.name,
-      email: editUser?.email,
-      password: editUser?.password,
-      createdAt: editUser?.createdAt,
-      updatedAt: editUser?.updatedAt,
-      role: editUser?.role,
+      name: editData?.name,
+      email: editData?.email,
+      password: editData?.password,
+      createdAt: editData?.createdAt,
+      updatedAt: editData?.updatedAt,
+      role: editData?.role,
     },
   });
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editUser?._id);
-    api('PATCH', `user/${editUser?._id}`, { body: updateData }, {}).then(() => {
-      closeModalEdit();
-    });
+    console.log('aaa', updateData, editData?._id);
+    api('PATCH', `user/${editData?._id}`, { body: updateData }, {}).then(() => {});
   };
 
   return (
-    <div className={`modalsongedit ${isOpenEdit && 'isopentoedit'}`} onClick={closeModalEdit}>
-      <form className="editInputContainer" onSubmit={handleSubmit(onSubmit)}>
-        <div className="editFormInput">
-          <label>Name</label>
+    <div className="mainContainer">
+      <form className="userEditInputContainer" onSubmit={handleSubmit(onSubmit)}>
+        <div className="userEditFormInput">
+          <label className="userLabel">Name</label>
           &nbsp;
           <input
+            className="userInput"
             {...register('name', {
               required: true,
             })}
             type="text"
           />
-          <label>Email</label>
+          <label className="userLabel">Email</label>
           &nbsp;
           <input
+            className="userInput"
             {...register('email', {
               required: true,
             })}
             type="email"
           />
-          <label>Password</label>
+          <label className="userLabel">Password</label>
           &nbsp;
           <input
+            className="userInput"
             {...register('password', {
               required: true,
             })}
             type="password"
           />
-          <label>Created At</label>
+          <label className="userLabel">Created At</label>
           &nbsp;
           <input
+            className="userInput"
             {...register('createdAt', {
               required: true,
             })}
             type="date"
           />
           &nbsp;
-          <label>Updated At</label>
+          <label className="userLabel">Updated At</label>
           &nbsp;
           <input
+            className="userInput"
             {...register('updatedAt', {
               required: true,
             })}
             type="date"
           />
-          <label>Role</label>
+          <label className="userLabel">Role</label>
           &nbsp;
           <input
+            className="userInput"
             {...register('role', {
               required: true,
             })}
             type="text"
           />
-          <input className="createButton" type="submit" value="Add" />
+          <input className="userEditButton" type="submit" value="Update" />
         </div>
       </form>
     </div>

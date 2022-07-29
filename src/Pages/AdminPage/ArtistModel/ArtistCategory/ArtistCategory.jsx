@@ -1,16 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useModal, useModalEdit } from '../../../../Components/Modals/cardModal/useModal';
+import { useEffect } from 'react';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import './ArtistCategory.css';
 import CreateArtistForm from '../CreateArtistForm/CreateArtistForm';
 import EditArtistForm from '../EditArtistForm/EditArtistForm';
 
-const ArtistCategory = ({ name, bio, monthlyUsers, albums }) => {
-  const { artist, setArtist, refresh, setRefresh } = useListContext();
-  const [isOpen, openModal, closeModal] = useModal(false);
-  const [isOpenEdit, openModalEdit, closeModalEdit] = useModalEdit(false);
-  const [editArtist, setEditArtist] = useState({});
+const ArtistCategory = () => {
+  const {
+    artist,
+    setArtist,
+    refresh,
+    setRefresh,
+    createItemInput,
+    editItemInput,
+    setCreateItem,
+    createItem,
+    editItem,
+    setEditItem,
+    editData,
+    setEditData,
+  } = useListContext();
 
   useEffect(() => {
     if (refresh) {
@@ -28,24 +37,19 @@ const ArtistCategory = ({ name, bio, monthlyUsers, albums }) => {
     });
   };
 
-  console.log('editArtist', artist);
-
   return (
-    // <div className="categoryContainer">
     <div>
       <span className="artistsCategoryTitle">ARTISTS</span>
-      <button onClick={openModal} className="addArtistButton" type="button">
+      <button
+        onClick={() => {
+          if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+        }}
+        className="addArtistButton"
+        type="button">
         ADD NEW +
-        <CreateArtistForm
-          isOpen={isOpen}
-          closeModal={closeModal}
-          name={name}
-          bio={bio}
-          monthlyUsers={monthlyUsers}
-          albums={albums}
-        />
       </button>
-      {/* </div> */}
+      {createItem && <CreateArtistForm />}
+      {editItem && <EditArtistForm editData={editData} />}
 
       {artist?.map((a) => (
         <>
@@ -62,8 +66,8 @@ const ArtistCategory = ({ name, bio, monthlyUsers, albums }) => {
 
             <button
               onClick={() => {
-                setEditArtist(a);
-                openModalEdit();
+                if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                setEditData(a);
               }}
               className="artistAdminButton"
               type="button">
@@ -75,7 +79,6 @@ const ArtistCategory = ({ name, bio, monthlyUsers, albums }) => {
           </div>
         </>
       ))}
-      {isOpenEdit && <EditArtistForm isOpenEdit={isOpenEdit} closeModalEdit={closeModalEdit} editArtist={editArtist} />}
     </div>
   );
 };
