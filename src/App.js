@@ -14,30 +14,34 @@ import UserCategory from './Pages/AdminPage/UserModel/UserCategory/UserCategory'
 import GenrePage from './Pages/Genre/GenreHome';
 import Home from './Pages/Home/Home';
 import Albums from './Pages/Albums/Albums';
+import PlayerProvider from './Providers/player-provider';
+import HomeRefactor from './Pages/Home/HomeRefactor/homeRefactor';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/adminpage" element={<AdminPage />}>
-            <Route path="/adminpage/songs" element={<SongCategory />} />
-            <Route path="/adminpage/artists" element={<ArtistCategory />} />
-            <Route path="/adminpage/albums" element={<AlbumCategory />} />
-            <Route path="/adminpage/genres" element={<GenreCategory />} />
-            <Route path="/adminpage/playlists" element={<PlaylistCategory />} />
-            <Route path="/adminpage/users" element={<UserCategory />} />
-          </Route>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/artist" element={<ArtistPage />} />
-            <Route path="/genre" element={<GenrePage />} />
-            <Route path="/playlist/:id" element={<PlayListsShow />} />
-            <Route path="/albums" element={<Albums />} />
-          </Route>
-        </Routes>
+        <PlayerProvider>
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/adminpage" element={<AdminPage />}>
+              <Route path="/adminpage/songs" element={<SongCategory />} />
+              <Route path="/adminpage/artists" element={<ArtistCategory />} />
+              <Route path="/adminpage/albums" element={<AlbumCategory />} />
+              <Route path="/adminpage/genres" element={<GenreCategory />} />
+              <Route path="/adminpage/playlists" element={<PlaylistCategory />} />
+              <Route path="/adminpage/users" element={<UserCategory />} />
+            </Route>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<HomeRefactor />} />
+              <Route path="/artist" element={<ArtistPage />} />
+              <Route path="/genre" element={<GenrePage />} />
+              <Route path="/playlist/:id" element={<PlayListsShow />} />
+              <Route path="/albums" element={<Albums />} />
+            </Route>
+          </Routes>
+        </PlayerProvider>
       </BrowserRouter>
     </div>
   );
