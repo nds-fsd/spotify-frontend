@@ -9,3 +9,13 @@ export const useModal = () => {
 
   return [isOpen, openModal, closeModal];
 };
+
+export const useModalEdit = () => {
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
+
+  const openModalEdit = () => setIsOpenEdit(true);
+
+  const closeModalEdit = () => setIsOpenEdit(false);
+
+  return [isOpenEdit, openModalEdit, closeModalEdit];
+};

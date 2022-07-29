@@ -1,0 +1,104 @@
+.adminPage {
+  background-color: white;
+  font-family: sans-serif, Arial, Helvetica;
+  text-align: center;
+  /* padding: 0px;
+  margin: 0px; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.logoContainer {
+  background: linear-gradient(to left, #001f31, #073955);
+  color: white;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  color: rgba(197, 158, 59, 0.9);
+}
+.logoContainer > h1 {
+  margin-top: 30px;
+  line-height: 60px;
+  letter-spacing: 10px;
+  font-size: 45px;
+  justify-content: center;
+  color: #ddd;
+}
+
+.logoContainer > p {
+  margin-top: 38px;
+  line-height: 60px;
+  letter-spacing: 10px;
+  font-size: 24px;
+  justify-content: center;
+  padding-left: 8px;
+}
+
+.userMenuDropdown {
+  justify-content: flex-end !important;
+  display: flex !important;
+  font-size: 15px !important;
+  height: 30px !important;
+  justify-content: flex-end !important;
+  transform: translate(500px, 50px) !important;
+}
+
+.categoriesContent {
+  height: 100%;
+  width: 75%;
+  margin-left: 55px;
+  transform: translate(255px, 375px);
+  margin-top: -170px;
+}
+
+.dashboard {
+  background: linear-gradient(to left, #001f31, #073955);
+  justify-content: center;
+  padding: 20px;
+  width: 200px;
+  flex-direction: column;
+  align-items: center;
+  height: 2500px; /*preguntar como se ajusta esto a la pagina completa */
+  position: absolute;
+  margin-top: 180px;
+  color: #ddd;
+}
+
+.dashboardTitle {
+  display: flex;
+  font-size: 30px;
+  color: #ddd;
+
+  padding: 4px;
+  margin-bottom: 30px;
+  margin-top: 22px;
+  justify-content: center;
+}
+
+.dashboardContainer {
+  position: fixed;
+  width: 200px;
+}
+
+.buttonCategory {
+  /* display: flex; */
+  width: 100px;
+  margin: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 11px;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+}
+
+.modelsContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: -105px;
+}

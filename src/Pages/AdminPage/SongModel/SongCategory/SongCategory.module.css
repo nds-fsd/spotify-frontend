@@ -1,0 +1,83 @@
+.songCategoryTitle {
+  font-size: 50px;
+  color: black;
+  margin-top: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 55px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px rgba(12, 58, 82, 0.85) solid;
+  /* background-color: rgba(12, 58, 82, 0.85); */
+  background-color: rgba(0, 31, 49, 0.9);
+  color: white;
+  margin: 6px;
+  height: 130px;
+  width: 1000px;
+}
+
+.songPhoto {
+  width: 100px;
+  height: 80px;
+}
+.songPhoto:hover {
+  width: 100px;
+  height: 80px;
+}
+
+.addSongButton {
+  height: 50px;
+  width: 125px;
+  color: black;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  /* display: flex; */
+  margin-right: 73px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  /* transform: translate(370px, -14px); */
+}
+
+.addSongButton:hover {
+  border: 1px solid rgba(12, 58, 82, 0.85);
+  border-radius: 5px;
+}
+
+.songAdminButton {
+  padding: 5px;
+  width: 70px;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 2px;
+  background-color: rgba(197, 158, 59, 0.9);
+  color: #ddd;
+  font-size: 18px;
+  border: transparent;
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.songHeaders {
+  font-size: 16px;
+  width: 100px;
+}
+
+.releaseDate {
+  width: 100px;
+  overflow: hidden;
+}
+
+.songUrl {
+  width: 100px;
+  height: 50px;
+  overflow: scroll;
+}

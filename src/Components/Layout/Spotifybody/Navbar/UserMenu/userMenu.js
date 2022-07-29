@@ -4,11 +4,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import { useNavigate } from 'react-router-dom';
-import { removeUserSession } from '../../../../../Utils/session';
+import { removeUserSession, hasUserSession } from '../../../../../Utils/session';
 
 const UserMenu = () => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [adminSession, setAdminSession] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -27,6 +28,14 @@ const UserMenu = () => {
     navigate('/login', { replace: false });
   };
 
+  const handleAdminSession = (data) => {
+    if (data.user.role === 'ADMIN') {
+      console.log('entra');
+      hasUserSession(data);
+      navigate('/adminpage/songs', { replace: true });
+      console.log('adminuser');
+    }
+  };
   const handleClickAlbums = () => {
     removeUserSession();
     navigate('/albums', { replace: false });
@@ -59,6 +68,8 @@ const UserMenu = () => {
         <MenuItem onClick={handleClickGenre}>Genre</MenuItem>
         <MenuItem onClick={handleClickArtists}>Artist</MenuItem>
         <MenuItem onClick={handleClickLogout}>Logout</MenuItem>
+
+        <MenuItem onClick={handleAdminSession}>Dashboard</MenuItem>
       </Menu>
     </div>
   );

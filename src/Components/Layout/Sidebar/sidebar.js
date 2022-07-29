@@ -32,7 +32,7 @@ const Sidebar = ({ onClick }) => (
     <SidebarMenu title="Search" Icon={SearchIcon} link="#" />
     <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} link="#" />
     <br />
-    <div className="Playlist-container">Playlist</div>
+
     <hr />
     <AddNamePlaylist />
     <PlayListName />
