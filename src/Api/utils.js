@@ -29,6 +29,8 @@ const getAllCards = async () => {
 
 const getAllArtists = async () => {
   const response = await fetch('http://localhost:8080/artist');
+const getAllAlbums = async () => {
+  const response = await fetch('http://localhost:8080/album');
   return response.json();
 };
 
@@ -65,4 +67,4 @@ const getAlllist = async () => {
   return response.json();
 };
 
-export { createCard, editCard, getAllCards, getCard, deleteCard, createList, getAlllist, getAllArtists };
+export { createCard, editCard, getAllCards, getAllAlbums, getCard, deleteCard, createList, getAlllist };

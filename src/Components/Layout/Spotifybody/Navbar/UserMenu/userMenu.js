@@ -36,6 +36,20 @@ const UserMenu = () => {
       console.log('adminuser');
     }
   };
+  const handleClickAlbums = () => {
+    removeUserSession();
+    navigate('/albums', { replace: false });
+  };
+
+  const handleClickGenre = () => {
+    removeUserSession();
+    navigate('/genre', { replace: false });
+  };
+
+  const handleClickArtists = () => {
+    removeUserSession();
+    navigate('/artist', { replace: false });
+  };
 
   return (
     <div className="HeaderUsuario-container">
@@ -49,6 +63,9 @@ const UserMenu = () => {
           'aria-labelledby': 'basic-button',
         }}>
         <MenuItem onClick={handleClickProfile}>Profile</MenuItem>
+        <MenuItem onClick={handleClickAlbums}>Albums</MenuItem>
+        <MenuItem onClick={handleClickGenre}>Genre</MenuItem>
+        <MenuItem onClick={handleClickArtists}>Artist</MenuItem>
         <MenuItem onClick={handleClickLogout}>Logout</MenuItem>
 
         <MenuItem onClick={handleAdminSession}>Dashboard</MenuItem>

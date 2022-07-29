@@ -12,7 +12,11 @@ const createCard = async (song) => {
 };
 
 const editCard = async (song) => {
+<<<<<<< HEAD:src/Utils/utils.js
   const response = await fetch('http://localhost:8080', {
+=======
+  const response = await fetch(`http://localhost:8080`, {
+>>>>>>> sprint4:src/Utils/cardUtils.js
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +27,11 @@ const editCard = async (song) => {
 };
 
 const getAllCards = async () => {
+<<<<<<< HEAD:src/Utils/utils.js
   const response = await fetch('http://localhost:8080/songs');
+=======
+  const response = await fetch('http://localhost:8080/cards');
+>>>>>>> sprint4:src/Utils/cardUtils.js
   return response.json();
 };
 
@@ -32,7 +40,11 @@ const getCard = (id) => {
 };
 
 const deleteCard = async (song) => {
+<<<<<<< HEAD:src/Utils/utils.js
   const response = await fetch('http://localhost:8080', {
+=======
+  const response = await fetch(`http://localhost:8080`, {
+>>>>>>> sprint4:src/Utils/cardUtils.js
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json; charset=UTF-8', // Indicates the content

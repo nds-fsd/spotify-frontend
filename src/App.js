@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Components/Layout/layout';
 import LoginPage from './Pages/Login/LoginPage';
 import Register from './Pages/Register/Register';
+import ArtistPage from './Pages/Artist/ArtistHome';
 import PlayListsShow from './Pages/PlaylistShow/PlayListShow';
 import AdminPage from './Pages/AdminPage/AdminPage/AdminPage';
 import SongCategory from './Pages/AdminPage/SongModel/SongCategory/SongCategory';
@@ -10,7 +11,9 @@ import AlbumCategory from './Pages/AdminPage/AlbumModel/AlbumCategory/AlbumCateg
 import GenreCategory from './Pages/AdminPage/GenreModel/GenreCategory/GenreCategory';
 import PlaylistCategory from './Pages/AdminPage/PlaylistModel/PlaylistCategory/PlaylistCategory';
 import UserCategory from './Pages/AdminPage/UserModel/UserCategory/UserCategory';
+import GenrePage from './Pages/Genre/GenreHome';
 import Home from './Pages/Home/Home';
+import Albums from './Pages/Albums/Albums';
 
 function App() {
   return (
@@ -29,7 +32,10 @@ function App() {
           </Route>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/artist" element={<ArtistPage />} />
+            <Route path="/genre" element={<GenrePage />} />
             <Route path="/playlist/:id" element={<PlayListsShow />} />
+            <Route path="/albums" element={<Albums />} />
           </Route>
         </Routes>
       </BrowserRouter>
