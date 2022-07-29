@@ -46,7 +46,8 @@ const PlaylistCategory = () => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
         }}
         className="addPlaylistButton"
-        type="button">
+        type="button"
+      >
         ADD NEW +
       </button>
       {createItem && <PlaylistCreateForm />}
@@ -69,7 +70,8 @@ const PlaylistCategory = () => {
                 setEditData(playlist);
               }}
               className="adminPlaylistButton"
-              type="button">
+              type="button"
+            >
               Update
             </button>
             <button onClick={() => handleDeleteItem(playlist._id)} className="adminPlaylistButton" type="button">

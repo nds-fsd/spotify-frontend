@@ -55,7 +55,8 @@ const PlaylistEditForm = ({ editData }) => {
             name="Songs"
             {...register('song', {
               required: true,
-            })}>
+            })}
+          >
             {editData?.song?.map((songName) => (
               <option value="Songs">{songName.title}</option>
             ))}
@@ -65,7 +66,8 @@ const PlaylistEditForm = ({ editData }) => {
             name="Users"
             {...register('user', {
               required: true,
-            })}>
+            })}
+          >
             {editData?.user?.map((userName) => (
               <option value="Songs">{userName.name}</option>
             ))}

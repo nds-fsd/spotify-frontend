@@ -45,7 +45,8 @@ const AlbumCategory = () => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
         }}
         className="addAlbumButton"
-        type="button">
+        type="button"
+      >
         ADD NEW +
       </button>
       {createItem && <CreateAlbumForm />}
@@ -70,7 +71,8 @@ const AlbumCategory = () => {
                   setEditData(albumName);
                 }}
                 className="adminAlbumButton"
-                type="button">
+                type="button"
+              >
                 Update
               </button>
               <button onClick={() => handleDeleteItem(albumName._id)} className="adminAlbumButton" type="button">

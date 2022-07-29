@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useListContext } from '../../context';
 import api from '../../../../Utils/api';
 import styles from './SongCategory.module.css';
@@ -51,7 +50,8 @@ const SongCategory = () => {
             if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
           }}
           className={styles.addSongButton}
-          type="button">
+          type="button"
+        >
           ADD NEW +
         </button>
         {createItem && <CreateForm />}
@@ -77,7 +77,8 @@ const SongCategory = () => {
                     setEditData(song);
                   }}
                   className={styles.songAdminButton}
-                  type="button">
+                  type="button"
+                >
                   Update
                 </button>
 

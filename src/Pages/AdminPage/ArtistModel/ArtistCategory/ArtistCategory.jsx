@@ -45,7 +45,8 @@ const ArtistCategory = () => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
         }}
         className="addArtistButton"
-        type="button">
+        type="button"
+      >
         ADD NEW +
       </button>
       {createItem && <CreateArtistForm />}
@@ -70,7 +71,8 @@ const ArtistCategory = () => {
                 setEditData(a);
               }}
               className="artistAdminButton"
-              type="button">
+              type="button"
+            >
               Update
             </button>
             <button onClick={() => handleDeleteItem(a._id)} className="artistAdminButton" type="button">

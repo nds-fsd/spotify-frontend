@@ -58,7 +58,8 @@ const EditArtistForm = ({ editData }) => {
             value="Albums"
             {...register('albums', {
               required: true,
-            })}>
+            })}
+          >
             {editData.albums.map((a) => (
               <option value="Album">{a.name}</option>
             ))}

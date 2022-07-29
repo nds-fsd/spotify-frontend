@@ -46,7 +46,8 @@ const GenreCategory = () => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
         }}
         className="addGenreButton"
-        type="button">
+        type="button"
+      >
         ADD NEW +
       </button>
       {createItem && <GenreCreateForm />}
@@ -69,7 +70,8 @@ const GenreCategory = () => {
                   setEditData(genre);
                 }}
                 className="adminGenreButton"
-                type="button">
+                type="button"
+              >
                 Update
               </button>
               <button onClick={() => handleDeleteItem(genre._id)} className="adminGenreButton" type="button">

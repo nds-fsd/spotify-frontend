@@ -27,7 +27,8 @@ const CategorySelect = () => {
               navigate('/', { replace: true });
               setRefresh(true);
             }}
-            value={home}>
+            value={home}
+          >
             Home
           </MenuItem>
           <MenuItem
@@ -36,7 +37,8 @@ const CategorySelect = () => {
               navigate('songs');
               setRefresh(true);
             }}
-            value={songs}>
+            value={songs}
+          >
             Songs
           </MenuItem>
           <MenuItem
@@ -45,7 +47,8 @@ const CategorySelect = () => {
               navigate('artists');
               setRefresh(true);
             }}
-            value={artists}>
+            value={artists}
+          >
             Artists
           </MenuItem>
           <MenuItem
@@ -54,7 +57,8 @@ const CategorySelect = () => {
               navigate('albums');
               setRefresh(true);
             }}
-            value={albums}>
+            value={albums}
+          >
             Albums
           </MenuItem>
           <MenuItem
@@ -63,7 +67,8 @@ const CategorySelect = () => {
               navigate('genres');
               setRefresh(true);
             }}
-            value={genres}>
+            value={genres}
+          >
             Genres
           </MenuItem>
           <MenuItem
@@ -72,7 +77,8 @@ const CategorySelect = () => {
               navigate('playlists');
               setRefresh(true);
             }}
-            value={playlists}>
+            value={playlists}
+          >
             Playlists
           </MenuItem>
           <MenuItem
@@ -81,7 +87,8 @@ const CategorySelect = () => {
               navigate('users');
               setRefresh(true);
             }}
-            value={users}>
+            value={users}
+          >
             Users
           </MenuItem>
         </Select>

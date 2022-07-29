@@ -4,16 +4,6 @@ import Modal from '../../../../Modals/cardModal/Modal';
 
 const AlbumCards = ({ name, photo, artist, onClick }) => {
   const [isOpen, openModal, closeModal] = useModal(false);
-  /* const secondsToMinutes = ({ duration }) => {
-  //   let seconds = Math.floor(({ duration } / 60) % 60);
-  //   let minutes = Math.floor(({ duration } / (1000 * 60)) % 60);
-
-  //   minutes = minutes < 10 ? "0" + minutes : minutes;
-  //   seconds = seconds < 10 ? "0" + seconds : seconds;
-
-  //   return minutes + ":" + seconds;
-  // };
-  // console.log(secondsToMinutes({ duration }));*/
 
   return (
     <button className="cards-container" onClick={openModal} type="button">

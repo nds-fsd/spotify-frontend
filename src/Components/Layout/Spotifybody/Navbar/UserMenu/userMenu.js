@@ -61,7 +61,8 @@ const UserMenu = () => {
         onClose={handleClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
-        }}>
+        }}
+      >
         <MenuItem onClick={handleClickProfile}>Profile</MenuItem>
         <MenuItem onClick={handleClickAlbums}>Albums</MenuItem>
         <MenuItem onClick={handleClickGenre}>Genre</MenuItem>

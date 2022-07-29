@@ -45,7 +45,8 @@ const UserCategory = () => {
                 setEditData(user);
               }}
               className="adminUserButton"
-              type="button">
+              type="button"
+            >
               Update
             </button>
             <button onClick={() => handleDeleteItem(user?._id)} className="adminUserButton" type="button">
