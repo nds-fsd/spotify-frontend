@@ -1,16 +1,15 @@
-.FooterLeft-container{
-    flex: .3;
-    margin-left: 5px;
-    margin-top: 2px;
-    display: flex;
-    align-items: center;
-    max-width: 300px;
-    
+.FooterLeft-container {
+  flex: 0.3;
+  margin-left: 5px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  max-width: 300px;
 }
 
-.FooterLeft-container img{
-    height: 65px;
-    width: 65px;
-    margin-right: 20px;
-    object-fit: contain;
+.FooterLeft-container img {
+  height: 65px;
+  width: 65px;
+  margin-right: 20px;
+  object-fit: contain;
 }

@@ -22,9 +22,6 @@
   width: 75%;
   margin: 25px 7px;
 }
-.Playlist-container {
-  margin: 30px 10px;
-}
 
 .logo {
   display: flex;
@@ -35,5 +32,5 @@
   padding: 8px;
   padding-top: 40px;
   font-weight: bolder;
-  color: #ffb700;
+  color: rgba(197, 158, 59, 0.9);
 }

@@ -1,6 +1,6 @@
 import './AddPlaylist.css';
 import { useForm } from 'react-hook-form';
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@mui/icons-material/Add';
 import { useRef, useState } from 'react';
 import { createList } from '../../../../Api/utils';
 
@@ -23,7 +23,8 @@ const AddNamePlaylist = () => {
           onClick={() => {
             if (!addPlayist ? setAddPlaylist(true) : setAddPlaylist(false)) addPlaylistInput.current.focus();
           }}
-          className="button-daown">
+          className="button-daown"
+        >
           Add Playlist
         </button>
       </div>

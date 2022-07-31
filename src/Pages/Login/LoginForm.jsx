@@ -20,7 +20,13 @@ const LoginForm = () => {
         },
       }).then((userSession) => {
         setUserSession(userSession);
-        navigate('/', { replace: true });
+        if (userSession.user.role === 'ADMIN') {
+          console.log('entra');
+          navigate('/adminpage/songs', { replace: true });
+          console.log('adminuser');
+        } else {
+          navigate('/', { replace: true });
+        }
       });
     }
   };

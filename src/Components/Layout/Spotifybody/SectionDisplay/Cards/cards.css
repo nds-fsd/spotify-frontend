@@ -13,6 +13,8 @@
   padding-left: 2px;
   width: 250px;
   height: 350px;
+  position: relative;
+  z-index: 10;
 }
 
 .cards-container img {
@@ -37,4 +39,10 @@
 .card-info {
   margin-top: 0px;
   margin-bottom: 4px;
+}
+
+.button-play{
+  position: absolute;
+
+  
 }

@@ -37,7 +37,9 @@ const LoginPage = ({ onClick }) => {
           <section className="signup-container">
             <hr />
             <h2 className="header-signup">Don't have an account?</h2>
-            <RegisterButton />
+            <div className="signUpButtonContainer">
+              <RegisterButton />
+            </div>
           </section>
         </div>
       )}
