@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import api from '../../Utils/api';
 import Genre from '../../Components/Layout/Spotifybody/SectionDisplay/Genre/genre';
-import { getAllGenres } from '../../Utils/genreUtils';
 
 const GenrePage = () => {
   const [genre, setGenre] = useState([]);
 
   useEffect(() => {
-    getAllGenres().then((data) => setGenre(data));
+    api('GET', 'genre', {}, {}).then((data) => {
+      setGenre(data);
+    });
   }, []);
 
   return (

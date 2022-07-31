@@ -22,10 +22,10 @@ const editGenre = async (genre) => {
   return response.status;
 };
 
-const getAllGenres = async () => {
-  const response = await fetch('http://localhost:8080/genre');
-  return response.json();
-};
+// const getAllGenres = async () => {
+//   const response = await fetch('http://localhost:8080/genre');
+//   return response.json();
+// };
 
 const getGenre = (id) => {
   // GET BY ID APi
@@ -42,4 +42,4 @@ const deleteGenre = async (genre) => {
   return response.status;
 };
 
-export { createGenre, editGenre, getAllGenres, getGenre, deleteGenre };
+export { createGenre, editGenre, getGenre, deleteGenre };

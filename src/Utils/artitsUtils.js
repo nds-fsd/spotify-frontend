@@ -22,10 +22,10 @@ const editArtist = async (artist) => {
   return response.status;
 };
 
-const getAllArtists = async () => {
-  const response = await fetch('http://localhost:8080/artist');
-  return response.json();
-};
+// const getAllArtists = async () => {
+//   const response = await fetch('http://localhost:8080/artist');
+//   return response.json();
+// };
 
 const getArtist = (id) => {
   // GET BY ID APi
@@ -42,4 +42,4 @@ const deleteArtist = async (artist) => {
   return response.status;
 };
 
-export { createArtist, editArtist, getAllArtists, getArtist, deleteArtist };
+export { createArtist, editArtist, getArtist, deleteArtist };

@@ -21,7 +21,6 @@ input:focus::placeholder {
 }
 
 .searchIcon {
-  height: 200px !important;
   margin: 5px;
   margin-left: -80px !important;
 }

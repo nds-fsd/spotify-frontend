@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import api from '../../Utils/api';
 import AlbumCards from '../../Components/Layout/Spotifybody/SectionDisplay/Albums/albumCard';
 import { getAllAlbums } from '../../Api/utils';
 
@@ -6,7 +7,9 @@ const Albums = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getAllAlbums().then((data) => setCards(data));
+    api('GET', 'genre', {}, {}).then((data) => {
+      setCards(data);
+    });
   }, []);
 
   console.log(cards);

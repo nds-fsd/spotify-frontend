@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
+import api from '../../Utils/api';
 import Artists from '../../Components/Layout/Spotifybody/SectionDisplay/Artists/artists';
-import { getAllArtists } from '../../Utils/artitsUtils';
 
 const ArtistPage = () => {
   const [artist, setArtist] = useState([]);
 
   useEffect(() => {
-    getAllArtists().then((data) => setArtist(data));
+    api('GET', 'artist', {}, {}).then((data) => {
+      setArtist(data);
+    });
   }, []);
 
   return (
