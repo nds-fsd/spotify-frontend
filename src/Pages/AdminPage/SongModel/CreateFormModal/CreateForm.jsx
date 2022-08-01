@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
 const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
     if (refresh) {
@@ -16,7 +16,6 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
   }, [refresh]);
 
   const onSubmit = async (data) => {
-    console.log(data);
     await api('POST', 'songs', {
       body: {
         title: data.title,
@@ -28,7 +27,12 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
         releaseDate: data.releaseDate,
       },
     });
+    reset();
   };
+
+  useEffect(() => {
+    api();
+  }, []);
 
   return (
     <div className="mainContainer">
