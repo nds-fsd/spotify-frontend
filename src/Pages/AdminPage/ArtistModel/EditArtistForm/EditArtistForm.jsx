@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import api from '../../../../Utils/api';
 
-const EditArtistForm = ({ editData }) => {
+const EditArtistForm = ({ editData, albums }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
       name: editData?.name,
@@ -55,13 +55,12 @@ const EditArtistForm = ({ editData }) => {
           &nbsp;
           <select
             className="artistAlbumSelect"
-            value="Albums"
             {...register('albums', {
               required: true,
             })}
           >
-            {editData.albums.map((a) => (
-              <option value="Album">{a.name}</option>
+            {albums?.map((albumName) => (
+              <option value={albumName?._id}>{albumName?.name}</option>
             ))}
           </select>
           <input className="artistCreateButton" type="submit" value="Update" />

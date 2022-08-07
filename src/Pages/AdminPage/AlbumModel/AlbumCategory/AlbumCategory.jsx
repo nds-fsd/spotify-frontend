@@ -7,6 +7,10 @@ import EditAlbumForm from '../EditAlbumForm/EditAlbumForm';
 
 const AlbumCategory = () => {
   const {
+    songs,
+    setSongs,
+    artist,
+    setArtist,
     albums,
     setAlbums,
     refresh,
@@ -31,6 +35,26 @@ const AlbumCategory = () => {
     }
   }, [refresh]);
 
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'artist', {}, {}).then((data) => {
+        console.log('data', data);
+        setArtist(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'songs', {}, {}).then((data) => {
+        console.log('data', data);
+        setSongs(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
   const handleDeleteItem = (id) => {
     api('DELETE', `album/${id}`, {}, {}).then(() => {
       setRefresh(true);
@@ -49,8 +73,8 @@ const AlbumCategory = () => {
       >
         ADD NEW +
       </button>
-      {createItem && <CreateAlbumForm />}
-      {editItem && <EditAlbumForm editData={editData} />}
+      {createItem && <CreateAlbumForm artist={artist} songs={songs} />}
+      {editItem && <EditAlbumForm editData={editData} artist={artist} songs={songs} />}
 
       {albums.map((albumName) => {
         console.log('albumName', albumName);
@@ -63,7 +87,7 @@ const AlbumCategory = () => {
               <h3 className="albumHeaders">{albumName.name}</h3>
               <div className="releaseYear">{albumName.releaseYear}</div>
               <h3>{albumName.artist?.name || 'No Artist'}</h3>
-              {/* <h3>{albums.songs?.title}</h3> */}
+              <h3>{albums.songs?.title}</h3>
 
               <button
                 onClick={() => {

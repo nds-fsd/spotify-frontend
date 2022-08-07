@@ -7,6 +7,10 @@ import PlaylistCreateForm from '../PlaylistCreateForm/PlaylistCreateForm';
 
 const PlaylistCategory = () => {
   const {
+    songs,
+    setSongs,
+    users,
+    setUsers,
     playlists,
     setPlaylists,
     createItemInput,
@@ -31,6 +35,26 @@ const PlaylistCategory = () => {
     }
   }, [refresh]);
 
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'songs', {}, {}).then((data) => {
+        console.log(data);
+        setSongs(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'user', {}, {}).then((data) => {
+        console.log(data);
+        setUsers(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
   const handleDeleteItem = (id) => {
     api('DELETE', `playlist/${id}`, {}, {}).then(() => {
       setRefresh(true);
@@ -50,8 +74,8 @@ const PlaylistCategory = () => {
       >
         ADD NEW +
       </button>
-      {createItem && <PlaylistCreateForm />}
-      {editItem && <PlaylistEditForm editData={editData} />}
+      {createItem && <PlaylistCreateForm songs={songs} users={users} />}
+      {editItem && <PlaylistEditForm editData={editData} songs={songs} users={users} />}
 
       {playlists?.map((playlist) => (
         <>

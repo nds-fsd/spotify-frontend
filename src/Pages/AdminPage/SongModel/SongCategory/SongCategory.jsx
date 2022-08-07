@@ -7,6 +7,8 @@ import EditForm from '../EditForm/EditForm';
 
 const SongCategory = () => {
   const {
+    artist,
+    setArtist,
     searchText,
     songs,
     setSongs,
@@ -35,6 +37,16 @@ const SongCategory = () => {
     }
   }, [refresh, searchText]);
 
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'artist', {}, {}).then((data) => {
+        console.log('data', data);
+        setArtist(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
   const handleDeleteItem = (id) => {
     api('DELETE', `songs/${id}`, {}, {}).then(() => {
       setRefresh(true);
@@ -54,8 +66,8 @@ const SongCategory = () => {
         >
           ADD NEW +
         </button>
-        {createItem && <CreateForm />}
-        {editItem && <EditForm editData={editData} />}
+        {createItem && <CreateForm artist={artist} />}
+        {editItem && <EditForm editData={editData} artist={artist} />}
 
         {songs?.map((song) => {
           console.log(song);
@@ -69,7 +81,7 @@ const SongCategory = () => {
                 <h3>{song.duration}</h3>
                 <h3>{song.genre}</h3>
                 <h3 className={styles.songUrl}>{song.soundUrl}</h3>
-                <div className={styles.releaseDate}>{song.releaseDate}</div>
+                <div className={styles.releaseYear}>{song.releaseYear}</div>
 
                 <button
                   onClick={() => {

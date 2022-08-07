@@ -3,17 +3,17 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateArtistForm = ({ refresh, album, setAlbum, setRefresh }) => {
+const CreateArtistForm = ({ albums }) => {
   const { register, handleSubmit } = useForm();
 
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `album/${album._id}`, {}, {}).then((data) => {
-        setAlbum(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
+  // useEffect(() => {
+  //   if (refresh) {
+  //     api('GET', `album/${album._id}`, {}, {}).then((data) => {
+  //       setAlbum(data);
+  //       setRefresh(false);
+  //     });
+  //   }
+  // }, [refresh]);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -59,14 +59,25 @@ const CreateArtistForm = ({ refresh, album, setAlbum, setRefresh }) => {
             type="number"
           />
           &nbsp;
-          <label className="artistLabel">Albums</label>
+          {/* <label className="artistLabel">Albums</label>
           <input
             className="artistInput"
             {...register('albums', {
               required: true,
             })}
             type="text"
-          />
+          /> */}
+          <label className="artistLabel">Albums</label>
+          <select
+            {...register('album', {
+              required: true,
+            })}
+          >
+            {albums?.map((albumName) => (
+              <option value={albumName?._id}>{albumName?.name}</option>
+            ))}
+            {console.log('albums', albums)}
+          </select>
           <input className="createButton" type="submit" value="Add" />
         </div>
       </form>

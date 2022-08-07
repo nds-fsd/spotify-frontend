@@ -3,26 +3,8 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser }) => {
+const PlaylistCreateForm = ({ songs, users }) => {
   const { register, handleSubmit } = useForm();
-
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `playlist/${song._id}`, {}, {}).then((data) => {
-        setSong(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
-
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `playlist/${user._id}`, {}, {}).then((data) => {
-        setUser(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -69,23 +51,28 @@ const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser 
             type="text"
           />
           &nbsp;
-          <label className="playlistLabel">Songs</label>
-          <input
-            className="playlistInput"
+          <label className="songLabel">Songs</label>
+          <select
             {...register('song', {
               required: true,
             })}
-            type="text"
-          />
-          <label className="playlistLabel">Users</label>
-          &nbsp;
-          <input
-            className="playlistInput"
-            {...register('user', {
+          >
+            {songs?.map((s) => (
+              <option value={s?._id}>{s?.title}</option>
+            ))}
+            {console.log('artistas', songs)}
+          </select>
+          <label className="songLabel">Users</label>
+          <select
+            {...register('song', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {users?.map((user) => (
+              <option value={user?._id}>{user?.name}</option>
+            ))}
+            {console.log('artistas', songs)}
+          </select>
           <input className="playlistCreateButton" type="submit" value="Add" />
         </div>
       </form>

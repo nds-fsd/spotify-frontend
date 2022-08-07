@@ -2,7 +2,7 @@ import './EditAlbumForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const EditAlbumForm = ({ editData }) => {
+const EditAlbumForm = ({ editData, artist }) => {
   // console.log('artist', artist);
   // console.log(editAlbum);
   const { register, handleSubmit } = useForm({
@@ -54,15 +54,16 @@ const EditAlbumForm = ({ editData }) => {
               type="number"
             />
             &nbsp;
-            <label className="albumLabel">Artist</label>
-            &nbsp;
-            <input
-              className="albumInput"
+            <select
               {...register('artist', {
                 required: true,
               })}
-              type="text"
-            />
+            >
+              {artist?.map((a) => (
+                <option value={a?._id}>{a?.name}</option>
+              ))}
+              {console.log('artistas', artist)}
+            </select>
             <input className="albumCreateButton" type="submit" value="Update" />
           </div>
         </form>
