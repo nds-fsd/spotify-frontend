@@ -8,6 +8,7 @@ const GenrePage = () => {
   useEffect(() => {
     api('GET', 'genre', {}, {}).then((data) => {
       setGenre(data);
+      console.log(data);
     });
   }, []);
 

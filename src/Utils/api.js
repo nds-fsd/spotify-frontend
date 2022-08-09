@@ -31,6 +31,7 @@ const api = (method = 'GET', path, userOptions = {}, query) => {
   // Define default headers
   const defaultHeaders = {
     'content-type': 'application/json',
+    Accept: 'application/json',
     authorization: `Bearer ${getToken()}`,
   };
 
