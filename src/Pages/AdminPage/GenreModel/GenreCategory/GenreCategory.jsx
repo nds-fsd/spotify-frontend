@@ -50,7 +50,7 @@ const GenreCategory = () => {
       >
         ADD NEW +
       </button>
-      {createItem && <GenreCreateForm />}
+      {createItem && <GenreCreateForm setGenres={setGenres} setCreateItem={setCreateItem} />}
       {editItem && <GenreEditForm editData={editData} />}
 
       {genres.map((genre) => {

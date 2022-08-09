@@ -74,11 +74,14 @@ const PlaylistCategory = () => {
       >
         ADD NEW +
       </button>
-      {createItem && <PlaylistCreateForm songs={songs} users={users} />}
+      {createItem && (
+        <PlaylistCreateForm songs={songs} users={users} setPlaylists={setPlaylists} setCreateItem={setCreateItem} />
+      )}
       {editItem && <PlaylistEditForm editData={editData} songs={songs} users={users} />}
 
       {playlists?.map((playlist) => (
         <>
+          {console.log('playlists', playlist)}
           <div className="playlistCategoryContainer">
             <img className="playlistPhoto" src={playlist.photo} alt="album picture" />
             <h3>{playlist.name}</h3>

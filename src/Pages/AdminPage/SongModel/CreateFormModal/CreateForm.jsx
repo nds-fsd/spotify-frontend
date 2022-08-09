@@ -1,9 +1,8 @@
 import './CreateForm.css';
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
 import api from '../../../../Utils/api';
 
-const CreateForm = ({ artist }) => {
+const CreateForm = ({ artist, setSongs, genres, setCreateItem }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
@@ -18,12 +17,11 @@ const CreateForm = ({ artist }) => {
         releaseYear: data.releaseYear,
       },
     });
-    reset();
-  };
 
-  useEffect(() => {
-    api();
-  }, []);
+    setSongs((songList) => [...songList, data]);
+    reset();
+    setCreateItem(false);
+  };
 
   return (
     <div className="mainContainer">
@@ -44,24 +42,10 @@ const CreateForm = ({ artist }) => {
               required: true,
             })}
           >
-            {/* {songs.map((s) => (
-              <option value={s?._id}>{s?.artist?.name}</option>
-            ))}
-          </select> */}
             {artist?.map((a) => (
               <option value={a?._id}>{a?.name}</option>
             ))}
-            {console.log('artistas', artist)}
           </select>
-          {/* <label className="songLabel">Artist</label>
-          &nbsp;
-          <input
-            className="songInput"
-            {...register('artist', {
-              required: true,
-            })}
-            type="text"
-          /> */}
           <label className="songLabel">Photo</label>
           &nbsp;
           <input
@@ -82,14 +66,15 @@ const CreateForm = ({ artist }) => {
             type="number"
           />
           <label className="songLabel">Genre</label>
-          &nbsp;
-          <input
-            className="songInput"
+          <select
             {...register('genre', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {genres?.map((genre) => (
+              <option value={genre?._id}>{genre?.name}</option>
+            ))}
+          </select>
           <label className="songLabel">Url</label>
           &nbsp;
           <input

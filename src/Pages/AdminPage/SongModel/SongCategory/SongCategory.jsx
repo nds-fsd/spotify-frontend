@@ -7,6 +7,8 @@ import EditForm from '../EditForm/EditForm';
 
 const SongCategory = () => {
   const {
+    genres,
+    setGenres,
     artist,
     setArtist,
     searchText,
@@ -40,8 +42,16 @@ const SongCategory = () => {
   useEffect(() => {
     if (refresh) {
       api('GET', 'artist', {}, {}).then((data) => {
-        console.log('data', data);
         setArtist(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'genre', {}, {}).then((data) => {
+        setGenres(data);
         setRefresh(false);
       });
     }
@@ -66,7 +76,7 @@ const SongCategory = () => {
         >
           ADD NEW +
         </button>
-        {createItem && <CreateForm artist={artist} />}
+        {createItem && <CreateForm artist={artist} setSongs={setSongs} genres={genres} setCreateItem={setCreateItem} />}
         {editItem && <EditForm editData={editData} artist={artist} />}
 
         {songs?.map((song) => {

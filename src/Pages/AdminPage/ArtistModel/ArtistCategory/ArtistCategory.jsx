@@ -61,7 +61,7 @@ const ArtistCategory = () => {
       >
         ADD NEW +
       </button>
-      {createItem && <CreateArtistForm albums={albums} />}
+      {createItem && <CreateArtistForm albums={albums} setCreateItem={setCreateItem} setArtist={setArtist} />}
       {editItem && <EditArtistForm editData={editData} albums={albums} />}
 
       {artist?.map((a) => (

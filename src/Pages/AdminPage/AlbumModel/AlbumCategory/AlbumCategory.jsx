@@ -73,7 +73,9 @@ const AlbumCategory = () => {
       >
         ADD NEW +
       </button>
-      {createItem && <CreateAlbumForm artist={artist} songs={songs} />}
+      {createItem && (
+        <CreateAlbumForm artist={artist} songs={songs} setAlbums={setAlbums} setCreateItem={setCreateItem} />
+      )}
       {editItem && <EditAlbumForm editData={editData} artist={artist} songs={songs} />}
 
       {albums.map((albumName) => {

@@ -1,19 +1,9 @@
 import './CreateArtistForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateArtistForm = ({ albums }) => {
-  const { register, handleSubmit } = useForm();
-
-  // useEffect(() => {
-  //   if (refresh) {
-  //     api('GET', `album/${album._id}`, {}, {}).then((data) => {
-  //       setAlbum(data);
-  //       setRefresh(false);
-  //     });
-  //   }
-  // }, [refresh]);
+const CreateArtistForm = ({ albums, setArtist, setCreateItem }) => {
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -25,6 +15,9 @@ const CreateArtistForm = ({ albums }) => {
         albums: data.albums,
       },
     });
+    setArtist((artistList) => [...artistList, data]);
+    setCreateItem(false);
+    reset();
   };
 
   return (

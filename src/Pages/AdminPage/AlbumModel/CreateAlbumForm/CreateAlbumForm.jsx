@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateAlbumForm = ({ artist, songs }) => {
+const CreateAlbumForm = ({ artist, setCreateItem, setAlbums }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
@@ -16,6 +16,8 @@ const CreateAlbumForm = ({ artist, songs }) => {
         songs: data.songs,
       },
     });
+    setAlbums((albumList) => [...albumList, data]);
+    setCreateItem(false);
     reset();
   };
 
