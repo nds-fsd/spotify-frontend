@@ -40,8 +40,13 @@ const PlayerProvider = ({ children }) => {
     localStorage.setItem('isPlaying', playPause);
     dispatch({ type: 'pauseSong', isPlaying: playPause });
   };
+  const [valueVol, SetValueVol] = useState(80);
 
-  return <PlayingContext.Provider value={{ ...state, playSong, setPlaying }}>{children}</PlayingContext.Provider>;
+  return (
+    <PlayingContext.Provider value={{ ...state, playSong, setPlaying, valueVol, SetValueVol }}>
+      {children}
+    </PlayingContext.Provider>
+  );
 };
 
 export default PlayerProvider;

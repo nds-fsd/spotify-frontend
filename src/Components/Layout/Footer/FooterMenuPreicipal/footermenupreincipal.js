@@ -9,18 +9,14 @@ import ReactPlayer from 'react-player';
 import usePlayer from '../../../../Hooks/use-player';
 
 const FooterMenuPrincipal = () => {
-  const { playingSong, isPlaying, setPlaying } = usePlayer();
-
-  const [url, setUrl] = useState();
-  const Url =
-    'https://gfsopfaepyoticvbyeev.supabase.co/storage/v1/object/sign/spofy/Enanitos Verdes - Lamento Boliviano HD.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzcG9meS9FbmFuaXRvcyBWZXJkZXMgLSBMYW1lbnRvIEJvbGl2aWFubyBIRC5tcDMiLCJpYXQiOjE2NTg4NjU2MzYsImV4cCI6MTk3NDIyNTYzNn0.Rq7F_QauxNk6EYX3qkixPkMSL-a6u6QN_Prnr_mLGM8';
+  const { playingSong, isPlaying, setPlaying, valueVol } = usePlayer();
 
   const handlePlayPause = () => {
     setPlaying(!isPlaying);
   };
   return (
     <div className="FooterMenuPrincipal-container">
-      <ReactPlayer url={playingSong} playing={isPlaying} />
+      <ReactPlayer url={playingSong} playing={isPlaying} volume={valueVol / 100} />
       <ShuffleIcon />
       <SkipPreviousIcon />
       <playIcon />

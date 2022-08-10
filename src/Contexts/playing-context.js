@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 
 export const PlayingContext = createContext({
+  valueVol: undefined,
   playingSong: '',
   playingQueue: [],
   isPlaying: false,
@@ -9,4 +10,5 @@ export const PlayingContext = createContext({
   deleteQueue: () => {},
   setPlaying: () => {},
   playSong: () => {},
+  SetvalueVol: () => {},
 });
