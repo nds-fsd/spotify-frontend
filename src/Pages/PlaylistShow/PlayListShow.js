@@ -6,7 +6,7 @@ import usePlayer from '../../Hooks/use-player';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const { playSong, isPlaying } = usePlayer();
+  const { isPlaying, setPlayingQueue, playingQueue, playSong, setIndex } = usePlayer();
   const getOne = async () => {
     const response = await fetch(`http://localhost:8080/playlist/${id}`);
     return response.json();
@@ -22,6 +22,10 @@ const PlayListsShow = () => {
   useEffect(() => {
     getAllCards().then((data) => setCards(data));
   }, []);
+
+  const set = (objeto) => {
+    setPlayingQueue(objeto);
+  };
 
   return (
     <>
@@ -49,7 +53,7 @@ const PlayListsShow = () => {
                   className="btn-play"
                   type="button"
                   onClick={() => {
-                    playSong(objeto.soundUrl);
+                    setPlayingQueue(objeto.soundUrl);
                     isPlaying();
                   }}
                 >

@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useReducer, useState, useEffect } from 'react';
 import { PlayingContext } from '../Contexts/playing-context';
 
 const playingSong = localStorage.getItem('playingSong');
@@ -41,9 +41,18 @@ const PlayerProvider = ({ children }) => {
     dispatch({ type: 'pauseSong', isPlaying: playPause });
   };
   const [valueVol, SetValueVol] = useState(80);
+  const [playingQueue, setPlayingQueue] = useState();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    playSong(playingQueue);
+    setIndex(0);
+  }, [playingQueue]);
 
   return (
-    <PlayingContext.Provider value={{ ...state, playSong, setPlaying, valueVol, SetValueVol }}>
+    <PlayingContext.Provider
+      value={{ ...state, playSong, setPlaying, valueVol, SetValueVol, playingQueue, setPlayingQueue, index, setIndex }}
+    >
       {children}
     </PlayingContext.Provider>
   );
