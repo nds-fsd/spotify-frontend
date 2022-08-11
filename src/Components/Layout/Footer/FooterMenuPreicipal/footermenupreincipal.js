@@ -32,11 +32,18 @@ const FooterMenuPrincipal = () => {
     }
   };
 
-  console.log(index);
+  console.log(isPlaying);
 
   return (
     <div className="FooterMenuPrincipal-container">
-      <ReactPlayer url={playingSong} playing={isPlaying} volume={valueVol / 100} width={400} height={200} />
+      <ReactPlayer
+        url={playingSong}
+        playing={isPlaying}
+        volume={valueVol / 100}
+        width={400}
+        height={200}
+        onEnded={() => handleNext()}
+      />
       <ShuffleIcon />
       <SkipPreviousIcon onClick={handlePre} />
       <playIcon />
