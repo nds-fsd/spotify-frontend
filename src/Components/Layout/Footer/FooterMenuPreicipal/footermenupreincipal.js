@@ -43,6 +43,7 @@ const FooterMenuPrincipal = () => {
         width={400}
         height={200}
         onEnded={() => handleNext()}
+        onReady={(reactPlayer) => console.log('onReady', reactPlayer.getDuration() / 60)}
       />
       <ShuffleIcon />
       <SkipPreviousIcon onClick={handlePre} />
