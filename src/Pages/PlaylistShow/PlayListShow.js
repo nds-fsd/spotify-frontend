@@ -55,6 +55,7 @@ const PlayListsShow = () => {
                   onClick={() => {
                     setPlayingQueue(objeto.soundUrl);
                     isPlaying();
+                    setIndex(0);
                   }}
                 >
                   Play
