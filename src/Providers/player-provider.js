@@ -43,6 +43,7 @@ const PlayerProvider = ({ children }) => {
   const [valueVol, SetValueVol] = useState(80);
   const [playingQueue, setPlayingQueue] = useState();
   const [index, setIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     playSong(playingQueue);
@@ -51,7 +52,19 @@ const PlayerProvider = ({ children }) => {
 
   return (
     <PlayingContext.Provider
-      value={{ ...state, playSong, setPlaying, valueVol, SetValueVol, playingQueue, setPlayingQueue, index, setIndex }}
+      value={{
+        ...state,
+        playSong,
+        setPlaying,
+        valueVol,
+        SetValueVol,
+        playingQueue,
+        setPlayingQueue,
+        index,
+        setIndex,
+        progress,
+        setProgress,
+      }}
     >
       {children}
     </PlayingContext.Provider>

@@ -6,6 +6,7 @@ export const PlayingContext = createContext({
   playingSong: [],
   playingQueue: [],
   isPlaying: false,
+  progress: false,
   addSongToQueue: () => {},
   addQueue: () => {},
   deleteQueue: () => {},
@@ -14,4 +15,5 @@ export const PlayingContext = createContext({
   SetvalueVol: () => {},
   setPlayingQueue: () => {},
   setIndex: () => {},
+  setProgress: () => {},
 });

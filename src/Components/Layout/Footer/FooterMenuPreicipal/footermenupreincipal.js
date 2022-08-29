@@ -12,7 +12,18 @@ import { getAllCards } from '../../../../Api/utils';
 import usePlayer from '../../../../Hooks/use-player';
 
 const FooterMenuPrincipal = () => {
-  const { playingSong, isPlaying, setPlaying, valueVol, playingQueue, index, setIndex, playSong } = usePlayer();
+  const {
+    playingSong,
+    isPlaying,
+    setPlaying,
+    valueVol,
+    playingQueue,
+    index,
+    setIndex,
+    playSong,
+    setProgress,
+    progress,
+  } = usePlayer();
 
   const handlePlayPause = () => {
     setPlaying(!isPlaying);
@@ -31,9 +42,11 @@ const FooterMenuPrincipal = () => {
       playSong(playingQueue[index - 1]);
     }
   };
+  console.log(progress);
 
-  console.log(isPlaying);
-
+  const handleProgress = (event, newProgress) => {
+    setProgress(newProgress);
+  };
   return (
     <div className="FooterMenuPrincipal-container">
       <ReactPlayer
@@ -44,6 +57,7 @@ const FooterMenuPrincipal = () => {
         height={200}
         onEnded={() => handleNext()}
         onReady={(reactPlayer) => console.log('onReady', reactPlayer.getDuration() / 60)}
+        onProgress={() => handleProgress()}
       />
       <ShuffleIcon />
       <SkipPreviousIcon onClick={handlePre} />
