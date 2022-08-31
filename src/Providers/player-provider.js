@@ -41,14 +41,10 @@ const PlayerProvider = ({ children }) => {
     dispatch({ type: 'pauseSong', isPlaying: playPause });
   };
   const [valueVol, SetValueVol] = useState(80);
-  const [playingQueue, setPlayingQueue] = useState();
-  const [index, setIndex] = useState(0);
+  const [playingQueue, setPlayingQueue] = useState([]);
+  const [indexSongs, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    playSong(playingQueue);
-    setIndex(0);
-  }, [playingQueue]);
+  const [countSongs, setCountSongs] = useState();
 
   return (
     <PlayingContext.Provider
@@ -60,10 +56,12 @@ const PlayerProvider = ({ children }) => {
         SetValueVol,
         playingQueue,
         setPlayingQueue,
-        index,
+        indexSongs,
         setIndex,
         progress,
         setProgress,
+        countSongs,
+        setCountSongs,
       }}
     >
       {children}

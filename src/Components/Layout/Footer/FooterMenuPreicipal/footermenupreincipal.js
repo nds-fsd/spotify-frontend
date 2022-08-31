@@ -18,11 +18,12 @@ const FooterMenuPrincipal = () => {
     setPlaying,
     valueVol,
     playingQueue,
-    index,
+    indexSongs,
     setIndex,
     playSong,
     setProgress,
     progress,
+    countSongs,
   } = usePlayer();
 
   const handlePlayPause = () => {
@@ -30,19 +31,19 @@ const FooterMenuPrincipal = () => {
   };
 
   const handleNext = () => {
-    if (playingQueue.length - 1 > index) {
-      setIndex(index + 1);
-      playSong(playingQueue[index + 1]);
-    }
+    setIndex(indexSongs + 1);
+    console.log(indexSongs);
   };
 
   const handlePre = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-      playSong(playingQueue[index - 1]);
+    if (indexSongs > 0) {
+      setIndex(indexSongs - 1);
+      playSong(playingQueue);
+
+      console.log(indexSongs);
     }
   };
-  console.log(progress);
+  console.log(playingSong);
 
   const handleProgress = (event, newProgress) => {
     setProgress(newProgress);

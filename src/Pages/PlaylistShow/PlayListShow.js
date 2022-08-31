@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAllCards } from '../../Api/utils';
 import usePlayer from '../../Hooks/use-player';
+import api from '../../Utils/api';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const { isPlaying, setPlayingQueue, playingQueue, playSong, setIndex } = usePlayer();
+  const { isPlaying, setPlayingQueue, playingQueue, playSong, setIndex, indexSongs, setCountSongs, countSongs } =
+    usePlayer();
   const getOne = async () => {
     const response = await fetch(`http://localhost:8080/playlist/${id}`);
     return response.json();
@@ -23,9 +25,19 @@ const PlayListsShow = () => {
     getAllCards().then((data) => setCards(data));
   }, []);
 
-  const set = (objeto) => {
-    setPlayingQueue(objeto);
-  };
+  const [playListSong, setPlayListSongs] = useState([]);
+
+  useEffect(() => {
+    getOne().then((data) => setPlayListSongs(data.songs));
+  }, []);
+
+  useEffect(() => {
+    getOne().then((data) => setCountSongs(data.songs[indexSongs].soundUrl));
+    console.log(countSongs);
+    setPlayingQueue(countSongs);
+    playSong(playingQueue);
+  }, [indexSongs]);
+  console.log(playListSong.length);
 
   return (
     <>
@@ -42,7 +54,7 @@ const PlayListsShow = () => {
           </p>
         </div>
         <div className="List-names">
-          {cards.map((objeto) => (
+          {playListSong.map((objeto, index) => (
             <div className="conteiner-name">
               {' '}
               <>
@@ -53,8 +65,6 @@ const PlayListsShow = () => {
                   className="btn-play"
                   type="button"
                   onClick={() => {
-                    setPlayingQueue(objeto.soundUrl);
-                    isPlaying();
                     setIndex(0);
                   }}
                 >
