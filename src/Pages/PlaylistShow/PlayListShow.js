@@ -1,43 +1,43 @@
 import './PlayListsShow.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { SubscriptionsOutlined } from '@mui/icons-material';
 import { getAllCards } from '../../Api/utils';
 import usePlayer from '../../Hooks/use-player';
 import api from '../../Utils/api';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const { isPlaying, setPlayingQueue, playingQueue, playSong, setIndex, indexSongs, setCountSongs, countSongs } =
-    usePlayer();
+  const {
+    isPlaying,
+    setPlayingQueue,
+    playingQueue,
+    playSong,
+    setIndex,
+    indexSongs,
+    setCountSongs,
+    countSongs,
+    setPlayListSongs,
+    playListSongs,
+  } = usePlayer();
+
   const getOne = async () => {
     const response = await fetch(`http://localhost:8080/playlist/${id}`);
     return response.json();
   };
 
   const [listOne, setListOne] = useState([]);
+
   useEffect(() => {
     getOne().then((data) => setListOne(data));
   }, []);
 
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    getAllCards().then((data) => setCards(data));
-  }, []);
-
-  const [playListSong, setPlayListSongs] = useState([]);
-
   useEffect(() => {
     getOne().then((data) => setPlayListSongs(data.songs));
   }, []);
-
   useEffect(() => {
     getOne().then((data) => setCountSongs(data.songs[indexSongs].soundUrl));
-    console.log(countSongs);
-    setPlayingQueue(countSongs);
-    playSong(playingQueue);
   }, [indexSongs]);
-  console.log(playListSong.length);
 
   return (
     <>
@@ -53,9 +53,9 @@ const PlayListsShow = () => {
             <h2 className="banner">{listOne.name}</h2> lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem{' '}
           </p>
         </div>
-        <div className="List-names">
-          {playListSong.map((objeto, index) => (
-            <div className="conteiner-name">
+        <div className="List-name">
+          {playListSongs.map((objeto, index) => (
+            <div className="conteiner-name btn-playy">
               {' '}
               <>
                 <div>
@@ -65,7 +65,7 @@ const PlayListsShow = () => {
                   className="btn-play"
                   type="button"
                   onClick={() => {
-                    setIndex(0);
+                    setIndex(index);
                   }}
                 >
                   Play

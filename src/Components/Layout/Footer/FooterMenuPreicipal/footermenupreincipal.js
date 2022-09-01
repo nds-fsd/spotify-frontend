@@ -24,6 +24,11 @@ const FooterMenuPrincipal = () => {
     setProgress,
     progress,
     countSongs,
+    playListSong,
+    setPlayListSongs,
+    playListSongs,
+    setCountSongs,
+    setPlayingQueue,
   } = usePlayer();
 
   const handlePlayPause = () => {
@@ -31,23 +36,27 @@ const FooterMenuPrincipal = () => {
   };
 
   const handleNext = () => {
-    setIndex(indexSongs + 1);
-    console.log(indexSongs);
+    if (playListSongs.length - 1 > indexSongs) {
+      setIndex(indexSongs + 1);
+    }
   };
 
   const handlePre = () => {
     if (indexSongs > 0) {
+      setIndex(indexSongs);
       setIndex(indexSongs - 1);
-      playSong(playingQueue);
-
-      console.log(indexSongs);
     }
   };
-  console.log(playingSong);
 
   const handleProgress = (event, newProgress) => {
     setProgress(newProgress);
   };
+
+  useEffect(() => {
+    setPlayingQueue(countSongs);
+  }, [countSongs]);
+  console.log(indexSongs);
+
   return (
     <div className="FooterMenuPrincipal-container">
       <ReactPlayer

@@ -45,6 +45,11 @@ const PlayerProvider = ({ children }) => {
   const [indexSongs, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [countSongs, setCountSongs] = useState();
+  const [playListSongs, setPlayListSongs] = useState([]);
+  useEffect(() => {
+    playSong(playingQueue);
+    setIndex(indexSongs);
+  }, [playingQueue]);
 
   return (
     <PlayingContext.Provider
@@ -62,6 +67,8 @@ const PlayerProvider = ({ children }) => {
         setProgress,
         countSongs,
         setCountSongs,
+        playListSongs,
+        setPlayListSongs,
       }}
     >
       {children}
