@@ -55,7 +55,6 @@ const FooterMenuPrincipal = () => {
   useEffect(() => {
     setPlayingQueue(countSongs);
   }, [countSongs]);
-  console.log(indexSongs);
 
   return (
     <div className="FooterMenuPrincipal-container">
