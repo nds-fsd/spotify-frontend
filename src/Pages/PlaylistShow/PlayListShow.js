@@ -19,24 +19,26 @@ const PlayListsShow = () => {
     countSongs,
     setPlayListSongs,
     playListSongs,
+    setPlaying,
   } = usePlayer();
-
-  const getOne = async () => {
-    const response = await fetch(`http://localhost:8080/playlist/${id}`);
-    return response.json();
-  };
 
   const [listOne, setListOne] = useState([]);
 
   useEffect(() => {
-    getOne().then((data) => setListOne(data));
+    api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setListOne(data.song);
+    });
   }, []);
+  console.log(listOne);
 
   useEffect(() => {
-    getOne().then((data) => setPlayListSongs(data.songs));
-  }, []);
+    setPlayListSongs(listOne);
+  }, [listOne]);
+
   useEffect(() => {
-    getOne().then((data) => setCountSongs(data.songs[indexSongs].soundUrl));
+    api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setCountSongs(playListSongs[indexSongs].soundUrl);
+    });
   }, [indexSongs]);
 
   return (
@@ -54,7 +56,7 @@ const PlayListsShow = () => {
           </p>
         </div>
         <div className="List-name">
-          {playListSongs.map((objeto, index) => (
+          {listOne.map((objeto, index) => (
             <div className="conteiner-name btn-playy">
               {' '}
               <>
@@ -66,6 +68,7 @@ const PlayListsShow = () => {
                   type="button"
                   onClick={() => {
                     setIndex(index);
+                    setPlaying(true);
                   }}
                 >
                   Play

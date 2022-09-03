@@ -75,7 +75,9 @@ h3 {
   opacity: .5;
  transform: translateX(70px);
  display: none;
+ cursor: pointer;
 }
+
 
 
 .conteiner-name:hover>.btn-play{

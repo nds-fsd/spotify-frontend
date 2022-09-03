@@ -46,6 +46,7 @@ const PlayerProvider = ({ children }) => {
   const [progress, setProgress] = useState(0);
   const [countSongs, setCountSongs] = useState();
   const [playListSongs, setPlayListSongs] = useState([]);
+
   useEffect(() => {
     playSong(playingQueue);
     setIndex(indexSongs);

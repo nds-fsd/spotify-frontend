@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import { getAlllist } from '../../../../../Api/utils';
 import './PlayList.css';
+import api from '../../../../../Utils/api';
 
 const PlayListName = () => {
   const [list, setList] = useState([]);
+
   useEffect(() => {
-    getAlllist().then((data) => setList(data));
+    api('GET', 'playlist', {}, {}).then((data) => {
+      setList(data);
+    });
   }, []);
 
   return (
