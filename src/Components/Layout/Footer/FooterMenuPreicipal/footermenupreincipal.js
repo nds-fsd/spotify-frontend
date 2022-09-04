@@ -80,7 +80,6 @@ const FooterMenuPrincipal = () => {
         onProgress={() => handleProgress()}
         loop={loopset}
       />
-      <ShuffleIcon />
       <SkipPreviousIcon onClick={handlePre} />
       <playIcon />
       {!isPlaying ? (
