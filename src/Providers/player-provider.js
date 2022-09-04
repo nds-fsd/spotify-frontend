@@ -50,7 +50,7 @@ const PlayerProvider = ({ children }) => {
   useEffect(() => {
     playSong(playingQueue);
     setIndex(indexSongs);
-  }, [playingQueue]);
+  }, [playingQueue, isPlaying]);
 
   return (
     <PlayingContext.Provider

@@ -51,10 +51,21 @@ const FooterMenuPrincipal = () => {
   const handleProgress = (event, newProgress) => {
     setProgress(newProgress);
   };
+  const [loopset, setLoop] = useState(false);
 
   useEffect(() => {
     setPlayingQueue(countSongs);
-  }, [countSongs]);
+  }, [countSongs, loopset]);
+
+  const loop = () => {
+    if (!loopset) {
+      setLoop(true);
+    } else {
+      setLoop(false);
+    }
+    console.log(loopset);
+  };
+  console.log(loopset);
 
   return (
     <div className="FooterMenuPrincipal-container">
@@ -67,6 +78,7 @@ const FooterMenuPrincipal = () => {
         onEnded={() => handleNext()}
         onReady={(reactPlayer) => console.log('onReady', reactPlayer.getDuration() / 60)}
         onProgress={() => handleProgress()}
+        loop={loopset}
       />
       <ShuffleIcon />
       <SkipPreviousIcon onClick={handlePre} />
@@ -77,7 +89,7 @@ const FooterMenuPrincipal = () => {
         <PauseCircleOutlineIcon onClick={handlePlayPause} />
       )}
       <SkipNextIcon onClick={handleNext} />
-      <RepeatIcon />
+      <RepeatIcon onClick={loop} />
     </div>
   );
 };

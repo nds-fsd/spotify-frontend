@@ -16,9 +16,6 @@ const FooterSubMenu = () => {
   return (
     <div className="FooterSubMenu-container">
       <Grid item>
-        <PlaylistPlayIcon />{' '}
-      </Grid>
-      <Grid item>
         <VolumeDownIcon />{' '}
       </Grid>
       <Grid item xs>

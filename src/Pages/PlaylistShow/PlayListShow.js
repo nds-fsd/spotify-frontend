@@ -8,19 +8,7 @@ import api from '../../Utils/api';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const {
-    isPlaying,
-    setPlayingQueue,
-    playingQueue,
-    playSong,
-    setIndex,
-    indexSongs,
-    setCountSongs,
-    countSongs,
-    setPlayListSongs,
-    playListSongs,
-    setPlaying,
-  } = usePlayer();
+  const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying } = usePlayer();
 
   const [listOne, setListOne] = useState([]);
 
@@ -38,8 +26,10 @@ const PlayListsShow = () => {
   useEffect(() => {
     api('GET', `playlist/${id}`, {}, {}).then((data) => {
       setCountSongs(playListSongs[indexSongs].soundUrl);
+      setPlaying(false);
     });
-  }, [indexSongs]);
+  }, [indexSongs, playListSongs]);
+  console.log(isPlaying);
 
   return (
     <>
