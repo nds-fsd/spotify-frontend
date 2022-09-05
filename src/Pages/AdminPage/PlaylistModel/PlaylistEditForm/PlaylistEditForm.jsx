@@ -1,9 +1,8 @@
-import './PlaylistEditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const PlaylistEditForm = ({ editData }) => {
-  const { register, handleSubmit } = useForm({
+const PlaylistEditForm = ({ editData, songs, users, setEditItem }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
       photo: editData?.photo,
@@ -14,8 +13,9 @@ const PlaylistEditForm = ({ editData }) => {
   });
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editData?._id);
     api('PATCH', `playlist/${editData?._id}`, { body: updateData }, {}).then(() => {});
+    reset();
+    setEditItem(false);
   };
 
   return (
@@ -50,43 +50,27 @@ const PlaylistEditForm = ({ editData }) => {
             type="text"
           />
           &nbsp;
+          <label className="playlistLabel">Songs</label>
           <select
-            className="playlistLabel"
-            name="Songs"
             {...register('song', {
               required: true,
             })}
           >
-            {editData?.song?.map((songName) => (
-              <option value="Songs">{songName.title}</option>
+            {songs?.map((s) => (
+              <option value={s?._id}>{s?.title}</option>
             ))}
           </select>
+          <label className="playlistLabel">Users</label>
           <select
-            className="playlistLabel"
-            name="Users"
+            className="selectUser"
             {...register('user', {
               required: true,
             })}
           >
-            {editData?.user?.map((userName) => (
-              <option value="Songs">{userName.name}</option>
+            {users?.map((user) => (
+              <option value={user?._id}>{user?.name}</option>
             ))}
           </select>
-          {/* <label>Songs</label>
-          <input
-            {...register('song', {
-              required: true,
-            })}
-            type="text"
-          />
-          <label>Users</label>
-          &nbsp;
-          <input
-            {...register('user', {
-              required: true,
-            })}
-            type="text"
-          /> */}
           <input className="playlistCreateButton" type="submit" value="Update" />
         </div>
       </form>

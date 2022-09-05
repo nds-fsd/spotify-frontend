@@ -9,10 +9,6 @@ import { useListContext } from '../context';
 const CategorySelect = () => {
   const { home, songs, artists, setRefresh, albums, genres, playlists, users } = useListContext();
   const navigate = useNavigate();
-  //   const handleChangeCategories = (value) => {
-  //     navigate(value.target.value);
-  //     setRefresh(true);
-  //   };
 
   return (
     <div>

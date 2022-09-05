@@ -2,8 +2,8 @@ import './GenreCreateForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const GenreCreateForm = () => {
-  const { register, handleSubmit } = useForm();
+const GenreCreateForm = ({ setCreateItem, setGenres }) => {
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -14,6 +14,9 @@ const GenreCreateForm = () => {
         description: data.description,
       },
     });
+    setGenres((genreList) => [...genreList, data]);
+    setCreateItem(false);
+    reset();
   };
 
   return (

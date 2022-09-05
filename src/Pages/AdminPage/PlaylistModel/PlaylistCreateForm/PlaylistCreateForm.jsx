@@ -1,31 +1,11 @@
 import './PlaylistCreateForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser }) => {
-  const { register, handleSubmit } = useForm();
-
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `playlist/${song._id}`, {}, {}).then((data) => {
-        setSong(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
-
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `playlist/${user._id}`, {}, {}).then((data) => {
-        setUser(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
+const PlaylistCreateForm = ({ songs, users, setPlaylists, setCreateItem }) => {
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     await api('POST', 'playlist', {
       body: {
         name: data.name,
@@ -35,6 +15,9 @@ const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser 
         user: data.user,
       },
     });
+    setPlaylists((playList) => [...playList, data]);
+    reset();
+    setCreateItem(false);
   };
 
   return (
@@ -54,12 +37,12 @@ const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser 
           &nbsp;
           <input
             className="playlistInput"
-            {...register('bio', {
+            {...register('photo', {
               required: true,
             })}
             type="text"
           />
-          <label className="descriptionPlaylistLabel">Description</label>
+          <label className="playlistLabel">Description</label>
           &nbsp;
           <textarea
             className="playlistInput"
@@ -70,30 +53,31 @@ const PlaylistCreateForm = ({ refresh, song, setSong, setRefresh, user, setUser 
           />
           &nbsp;
           <label className="playlistLabel">Songs</label>
-          <input
-            className="playlistInput"
+          <select
             {...register('song', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {songs?.map((s) => (
+              <option value={s?._id}>{s?.title}</option>
+            ))}
+          </select>
           <label className="playlistLabel">Users</label>
-          &nbsp;
-          <input
-            className="playlistInput"
+          <select
+            className="selectUser"
             {...register('user', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {users?.map((user) => (
+              <option value={user?._id}>{user?.name}</option>
+            ))}
+          </select>
           <input className="playlistCreateButton" type="submit" value="Add" />
         </div>
       </form>
     </div>
-    // </div>
   );
 };
-
-// y si son varios albums??
 
 export default PlaylistCreateForm;

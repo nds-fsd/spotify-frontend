@@ -2,8 +2,8 @@ import './UserEditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const UserEditForm = ({ editData }) => {
-  const { register, handleSubmit } = useForm({
+const UserEditForm = ({ editData, setEditItem }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
       email: editData?.email,
@@ -15,8 +15,9 @@ const UserEditForm = ({ editData }) => {
   });
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editData?._id);
     api('PATCH', `user/${editData?._id}`, { body: updateData }, {}).then(() => {});
+    reset();
+    setEditItem(false);
   };
 
   return (

@@ -1,15 +1,11 @@
-import './EditArtistForm.css';
 import { useForm } from 'react-hook-form';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import api from '../../../../Utils/api';
 
-const EditArtistForm = ({ editData }) => {
-  const { register, handleSubmit } = useForm({
+const EditArtistForm = ({ editData, albums, setEditItem }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
+      photo: editData?.photo,
       bio: editData?.bio,
       monthlyUsers: editData?.monthlyUsers,
       albums: editData.albums,
@@ -17,8 +13,9 @@ const EditArtistForm = ({ editData }) => {
   });
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editData?._id);
     api('PATCH', `artist/${editData?._id}`, { body: updateData }, {}).then(() => {});
+    reset();
+    setEditItem(false);
   };
 
   return (
@@ -33,6 +30,16 @@ const EditArtistForm = ({ editData }) => {
               required: true,
             })}
             type="text"
+          />
+          <label className="artistLabel">Photo</label>
+          &nbsp;
+          <input
+            className="artistInput"
+            {...register('photo', {
+              required: true,
+            })}
+            type="text"
+            alt="artist photo"
           />
           <label className="artistLabel">Biography</label>
           &nbsp;
@@ -53,15 +60,15 @@ const EditArtistForm = ({ editData }) => {
             type="number"
           />
           &nbsp;
+          <label className="artistLabel">Albums</label>
           <select
             className="artistAlbumSelect"
-            value="Albums"
             {...register('albums', {
               required: true,
             })}
           >
-            {editData.albums.map((a) => (
-              <option value="Album">{a.name}</option>
+            {albums?.map((albumName) => (
+              <option value={albumName?._id}>{albumName?.name}</option>
             ))}
           </select>
           <input className="artistCreateButton" type="submit" value="Update" />
