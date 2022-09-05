@@ -1,8 +1,8 @@
 import './cards.css';
 import { useModal } from '../../../../Modals/cardModal/useModal';
-import Modal from '../../../../Modals/cardModal/Modal';
-import AddNamePlaylist from '../../../Sidebar/AddPlaylist/AddPlaylist';
-import PlayListName from '../../../Sidebar/AddPlaylist/PlayList/PlayList';
+// import Modal from '../../../../Modals/cardModal/Modal';
+// import AddNamePlaylist from '../../../Sidebar/AddPlaylist/AddPlaylist';
+// import PlayListName from '../../../Sidebar/AddPlaylist/PlayList/PlayList';
 
 const Cards = ({ photo, genre, title, releaseDate, duration, artist }) => {
   const [isOpen, openModal, closeModal] = useModal(false);
