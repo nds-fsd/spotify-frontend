@@ -2,7 +2,6 @@ import './PlayListsShow.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SubscriptionsOutlined } from '@mui/icons-material';
-import { getAllCards } from '../../Api/utils';
 import usePlayer from '../../Hooks/use-player';
 import api from '../../Utils/api';
 

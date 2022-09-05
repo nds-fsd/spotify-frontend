@@ -8,7 +8,6 @@ const Albums = () => {
   useEffect(() => {
     api('GET', 'album', {}, {}).then((data) => {
       setAlbum(data);
-      console.log('album', data);
     });
   }, []);
 

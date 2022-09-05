@@ -6,11 +6,10 @@ const PlayListName = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    api('GET', 'playlist', {}, {}).then((data) => {
+    api('GET', 'playlist/', {}, {}).then((data) => {
       setList(data);
     });
-  }, []);
-
+  }, [list]);
   return (
     <div className="Conteiner-Playlist">
       {list.map((objeto) => (

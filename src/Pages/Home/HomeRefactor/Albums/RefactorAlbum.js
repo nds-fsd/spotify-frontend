@@ -9,7 +9,6 @@ const RefactorAlbum = () => {
     api('GET', 'album', {}, {}).then((data) => {
       const fewAlbums = data.slice(0, 5);
       setRefactorAlbum(fewAlbums);
-      console.log('albums', refactorAlbum);
     });
   }, []);
 

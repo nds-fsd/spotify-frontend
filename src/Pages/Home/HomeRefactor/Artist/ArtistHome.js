@@ -6,7 +6,7 @@ const ArtistPage = () => {
   const [artist, setArtist] = useState([]);
 
   useEffect(() => {
-    api('GET', 'artist', {}, {}).then((data) => {
+    api('GET', 'song', {}, {}).then((data) => {
       setArtist(data);
     });
   }, []);
