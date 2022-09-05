@@ -43,7 +43,7 @@ const CreateAlbumForm = ({ artist, setCreateItem, setAlbums }) => {
             })}
             type="text"
           />
-          <label className="releaseYear">Release Year</label>
+          <label className="releaseYearLabel">Year</label>
           &nbsp;
           <input
             className="albumreleaseYearInput"
@@ -53,6 +53,7 @@ const CreateAlbumForm = ({ artist, setCreateItem, setAlbums }) => {
             type="number"
           />
           &nbsp;
+          <label className="albumLabel">Artist</label>
           <select
             {...register('artist', {
               required: true,

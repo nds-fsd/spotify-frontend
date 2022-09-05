@@ -7,6 +7,7 @@ import PlaylistCreateForm from '../PlaylistCreateForm/PlaylistCreateForm';
 
 const PlaylistCategory = () => {
   const {
+    searchText,
     songs,
     setSongs,
     users,
@@ -26,19 +27,20 @@ const PlaylistCategory = () => {
   } = useListContext();
 
   useEffect(() => {
-    if (refresh) {
-      api('GET', 'playlist', {}, {}).then((data) => {
-        console.log(data);
-        setPlaylists(data);
-        setRefresh(false);
-      });
+    const query = {};
+    if (searchText !== '') {
+      query.search = searchText;
     }
-  }, [refresh]);
+    api('GET', 'playlist', {}, query).then((data) => {
+      console.log(data);
+      setPlaylists(data);
+      setRefresh(false);
+    });
+  }, [refresh, searchText]);
 
   useEffect(() => {
     if (refresh) {
       api('GET', 'songs', {}, {}).then((data) => {
-        console.log(data);
         setSongs(data);
         setRefresh(false);
       });
@@ -48,7 +50,6 @@ const PlaylistCategory = () => {
   useEffect(() => {
     if (refresh) {
       api('GET', 'user', {}, {}).then((data) => {
-        console.log(data);
         setUsers(data);
         setRefresh(false);
       });
@@ -68,6 +69,7 @@ const PlaylistCategory = () => {
       <button
         onClick={() => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+          setEditItem(false);
         }}
         className="addPlaylistButton"
         type="button"
@@ -77,24 +79,27 @@ const PlaylistCategory = () => {
       {createItem && (
         <PlaylistCreateForm songs={songs} users={users} setPlaylists={setPlaylists} setCreateItem={setCreateItem} />
       )}
-      {editItem && <PlaylistEditForm editData={editData} songs={songs} users={users} />}
+      {editItem && <PlaylistEditForm editData={editData} songs={songs} users={users} setEditItem={setEditItem} />}
 
       {playlists?.map((playlist) => (
         <>
-          {console.log('playlists', playlist)}
           <div className="playlistCategoryContainer">
-            <img className="playlistPhoto" src={playlist.photo} alt="album picture" />
-            <h3>{playlist.name}</h3>
-            <div className="playlistDescription">{playlist.description}</div>
-            {playlist?.song?.map((songName) => (
-              <h3>{songName.title}</h3>
-            ))}
-            <h3>{playlist?.user?.name || 'No user'}</h3>
+            <img className="playlistPhoto" src={playlist?.photo} alt="album picture" />
+            <h3 className="playlistHeaders">{playlist?.name}</h3>
+            <div className="playlistDescription">{playlist?.description}</div>
+            <div className="songList">
+              {playlist?.songs?.map((songName) => (
+                <li className="playlistSongs">{songName?.title || 'No Songs'}</li>
+              ))}
+            </div>
+
+            <h3 className="playlistHeaders">{playlist?.user?.name || 'No user'}</h3>
 
             <button
               onClick={() => {
                 if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
                 setEditData(playlist);
+                setCreateItem(false);
               }}
               className="adminPlaylistButton"
               type="button"

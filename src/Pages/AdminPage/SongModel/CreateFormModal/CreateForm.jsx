@@ -18,7 +18,7 @@ const CreateForm = ({ artist, setSongs, genres, setCreateItem }) => {
       },
     });
 
-    setSongs((songList) => [...songList, data]);
+    setSongs((songList) => [data, ...songList]);
     reset();
     setCreateItem(false);
   };
@@ -37,6 +37,7 @@ const CreateForm = ({ artist, setSongs, genres, setCreateItem }) => {
             type="text"
           />
           <label className="songLabel">Artist</label>
+          &nbsp;
           <select
             {...register('artist', {
               required: true,
@@ -66,6 +67,7 @@ const CreateForm = ({ artist, setSongs, genres, setCreateItem }) => {
             type="number"
           />
           <label className="songLabel">Genre</label>
+          &nbsp;
           <select
             {...register('genre', {
               required: true,

@@ -17,8 +17,21 @@ footer {
   font-weight: 700;
   border: solid grey;
   margin-bottom: 15px;
+  opacity: 0;
+  animation: popUpForm 2s ease 5s forwards;
 }
 
 .signup-button:hover {
-  border: solid black;
+  border: 2.5px solid #db9d47;
+  font-size: 22px;
+  cursor: pointer;
+  width: 420px;
+  height: 55px;
+  border-radius: 25px;
+}
+
+@keyframes popUpForm {
+  to {
+    opacity: 1;
+  }
 }

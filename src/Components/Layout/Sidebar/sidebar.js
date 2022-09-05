@@ -8,7 +8,7 @@ import SidebarMenu from './Sidebarmenu/sibebarmenu';
 import AddNamePlaylist from './AddPlaylist/AddPlaylist';
 import PlayListName from './AddPlaylist/PlayList/PlayList';
 
-const Sidebar = ({ onClick }) => (
+const Sidebar = ({}) => (
   // const navigate = useNavigate();
 
   // const handleHomeClick = () => {

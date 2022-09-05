@@ -1,13 +1,13 @@
 .genreCreateInputContainer {
-  /* background-color: rgb(12, 58, 82); */
-  color: BLACK;
+  background-color: rgba(186, 193, 184, 0.2);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: rgba(3, 0, 39);
   display: flex;
-  flex-direction: row;
-  width: 575px;
-  height: 185px;
+  width: 70%;
+  height: 100%;
   padding: 8px;
-  /* margin: -86px; */
-  margin-left: 130px;
+  margin-left: 107px;
 }
 
 .genreCreateFormInput {
@@ -15,50 +15,49 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-top: 33px;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 18px;
+  padding: 10px;
 }
 .genreInput {
   display: flex;
   padding: 3px;
-  width: 190px;
-
+  width: 240px;
   height: 25px;
+  margin-bottom: 8px;
 }
+
 .descriptionInput {
   display: flex;
   padding: 3px;
-  width: 190px;
-
+  width: 240px;
   height: 25px;
-  transform: translate(-118px, -8px);
+  margin-left: -507px;
 }
 
 .descriptionLabel {
   width: 140px;
-  margin-right: -99px;
-  margin-left: 60px;
   font-size: 19px;
   padding: 5px;
-  transform: translate(-118px, -8px);
+  margin: 0;
 }
 
 .genreLabel {
   font-size: 19px;
   padding: 5px;
+  width: 75px;
 }
 
 .genreCreateButton {
   padding: 5px;
-  width: 70px;
+  width: 71px;
   justify-content: center;
   margin-top: 8px;
   margin-left: 2px;
-  background-color: rgba(197, 158, 59, 0.9);
-  color: #ddd;
+  background-color: #db9d47;
+  color: rgba(3, 0, 39);
   font-size: 18px;
   border: transparent;
-  height: 30px;
-  border-radius: 5px;
-  transform: translate(-125px, -15px);
+  border-radius: 10px;
 }

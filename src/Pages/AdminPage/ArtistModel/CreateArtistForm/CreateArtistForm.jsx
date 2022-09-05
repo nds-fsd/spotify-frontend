@@ -10,6 +10,7 @@ const CreateArtistForm = ({ albums, setArtist, setCreateItem }) => {
     await api('POST', 'artist', {
       body: {
         name: data.name,
+        photo: data.photo,
         bio: data.bio,
         monthlyUsers: data.monthlyUsers,
         albums: data.albums,
@@ -32,6 +33,16 @@ const CreateArtistForm = ({ albums, setArtist, setCreateItem }) => {
               required: true,
             })}
             type="text"
+          />
+          <label className="artistLabel">Photo</label>
+          &nbsp;
+          <input
+            className="artistInput"
+            {...register('photo', {
+              required: false,
+            })}
+            type="text"
+            alt="artist photo"
           />
           <label className="artistLabel">Biography</label>
           &nbsp;
@@ -71,7 +82,7 @@ const CreateArtistForm = ({ albums, setArtist, setCreateItem }) => {
             ))}
             {console.log('albums', albums)}
           </select>
-          <input className="createButton" type="submit" value="Add" />
+          <input className="artistCreateButton" type="submit" value="Add" />
         </div>
       </form>
     </div>

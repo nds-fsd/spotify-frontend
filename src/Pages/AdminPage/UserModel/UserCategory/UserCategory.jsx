@@ -5,18 +5,30 @@ import UserEditForm from '../UserEditForm/UserEditForm';
 import './UserCategory.css';
 
 const UserCategory = () => {
-  const { users, setUsers, editItemInput, refresh, setRefresh, editItem, setEditItem, editData, setEditData } =
-    useListContext();
+  const {
+    searchText,
+    users,
+    setUsers,
+    editItemInput,
+    refresh,
+    setRefresh,
+    editItem,
+    setEditItem,
+    editData,
+    setEditData,
+  } = useListContext();
 
   useEffect(() => {
-    if (refresh) {
-      api('GET', 'user', {}, {}).then((data) => {
-        console.log(data);
-        setUsers(data);
-        setRefresh(false);
-      });
+    const query = {};
+    if (searchText !== '') {
+      query.search = searchText;
     }
-  }, [refresh]);
+    api('GET', 'user', {}, query).then((data) => {
+      console.log(data);
+      setUsers(data);
+      setRefresh(false);
+    });
+  }, [refresh, searchText]);
 
   const handleDeleteItem = (id) => {
     api('DELETE', `user/${id}`, {}, {}).then(() => {
@@ -29,12 +41,11 @@ const UserCategory = () => {
   return (
     <div>
       <span className="userCategoryTitle">USERS</span>
-      {editItem && <UserEditForm editData={editData} />}
+      {editItem && <UserEditForm editData={editData} setEditItem={setEditItem} />}
       {users?.map((user) => (
         <>
           <div className="userCategoryContainer">
             <div className="userContainer">{user.name}</div>
-            {/* <div className="userContainer">{user.password}</div> */}
             <div className="userContainer">{user.email}</div>
             <div className="userContainer">{user.createdAt}</div>
             <div className="userContainer">{user.updatedAt}</div>

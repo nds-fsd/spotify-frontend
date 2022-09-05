@@ -1,9 +1,8 @@
-import './PlaylistEditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const PlaylistEditForm = ({ editData, songs, users }) => {
-  const { register, handleSubmit } = useForm({
+const PlaylistEditForm = ({ editData, songs, users, setEditItem }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
       photo: editData?.photo,
@@ -14,8 +13,9 @@ const PlaylistEditForm = ({ editData, songs, users }) => {
   });
 
   const onSubmit = (updateData) => {
-    console.log('aaa', updateData, editData?._id);
     api('PATCH', `playlist/${editData?._id}`, { body: updateData }, {}).then(() => {});
+    reset();
+    setEditItem(false);
   };
 
   return (
@@ -50,7 +50,7 @@ const PlaylistEditForm = ({ editData, songs, users }) => {
             type="text"
           />
           &nbsp;
-          <label className="songLabel">Songs</label>
+          <label className="playlistLabel">Songs</label>
           <select
             {...register('song', {
               required: true,
@@ -60,8 +60,9 @@ const PlaylistEditForm = ({ editData, songs, users }) => {
               <option value={s?._id}>{s?.title}</option>
             ))}
           </select>
-          <label className="songLabel">Users</label>
+          <label className="playlistLabel">Users</label>
           <select
+            className="selectUser"
             {...register('user', {
               required: true,
             })}

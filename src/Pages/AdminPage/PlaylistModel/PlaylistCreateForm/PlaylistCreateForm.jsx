@@ -37,12 +37,12 @@ const PlaylistCreateForm = ({ songs, users, setPlaylists, setCreateItem }) => {
           &nbsp;
           <input
             className="playlistInput"
-            {...register('bio', {
+            {...register('photo', {
               required: true,
             })}
             type="text"
           />
-          <label className="descriptionPlaylistLabel">Description</label>
+          <label className="playlistLabel">Description</label>
           &nbsp;
           <textarea
             className="playlistInput"
@@ -52,7 +52,7 @@ const PlaylistCreateForm = ({ songs, users, setPlaylists, setCreateItem }) => {
             type="text"
           />
           &nbsp;
-          <label className="songLabel">Songs</label>
+          <label className="playlistLabel">Songs</label>
           <select
             {...register('song', {
               required: true,
@@ -62,9 +62,10 @@ const PlaylistCreateForm = ({ songs, users, setPlaylists, setCreateItem }) => {
               <option value={s?._id}>{s?.title}</option>
             ))}
           </select>
-          <label className="songLabel">Users</label>
+          <label className="playlistLabel">Users</label>
           <select
-            {...register('song', {
+            className="selectUser"
+            {...register('user', {
               required: true,
             })}
           >

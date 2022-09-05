@@ -29,20 +29,17 @@ const UserMenu = ({}) => {
     navigate('/login', { replace: false });
   };
 
-  const handleClickAlbums = () => {
-    removeUserSession();
-    navigate('/albums', { replace: false });
-  };
+  // const handleClickAlbums = () => {
+  //   navigate('/albums', { replace: false });
+  // };
 
-  const handleClickGenre = () => {
-    removeUserSession();
-    navigate('/genre', { replace: false });
-  };
+  // const handleClickGenre = () => {
+  //   navigate('/genre', { replace: false });
+  // };
 
-  const handleClickArtists = () => {
-    removeUserSession();
-    navigate('/artist', { replace: false });
-  };
+  // const handleClickArtists = () => {
+  //   navigate('/artist', { replace: false });
+  // };
 
   const handleAdminSession = (data) => {
     if (userRole === 'ADMIN') {
@@ -76,12 +73,11 @@ const UserMenu = ({}) => {
         }}
       >
         <MenuItem onClick={handleClickProfile}>Profile</MenuItem>
-        <MenuItem onClick={handleClickAlbums}>Albums</MenuItem>
+        {/* <MenuItem onClick={handleClickAlbums}>Albums</MenuItem>
         <MenuItem onClick={handleClickGenre}>Genre</MenuItem>
-        <MenuItem onClick={handleClickArtists}>Artist</MenuItem>
-        <MenuItem onClick={handleClickLogout}>Logout</MenuItem>
-
+        <MenuItem onClick={handleClickArtists}>Artist</MenuItem> */}
         {userRole === 'ADMIN' ? <MenuItem onClick={handleAdminSession}>Dashboard</MenuItem> : <> </>}
+        <MenuItem onClick={handleClickLogout}>Logout</MenuItem>
       </Menu>
     </div>
   );

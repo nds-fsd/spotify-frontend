@@ -46,9 +46,6 @@ const api = (method = 'GET', path, userOptions = {}, query) => {
     },
   };
 
-  console.log('aaaaaa');
-  console.log(options);
-
   // Build Url
   let url = `${API_URL}/${path}`;
   if (query) {

@@ -1,9 +1,8 @@
-import './EditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const EditForm = ({ editData, artist }) => {
-  const { register, handleSubmit } = useForm({
+const EditForm = ({ editData, artist, genres, setEditItem, setRefresh }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       title: editData?.title,
       artist: editData?.artist?.name,
@@ -14,12 +13,12 @@ const EditForm = ({ editData, artist }) => {
       releaseYear: editData?.releaseYear,
     },
   });
-  console.log('editData', editData);
 
   const onSubmit = (updateData) => {
     api('PATCH', `songs/${editData?._id}`, { body: updateData }, {}).then(() => {});
-
-    // setRefresh(true);
+    reset();
+    setEditItem(false);
+    setRefresh(true);
   };
 
   return (
@@ -67,13 +66,16 @@ const EditForm = ({ editData, artist }) => {
           />
           <label className="songLabel">Genre</label>
           &nbsp;
-          <input
-            className="songInput"
+          <select
             {...register('genre', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {genres?.map((genre) => (
+              <option value={genre?._id}>{genre?.name}</option>
+            ))}
+            {console.log('artistas', artist)}
+          </select>
           <label className="songLabel">Url</label>
           &nbsp;
           <input
