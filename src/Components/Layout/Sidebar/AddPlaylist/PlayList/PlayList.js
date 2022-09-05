@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import api from '../../../../../Utils/api';
 import './PlayList.css';
+import api from '../../../../../Utils/api';
 
 const PlayListName = () => {
   const [list, setList] = useState([]);
+
   useEffect(() => {
     api('GET', 'playlist', {}, {}).then((data) => {
       setList(data);

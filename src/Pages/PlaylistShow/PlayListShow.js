@@ -1,27 +1,35 @@
 import './PlayListsShow.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { SubscriptionsOutlined } from '@mui/icons-material';
 import { getAllCards } from '../../Api/utils';
 import usePlayer from '../../Hooks/use-player';
+import api from '../../Utils/api';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const { playSong, isPlaying } = usePlayer();
-  const getOne = async () => {
-    const response = await fetch(`http://localhost:8080/playlist/${id}`);
-    return response.json();
-  };
+  const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying } = usePlayer();
 
   const [listOne, setListOne] = useState([]);
-  useEffect(() => {
-    getOne().then((data) => setListOne(data));
-  }, []);
-
-  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getAllCards().then((data) => setCards(data));
+    api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setListOne(data.song);
+    });
   }, []);
+  console.log(listOne);
+
+  useEffect(() => {
+    setPlayListSongs(listOne);
+  }, [listOne]);
+
+  useEffect(() => {
+    api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setCountSongs(playListSongs[indexSongs].soundUrl);
+      setPlaying(false);
+    });
+  }, [indexSongs, playListSongs]);
+  console.log(isPlaying);
 
   return (
     <>
@@ -37,9 +45,9 @@ const PlayListsShow = () => {
             <h2 className="banner">{listOne.name}</h2> lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem{' '}
           </p>
         </div>
-        <div className="List-names">
-          {cards.map((objeto) => (
-            <div className="conteiner-name">
+        <div className="List-name">
+          {listOne.map((objeto, index) => (
+            <div className="conteiner-name btn-playy">
               {' '}
               <>
                 <div>
@@ -49,8 +57,8 @@ const PlayListsShow = () => {
                   className="btn-play"
                   type="button"
                   onClick={() => {
-                    playSong(objeto.soundUrl);
-                    isPlaying();
+                    setIndex(index);
+                    setPlaying(true);
                   }}
                 >
                   Play
