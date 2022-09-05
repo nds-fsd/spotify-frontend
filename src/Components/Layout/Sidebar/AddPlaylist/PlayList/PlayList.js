@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAlllist } from '../../../../../Api/utils';
+import api from '../../../../../Utils/api';
 import './PlayList.css';
 import api from '../../../../../Utils/api';
 

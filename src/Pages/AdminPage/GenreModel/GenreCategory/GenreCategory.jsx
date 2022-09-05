@@ -7,6 +7,7 @@ import GenreEditForm from '../GenreEditForm/GenreEditForm';
 
 const GenreCategory = () => {
   const {
+    searchText,
     genres,
     setGenres,
     createItemInput,
@@ -22,14 +23,15 @@ const GenreCategory = () => {
   } = useListContext();
 
   useEffect(() => {
-    if (refresh) {
-      api('GET', 'genre', {}, {}).then((data) => {
-        console.log('data', data);
-        setGenres(data);
-        setRefresh(false);
-      });
+    const query = {};
+    if (searchText !== '') {
+      query.search = searchText;
     }
-  }, [refresh]);
+    api('GET', 'genre', {}, query).then((data) => {
+      setGenres(data);
+      setRefresh(false);
+    });
+  }, [refresh, searchText]);
 
   const handleDeleteItem = (id) => {
     api('DELETE', `genre/${id}`, {}, {}).then(() => {
@@ -44,14 +46,15 @@ const GenreCategory = () => {
       <button
         onClick={() => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+          setEditItem(false);
         }}
         className="addGenreButton"
         type="button"
       >
         ADD NEW +
       </button>
-      {createItem && <GenreCreateForm />}
-      {editItem && <GenreEditForm editData={editData} />}
+      {createItem && <GenreCreateForm setGenres={setGenres} setCreateItem={setCreateItem} />}
+      {editItem && <GenreEditForm editData={editData} setEditItem={setEditItem} />}
 
       {genres.map((genre) => {
         console.log('genre', genre);
@@ -68,6 +71,7 @@ const GenreCategory = () => {
                 onClick={() => {
                   if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
                   setEditData(genre);
+                  setCreateItem(false);
                 }}
                 className="adminGenreButton"
                 type="button"

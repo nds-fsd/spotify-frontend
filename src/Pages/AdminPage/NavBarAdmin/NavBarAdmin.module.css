@@ -1,20 +1,24 @@
 .searchInput {
   padding: 3px;
   margin: 5px;
-  margin-right: 50px;
+  margin-right: 80px;
   align-items: center;
   width: 230px;
+  border-radius: 25px;
+  border: none;
+  background: #eed1a9;
 }
 
 .searchlabel {
   display: flex;
   align-items: center;
-  height: 15px;
+  height: 5px;
   justify-content: flex-end;
   margin-right: 10px;
 }
 ::placeholder {
-  color: black;
+  color: rgba(3, 0, 39);
+  padding-left: 8px;
 }
 input:focus::placeholder {
   color: transparent;
@@ -30,11 +34,11 @@ input:focus::placeholder {
   display: flex;
   padding: 15px;
   /* background-color: rgba(197, 158, 59, 0.9); */
-  background: linear-gradient(to left, rgba(197, 158, 59, 0.9), rgba(245, 201, 89, 0.6));
+  background: #db9d47;
   margin-top: 136px;
   position: fixed;
   width: 100%;
-  height: 15px;
+  height: 5px;
   z-index: 1000;
   justify-content: flex-end;
 }

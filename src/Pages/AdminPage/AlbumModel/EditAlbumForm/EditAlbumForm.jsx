@@ -1,11 +1,10 @@
-import './EditAlbumForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const EditAlbumForm = ({ editData }) => {
+const EditAlbumForm = ({ editData, artist, setEditItem }) => {
   // console.log('artist', artist);
   // console.log(editAlbum);
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
       photo: editData?.photo,
@@ -15,10 +14,9 @@ const EditAlbumForm = ({ editData }) => {
   });
 
   const onSubmit = (updateData) => {
-    console.log('updateData', updateData, editData?._id);
     api('PATCH', `album/${editData?._id}`, { body: updateData }, {}).then(() => {});
-
-    // setRefresh(true);
+    reset();
+    setEditItem(false);
   };
 
   return (
@@ -55,14 +53,16 @@ const EditAlbumForm = ({ editData }) => {
             />
             &nbsp;
             <label className="albumLabel">Artist</label>
-            &nbsp;
-            <input
-              className="albumInput"
+            <select
               {...register('artist', {
                 required: true,
               })}
-              type="text"
-            />
+            >
+              {artist?.map((a) => (
+                <option value={a?._id}>{a?.name}</option>
+              ))}
+              {console.log('artistas', artist)}
+            </select>
             <input className="albumCreateButton" type="submit" value="Update" />
           </div>
         </form>

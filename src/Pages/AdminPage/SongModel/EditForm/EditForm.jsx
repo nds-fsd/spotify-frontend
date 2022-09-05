@@ -1,9 +1,8 @@
-import './EditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const EditForm = ({ editData }) => {
-  const { register, handleSubmit } = useForm({
+const EditForm = ({ editData, artist, genres, setEditItem, setRefresh }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       title: editData?.title,
       artist: editData?.artist?.name,
@@ -11,25 +10,15 @@ const EditForm = ({ editData }) => {
       duration: editData?.duration,
       genre: editData?.genre,
       songUrl: editData?.songUrl,
-      releaseDate: editData?.releaseDate,
+      releaseYear: editData?.releaseYear,
     },
   });
-  console.log('editData', editData);
-
-  // useEffect(() => {
-  //   if (refresh) {
-  //     api('GET', `artist/`, {}, {}).then((data) => {
-  //       setArtist(data);
-  //       setRefresh(false);
-  //       console.log(artist);
-  //     });
-  //   }
-  // }, [refresh]);
 
   const onSubmit = (updateData) => {
     api('PATCH', `songs/${editData?._id}`, { body: updateData }, {}).then(() => {});
-
-    // setRefresh(true);
+    reset();
+    setEditItem(false);
+    setRefresh(true);
   };
 
   return (
@@ -45,24 +34,17 @@ const EditForm = ({ editData }) => {
             })}
             type="text"
           />
-          {/* <select
-            name="Artist"
-            {...register('artist', {
-              required: true,
-            })}>
-            {editSong.artist.map((a) => (
-              <option value="Album">{a.name}</option>
-            ))}
-          </select> */}
           <label className="songLabel">Artist</label>
-          &nbsp;
-          <input
-            className="songInput"
+          <select
             {...register('artist', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {artist?.map((a) => (
+              <option value={a?._id}>{a?.name}</option>
+            ))}
+            {console.log('artistas', artist)}
+          </select>
           <label className="songLabel">Photo</label>
           &nbsp;
           <input
@@ -84,13 +66,16 @@ const EditForm = ({ editData }) => {
           />
           <label className="songLabel">Genre</label>
           &nbsp;
-          <input
-            className="songInput"
+          <select
             {...register('genre', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {genres?.map((genre) => (
+              <option value={genre?._id}>{genre?.name}</option>
+            ))}
+            {console.log('artistas', artist)}
+          </select>
           <label className="songLabel">Url</label>
           &nbsp;
           <input
@@ -101,14 +86,14 @@ const EditForm = ({ editData }) => {
             type="text"
             alt="song photo"
           />
-          <label className="songLabel">Release Date</label>
+          <label className="songLabel">Release Year</label>
           &nbsp;
           <input
             className="releaseDateInput"
-            {...register('releaseDate', {
+            {...register('releaseYear', {
               required: true,
             })}
-            type="date"
+            type="number"
           />
           <input className="songCreateButton" type="submit" value="Update" />
         </div>

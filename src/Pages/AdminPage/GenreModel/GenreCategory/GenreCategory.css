@@ -1,12 +1,6 @@
-.categoryContainer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
 .genreCategoryTitle {
   font-size: 50px;
-  color: black;
+  color: rgba(3, 0, 39);
   margin-top: 40px;
   padding: 10px;
   display: flex;
@@ -18,43 +12,45 @@
 .genreCategoryContainer {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border: 1px rgba(12, 58, 82, 0.85) solid;
-  /* background-color: rgba(12, 58, 82, 0.85); */
-  background-color: rgba(0, 31, 49, 0.9);
-  color: white;
-  margin: 6px;
+  justify-content: space-evenly;
+  background-color: rgba(3, 0, 39);
+  border-radius: 10px;
+  color: #bac1b8;
+  margin-bottom: 20px;
   height: 150px;
-  width: 950px;
+  width: 97%;
+  gap: 85px;
+}
+
+.genreCategoryContainer :hover {
+  border: 2px #db9d47 solid;
 }
 
 .genrePhoto {
-  width: 100px;
-  height: 80px;
+  width: 120px;
+  height: 100px;
 }
 .genrePhoto:hover {
-  width: 100px;
-  height: 80px;
+  width: 120px;
+  height: 100px;
 }
 
 .addGenreButton {
   height: 50px;
   width: 125px;
-  color: black;
+  color: rgba(3, 0, 39);
   font-size: 18px;
   background-color: transparent;
   border: none;
-  /* display: flex; */
   margin-right: 73px;
   margin-bottom: 10px;
   justify-content: center;
   align-items: center;
-  /* transform: translate(370px, -14px); */
 }
 
 .addGenreButton:hover {
-  border: 1px solid rgba(12, 58, 82, 0.85);
-  border-radius: 5px;
+  border: 1px solid rgba(3, 0, 39);
+  border-radius: 10px;
 }
 
 .adminGenreButton {
@@ -63,44 +59,17 @@
   justify-content: center;
   margin-top: 8px;
   margin-left: 2px;
-  background-color: rgba(197, 158, 59, 0.9);
-  color: #ddd;
+  background-color: #db9d47;
+  color: rgba(3, 0, 39);
   font-size: 18px;
   border: transparent;
-  height: 30px;
-  border-radius: 5px;
+
+  border-radius: 10px;
+  margin-right: 15px;
 }
 
 .genreDescription {
-  width: 299px;
+  width: 35%;
   height: 100px;
-}
-
-.searchInput {
-  padding: 3px;
-  margin: 5px;
-  margin-right: 50px;
-  align-items: center;
-  width: 230px;
-}
-
-.searchlabelGenres {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  justify-content: flex-end;
-  margin-right: 10px;
-  transform: translate(0px, -137px);
-}
-::placeholder {
-  color: black;
-}
-input:focus::placeholder {
-  color: transparent;
-}
-
-.searchIcon {
-  height: 200px !important;
-  margin: 5px;
-  margin-left: -80px !important;
+  text-align: justify;
 }

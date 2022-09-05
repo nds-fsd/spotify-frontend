@@ -4,6 +4,8 @@
   height: 310px;
   justify-content: center;
   margin-top: 85px;
+  opacity: 0;
+  animation: popUpForm 1s ease 5s forwards;
 }
 
 .input-container {
@@ -16,18 +18,19 @@
 label {
   font-size: 18px;
   font-weight: 700;
+  margin-left: 10px;
 }
 
 .form-inputs {
   width: 400px;
   height: 38px;
-  border-radius: 5px;
+  border-radius: 20px;
   border: solid grey;
   padding: 3px;
 }
 
 .form-inputs:hover {
-  border: solid black;
+  border: 2.5px solid #db9d47;
 }
 
 .form-inputs::placeholder {
@@ -38,4 +41,17 @@ label {
 .button-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.error-message {
+  color: #bac1b8;
+  position: absolute;
+  margin-top: -15px;
+  font-size: 14px;
+}
+
+@keyframes popUpForm {
+  to {
+    opacity: 1;
+  }
 }

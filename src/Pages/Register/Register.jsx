@@ -1,9 +1,9 @@
 import React from 'react';
-import './Register.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { hasUserSession, setUserSession } from '../../Utils/session';
 import api from '../../Utils/api';
+import styles from './Register.module.css';
 
 const Register = () => {
   const {
@@ -14,8 +14,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log('llego');
-    console.log('hola', data);
     if (data.password !== data.confirmPassword) {
       console.log('Su contraseña no es válida');
     } else {
@@ -39,22 +37,34 @@ const Register = () => {
     <>
       {hasUserSession() && <Navigate to="/" replace />}
       {!hasUserSession() && (
-        <div>
-          <div className="Intro">
-            <h2>Welcome to Nuclify</h2>
-            <p>Fill the next forms in order to create your Nuclify account:</p>
-          </div>
-          <div className="form">
+        <div className={styles.maincontainer}>
+          <header className={styles.header}>
+            <h1 className={styles.logo}>NUCLIFY</h1>
+            <hr />
+            <p className={styles.formIntro}>Sign up with your email address</p>
+          </header>
+          <section className={styles.registerContainer}>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="Fields">
-                Name:
-                <input {...register('name', { required: true })} type="text" placeholder="Insert your Name" />
-                <br />
-                Last name:
-                <input {...register('lastName', { required: true })} type="text" placeholder="Your Lastname" />
-                <br />
-                Email:
+              <div className={styles.form}>
+                <label className={styles.registerLabels}>Name</label>
                 <input
+                  className={styles.registerInputs}
+                  {...register('name', { required: true })}
+                  type="text"
+                  placeholder="Name"
+                />
+                <br />
+                <label className={styles.registerLabels}>Last Name</label>
+                <input
+                  className={styles.registerInputs}
+                  {...register('lastName', { required: true })}
+                  type="text"
+                  placeholder="Last Name"
+                />
+                <br />
+                <label className={styles.registerLabels}>Email</label>
+                <input
+                  className={styles.registerInputs}
                   {...register('email', {
                     required: 'Email is required',
                     pattern: {
@@ -63,11 +73,12 @@ const Register = () => {
                     },
                   })}
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="Email"
                 />
                 <br />
-                Password:
+                <label className={styles.registerLabels}>Password</label>
                 <input
+                  className={styles.registerInputs}
                   {...register('password', {
                     required: true,
                     minLength: 8,
@@ -76,11 +87,12 @@ const Register = () => {
                     pattern: '^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$',
                   })}
                   type="password"
-                  placeholder="Insert your password "
+                  placeholder="Password "
                 />
                 <br />
-                Repeat your password:
+                <label className={styles.registerLabels}>Confirm Password</label>
                 <input
+                  className={styles.registerInputs}
                   {...register('confirmPassword', {
                     required: true,
                     minLength: 8,
@@ -88,16 +100,17 @@ const Register = () => {
                     pattern: '^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$',
                   })}
                   type="password"
-                  placeholder="Repeat your Password"
+                  placeholder="ConfirmPassword"
                 />
                 {}
-                <br />
               </div>
-              <div className="buttons">
-                <button type="submit">Submit</button>
+
+              <hr className={styles.hrBtn} />
+              <div className={styles.btn}>
+                <button type="submit">SIGN UP</button>
               </div>
             </form>
-          </div>
+          </section>
         </div>
       )}
     </>

@@ -7,6 +7,11 @@ import EditAlbumForm from '../EditAlbumForm/EditAlbumForm';
 
 const AlbumCategory = () => {
   const {
+    searchText,
+    songs,
+    setSongs,
+    artist,
+    setArtist,
     albums,
     setAlbums,
     refresh,
@@ -22,10 +27,30 @@ const AlbumCategory = () => {
   } = useListContext();
 
   useEffect(() => {
+    const query = {};
+    if (searchText !== '') {
+      query.search = searchText;
+    }
+    api('GET', 'album', {}, query).then((data) => {
+      console.log(data);
+      setAlbums(data);
+      setRefresh(false);
+    });
+  }, [refresh, searchText]);
+
+  useEffect(() => {
     if (refresh) {
-      api('GET', 'album', {}, {}).then((data) => {
-        console.log('data', data);
-        setAlbums(data);
+      api('GET', 'artist', {}, {}).then((data) => {
+        setArtist(data);
+        setRefresh(false);
+      });
+    }
+  }, [refresh]);
+
+  useEffect(() => {
+    if (refresh) {
+      api('GET', 'songs', {}, {}).then((data) => {
+        setSongs(data);
         setRefresh(false);
       });
     }
@@ -43,14 +68,17 @@ const AlbumCategory = () => {
       <button
         onClick={() => {
           if (!createItem ? setCreateItem(true) : setCreateItem(false)) createItemInput.current.focus();
+          setEditItem(false);
         }}
         className="addAlbumButton"
         type="button"
       >
         ADD NEW +
       </button>
-      {createItem && <CreateAlbumForm />}
-      {editItem && <EditAlbumForm editData={editData} />}
+      {createItem && (
+        <CreateAlbumForm artist={artist} songs={songs} setAlbums={setAlbums} setCreateItem={setCreateItem} />
+      )}
+      {editItem && <EditAlbumForm editData={editData} artist={artist} songs={songs} setEditItem={setEditItem} />}
 
       {albums.map((albumName) => {
         console.log('albumName', albumName);
@@ -62,13 +90,17 @@ const AlbumCategory = () => {
 
               <h3 className="albumHeaders">{albumName.name}</h3>
               <div className="releaseYear">{albumName.releaseYear}</div>
-              <h3>{albumName.artist?.name || 'No Artist'}</h3>
-              {/* <h3>{albums.songs?.title}</h3> */}
-
+              <h3 className="albumHeaders">{albumName.artist?.name || 'No Artist'}</h3>
+              <div className="songList">
+                {albums?.songs?.map((songName) => (
+                  <li className="albumSongs">{songName?.title || 'No Songs'}</li>
+                ))}
+              </div>
               <button
                 onClick={() => {
                   if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
                   setEditData(albumName);
+                  setCreateItem(false);
                 }}
                 className="adminAlbumButton"
                 type="button"

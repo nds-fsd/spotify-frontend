@@ -1,19 +1,9 @@
 import './CreateForm.css';
-import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
+const CreateForm = ({ artist, setSongs, genres, setCreateItem }) => {
   const { register, handleSubmit, reset } = useForm();
-
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `artist/${artist._id}`, {}, {}).then((data) => {
-        setArtist(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
 
   const onSubmit = async (data) => {
     await api('POST', 'songs', {
@@ -24,15 +14,14 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
         duration: data.duration,
         genre: data.genre,
         soundUrl: data.soundUrl,
-        releaseDate: data.releaseDate,
+        releaseYear: data.releaseYear,
       },
     });
-    reset();
-  };
 
-  useEffect(() => {
-    api();
-  }, []);
+    setSongs((songList) => [data, ...songList]);
+    reset();
+    setCreateItem(false);
+  };
 
   return (
     <div className="mainContainer">
@@ -47,25 +36,17 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
             })}
             type="text"
           />
-          {/* <label className="songLabel">Artist</label> */}
-          {/* <select
-            name="Artist"
-            {...register('artist', {
-              required: true,
-            })}>
-            {artist.map((a) => (
-              <option value="Album">{a?.name}</option>
-            ))}
-          </select> */}
           <label className="songLabel">Artist</label>
           &nbsp;
-          <input
-            className="songInput"
+          <select
             {...register('artist', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {artist?.map((a) => (
+              <option value={a?._id}>{a?.name}</option>
+            ))}
+          </select>
           <label className="songLabel">Photo</label>
           &nbsp;
           <input
@@ -87,13 +68,15 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
           />
           <label className="songLabel">Genre</label>
           &nbsp;
-          <input
-            className="songInput"
+          <select
             {...register('genre', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {genres?.map((genre) => (
+              <option value={genre?._id}>{genre?.name}</option>
+            ))}
+          </select>
           <label className="songLabel">Url</label>
           &nbsp;
           <input
@@ -104,14 +87,14 @@ const CreateForm = ({ refresh, setRefresh, artist, setArtist }) => {
             type="text"
             alt="song photo"
           />
-          <label className="songLabel">Release Date</label>
+          <label className="songLabel">Release Year</label>
           &nbsp;
           <input
             className="releaseDateInput"
-            {...register('releaseDate', {
+            {...register('releaseYear', {
               required: true,
             })}
-            type="date"
+            type="number"
           />
           <input className="songCreateButton" type="submit" value="Add" />
         </div>
