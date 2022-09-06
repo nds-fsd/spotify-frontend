@@ -20,7 +20,7 @@ const PlayListsShow = () => {
 
   useEffect(() => {
     setPlayListSongs(listOne);
-  }, [listOne]);
+  }, [listOne, playListSongs]);
 
   useEffect(() => {
     api('GET', `playlist/${id}`, {}, {}).then((data) => {
