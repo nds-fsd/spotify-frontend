@@ -26,13 +26,14 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
       <h4 className="card-info">{genre?.name}</h4>
 
       <button
+        className="btnPlay"
         type="button"
         onClick={() => {
           setIndex(indexUrl);
           setPlaying(true);
         }}
       >
-        {indexUrl}
+        play
       </button>
       {/* <button type="submit">
         ...

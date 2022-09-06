@@ -51,3 +51,11 @@
   }
 }
 
+.btnPlay{
+  background-color: rgba(219, 157, 71, 1);
+  width: 60px;
+  height: 20px;
+}
+.btnPlay:hover{
+ color: #fff;
+}
