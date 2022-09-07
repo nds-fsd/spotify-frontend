@@ -14,8 +14,10 @@ import UserCategory from './Pages/AdminPage/UserModel/UserCategory/UserCategory'
 import GenrePage from './Pages/Home/HomeRefactor/Genre/GenreHome';
 import Albums from './Pages/Home/HomeRefactor/Albums/Albums';
 import PlayerProvider from './Providers/player-provider';
-import HomeRefactor from './Pages/Home/homeRefactor';
+import HomeRefactorBody from './Pages/Home/HomeRefactor/HomeRefactorBody/homeRefactorBody';
 import AllSongs from './Pages/Home/HomeRefactor/Songs/AllSongs';
+import Sidebar from './Components/Layout/Sidebar/sidebar';
+import SidebarMenu from './Components/Layout/Sidebar/Sidebarmenu/sibebarmenu';
 
 function App() {
   return (
@@ -33,8 +35,12 @@ function App() {
               <Route path="/adminpage/playlists" element={<PlaylistCategory />} />
               <Route path="/adminpage/users" element={<UserCategory />} />
             </Route>
+            {/* <Route path="/" element={<SidebarMenu />}>
+              <Route path="/songs" element={<AllSongs />} />
+            </Route> */}
+
             <Route path="/" element={<Layout />}>
-              <Route path="/" element={<HomeRefactor />} />
+              <Route path="/" element={<HomeRefactorBody />} />
               <Route path="/songs" element={<AllSongs />} />
               <Route path="/artist" element={<ArtistPage />} />
               <Route path="/genre" element={<GenrePage />} />

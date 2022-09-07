@@ -13,6 +13,8 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist }) => {
       <h3 className="card-info">{artist?.name}</h3>
       <img src={photo} alt={genre} />
       <h4 className="card-info">{genre?.name}</h4>
+
+      <button type="button">Play</button>
       {/* <button type="submit">
         ...
         <AddNamePlaylist />
