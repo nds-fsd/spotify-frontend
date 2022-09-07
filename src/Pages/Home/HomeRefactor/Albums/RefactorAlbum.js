@@ -7,7 +7,7 @@ const RefactorAlbum = () => {
 
   useEffect(() => {
     api('GET', 'album', {}, {}).then((data) => {
-      const fewAlbums = data.slice(0, 5);
+      const fewAlbums = data.slice(0, 4);
       setRefactorAlbum(fewAlbums);
     });
   }, []);
