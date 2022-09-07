@@ -1,40 +1,19 @@
-// import React, { useRef, createContext, useContext, useState } from 'react';
+// import React, { createContext, useContext, useState } from 'react';
 
-// const HomeRefactorContext = createContext();
+// const ListContext = createContext();
 
-// export const HomeRefactorContextProvider = ({ children }) => {
-//   const [songs, setSongs] = useState([]);
-//   const [someSongs, setSomeSongs] = useState([]);
-//   const [artist, setArtist] = useState([]);
-//   const [someArtist, setSomeArtist] = useState([]);
-//   const [albums, setAlbums] = useState([]);
-//   const [someAlbums, setSomeAlbums] = useState([]);
-//   const [genres, setGenres] = useState([]);
-//   const [someGenres, setSomeGenres] = useState([]);
+// export const ListContextProvider = ({ children }) => {
+//   const [searchText, setSearchText] = useState('');
+//   const [searchItem, setSearchItem] = useState('');
 
 //   const value = {
-//     songs,
-//     someSongs,
-//     setSongs,
-//     setSomeSongs,
-//     artist,
-//     setArtist: (date) => {
-//       console.log(date);
-//       setArtist(date);
-//     },
-//     someArtist,
-//     setSomeArtist,
-//     albums,
-//     setAlbums,
-//     someAlbums,
-//     setSomeAlbums,
-//     genres,
-//     setGenres,
-//     someGenres,
-//     setSomeGenres,
+//     searchItem,
+//     setSearchItem,
+//     searchText,
+//     setSearchText,
 //   };
 
-//   return <HomeRefactorContext.Provider value={value}>{children}</HomeRefactorContext.Provider>;
+//   return <ListContext.Provider value={value}>{children}</ListContext.Provider>;
 // };
 
-// export const useHomeRefactorContext = () => useContext(HomeRefactorContext);
+// export const useListContext = () => useContext(ListContext);
