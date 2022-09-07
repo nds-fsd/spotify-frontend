@@ -35,6 +35,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
       >
         play
       </button>
+
       {/* <button type="submit">
         ...
         <AddNamePlaylist />

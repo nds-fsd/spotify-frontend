@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './homeRefactor.module.css';
-import RefactorSongs from './HomeRefactor/Songs/refactorSongs';
-import RefactorGenre from './HomeRefactor/Genre/RefactorGenre';
-import RefactorArtist from './HomeRefactor/Artist/ArtistRefactor';
-import RefactorAlbum from './HomeRefactor/Albums/RefactorAlbum';
+import RefactorSongs from '../Songs/refactorSongs';
+import RefactorGenre from '../Genre/RefactorGenre';
+import RefactorArtist from '../Artist/ArtistRefactor';
+import RefactorAlbum from '../Albums/RefactorAlbum';
+import SearchBar from '../SearchBar/searchBar';
 
-const HomeRefactor = () => {
-  // const { songs, someSongs, setSongs, setSomeSongs } = useHomeRefactorContext();
+const HomeRefactorBody = () => {
   const navigate = useNavigate();
 
   const seeAllSongs = () => {
@@ -28,7 +28,7 @@ const HomeRefactor = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.refactorContainer}>
         <h3 className={styles.homeRefactorTitle}>SONGS</h3>
         <button className={styles.seeMore} type="button" onClick={seeAllSongs}>
           See more...
@@ -63,4 +63,4 @@ const HomeRefactor = () => {
     </>
   );
 };
-export default HomeRefactor;
+export default HomeRefactorBody;
