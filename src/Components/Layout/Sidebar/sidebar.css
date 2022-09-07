@@ -3,7 +3,7 @@
   height: 100vh;
   background-color: #00101ab4;
   min-width: 240px;
-  color: #fff;
+  color: #bac1b8;
   position: fixed;
   left: 0;
   padding-left: 10px;
@@ -32,5 +32,5 @@
   padding: 8px;
   padding-top: 40px;
   font-weight: bolder;
-  color: rgba(197, 158, 59, 0.9);
+  color: #db9d47;
 }

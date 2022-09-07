@@ -1,9 +1,8 @@
-import './GenreEditForm.css';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const GenreEditForm = ({ editData }) => {
-  const { register, handleSubmit } = useForm({
+const GenreEditForm = ({ editData, setEditItem }) => {
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
       photo: editData?.photo,
@@ -11,13 +10,11 @@ const GenreEditForm = ({ editData }) => {
     },
   });
 
-  //   traigo editGenres del genreCategory, esto me extra todas los eleementos y sus valores dentro del map que hice
-
   const onSubmit = (updateData) => {
     console.log('updateData', updateData, editData?._id);
     api('PATCH', `genre/${editData?._id}`, { body: updateData }, {}).then(() => {});
-
-    // setRefresh(true);
+    reset();
+    setEditItem(false);
   };
 
   return (

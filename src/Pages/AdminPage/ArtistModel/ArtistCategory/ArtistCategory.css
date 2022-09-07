@@ -1,12 +1,6 @@
-.categoryContainer {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
 .artistsCategoryTitle {
   font-size: 50px;
-  color: black;
+  color: rgba(3, 0, 39);
   margin-top: 40px;
   padding: 10px;
   display: flex;
@@ -15,41 +9,57 @@
   letter-spacing: 55px;
 }
 
+.artistPhoto {
+  width: 100px;
+  height: 80px;
+}
+.artistPhoto:hover {
+  width: 100px;
+  height: 80px;
+}
+
 .artistCategoryContainer {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border: 1px rgba(12, 58, 82, 0.85) solid;
-  /* background-color: rgba(12, 58, 82, 0.85); */
-  background-color: rgba(0, 31, 49, 0.9);
-  color: white;
-  margin: 6px;
+  justify-content: space-evenly;
+  background-color: rgba(3, 0, 39);
+  border-radius: 10px;
+  color: #bac1b8;
+  margin-bottom: 20px;
   height: 160px;
-  width: 950px;
+  width: 95%;
+  gap: 36px;
+  margin-left: 23px;
+  overflow: scroll;
+}
+
+.artistCategoryContainer:hover {
+  border: 2px #db9d47 solid;
 }
 
 .bio {
-  width: 170px;
-  height: 100;
+  width: 40%;
+  text-align: justify;
+  overflow: scroll;
+  margin: 5px;
 }
 
 .addArtistButton {
   height: 50px;
   width: 125px;
-  color: black;
+  color: rgba(3, 0, 39);
   font-size: 18px;
   background-color: transparent;
   border: none;
-  /* display: flex; */
-  margin-right: 73px;
+  margin-right: 65px;
   margin-bottom: 10px;
   justify-content: center;
   align-items: center;
 }
 
 .addArtistButton:hover {
-  border: 1px solid rgba(12, 58, 82, 0.85);
-  border-radius: 5px;
+  border: 1px solid rgba(3, 0, 39);
+  border-radius: 10px;
 }
 
 .artistAdminButton {
@@ -57,49 +67,28 @@
   width: 70px;
   justify-content: center;
   margin-top: 8px;
-  margin-right: 12px;
-  background-color: rgba(197, 158, 59, 0.9);
-  color: #ddd;
+  margin-left: 2px;
+  background-color: #db9d47;
+  color: rgba(3, 0, 39);
   font-size: 18px;
   border: transparent;
-  height: 30px;
-  border-radius: 5px;
+  border-radius: 10px;
+  margin-right: 15px;
 }
 
 .artistAlbums {
   list-style: none;
   padding-right: 4px;
+  text-align: start;
 }
 
 .albumList {
   width: 160px;
 }
 
-.searchInput {
-  padding: 3px;
-  margin: 5px;
-  margin-right: 50px;
-  align-items: center;
-  width: 230px;
-}
-
-.searchlabelArtist {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  justify-content: flex-end;
-  margin-right: 10px;
-  transform: translate(0px, -137px);
-}
-::placeholder {
-  color: black;
-}
-input:focus::placeholder {
-  color: transparent;
-}
-
-.searchIcon {
-  height: 200px !important;
-  margin: 5px;
-  margin-left: -80px !important;
+.header {
+  font-size: 18px;
+  text-align: start;
+  margin-left: 8px;
+  width: 20%;
 }

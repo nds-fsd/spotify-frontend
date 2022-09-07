@@ -1,9 +1,23 @@
 .HeaderUsuario-container {
-  flex: 0.5;
-  width: 100px;
+  width: 50%;
   display: flex;
   justify-content: end;
   align-items: center;
-  padding-right: 35px;
-  color: #fff;
+  color: #bac1b8;
+  padding-right: 36px;
+}
+
+.userName {
+  margin: 12px;
+  padding: 3px;
+  letter-spacing: 3px;
+  font-size: 18px;
+  opacity: 0;
+  animation: userNamePopUp 1s ease 1s forwards;
+}
+
+@keyframes userNamePopUp {
+  to {
+    opacity: 1;
+  }
 }

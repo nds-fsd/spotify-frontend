@@ -1,17 +1,18 @@
 .adminPage {
   background-color: white;
+  color: #bac1b8;
   font-family: sans-serif, Arial, Helvetica;
   text-align: center;
-  /* padding: 0px;
-  margin: 0px; */
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  height: 100vh;
   display: flex;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .logoContainer {
-  background: linear-gradient(to left, #001f31, #073955);
-  color: white;
+  background: rgba(3, 0, 39);
   display: flex;
   justify-content: center;
   z-index: 100;
@@ -19,7 +20,7 @@
   position: fixed;
   width: 100%;
   height: 120px;
-  color: rgba(197, 158, 59, 0.9);
+  color: #db9d47;
 }
 .logoContainer > h1 {
   margin-top: 30px;
@@ -27,7 +28,6 @@
   letter-spacing: 10px;
   font-size: 45px;
   justify-content: center;
-  color: #ddd;
 }
 
 .logoContainer > p {
@@ -49,24 +49,40 @@
 }
 
 .categoriesContent {
-  height: 100%;
-  width: 75%;
-  margin-left: 55px;
-  transform: translate(255px, 375px);
-  margin-top: -170px;
+  height: 100vh;
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
+  margin-top: 169px;
+  margin-right: 48px;
+  overflow: scroll;
 }
 
+/* .categoriesContent::-webkit-scrollbar:vertical {
+  width: 100px;
+}
+
+.categoriesContent::-webkit-scrollbar-thumb {
+  background-color: #b7cab7;
+  border-radius: 20px;
+  border: 1px solid #f1f2f3;
+}
+
+.categoriesContent::-webkit-scrollbar-track {
+  border-radius: 10px;
+} */
+
 .dashboard {
-  background: linear-gradient(to left, #001f31, #073955);
+  background: rgba(3, 0, 39);
   justify-content: center;
   padding: 20px;
-  width: 200px;
+  width: 20%;
   flex-direction: column;
   align-items: center;
-  height: 2500px; /*preguntar como se ajusta esto a la pagina completa */
-  position: absolute;
-  margin-top: 180px;
+  /* position: absolute; */
   color: #ddd;
+  height: 100vh;
+  margin-top: 170px;
 }
 
 .dashboardTitle {
@@ -83,6 +99,9 @@
 .dashboardContainer {
   position: fixed;
   width: 200px;
+  margin-left: 37px;
+  display: flex;
+  flex-direction: column;
 }
 
 .buttonCategory {
@@ -101,4 +120,5 @@
   display: flex;
   justify-content: center;
   margin-left: -105px;
+  width: 97%;
 }

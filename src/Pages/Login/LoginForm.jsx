@@ -1,4 +1,5 @@
 import './LoginForm.css';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import LoginButton from '../../Components/Buttons/LoginButton/LoginButton';
@@ -7,28 +8,30 @@ import { setUserSession } from '../../Utils/session';
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
+  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setErrorMessage('');
+  }, [email, password]);
+
   const onSubmit = async (data) => {
-    if (!data.email || !data.password) {
-      alert('The email or password provided is not correct. Please verify and try again.');
-    } else {
-      api('POST', 'login', {
-        body: {
-          email: data.email,
-          password: data.password,
-        },
-      }).then((userSession) => {
+    api('POST', 'login', {
+      body: {
+        email: data.email,
+        password: data.password,
+      },
+    })
+      .then((userSession) => {
         setUserSession(userSession);
-        if (userSession.user.role === 'ADMIN') {
-          console.log('entra');
-          navigate('/adminpage/songs', { replace: true });
-          console.log('adminuser');
-        } else {
-          navigate('/', { replace: true });
-        }
+        if (userSession.user.role === 'ADMIN') navigate('/adminpage/songs', { replace: true });
+        if (userSession.user.role === 'USER') navigate('/', { replace: true });
+      })
+      .catch((error) => {
+        setErrorMessage('Please re-enter valid credentials');
       });
-    }
   };
 
   return (
@@ -56,6 +59,7 @@ const LoginForm = () => {
           type="password"
           placeholder="Enter your password"
         />
+        <p className="error-message">{errorMessage}</p>
         <LoginButton onClick={(e) => onSubmit()} />
       </form>
     </div>

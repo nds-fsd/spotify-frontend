@@ -3,28 +3,22 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
-const CreateAlbumForm = ({ refresh, artist, setArtist, setRefresh }) => {
-  const { register, handleSubmit } = useForm();
-
-  useEffect(() => {
-    if (refresh) {
-      api('GET', `artist/${artist._id}`, {}, {}).then((data) => {
-        setArtist(data);
-        setRefresh(false);
-      });
-    }
-  }, [refresh]);
+const CreateAlbumForm = ({ artist, setCreateItem, setAlbums }) => {
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     await api('POST', 'album', {
       body: {
         name: data.name,
         photo: data.photo,
         releaseYear: data.releaseYear,
         artist: data.artist,
+        songs: data.songs,
       },
     });
+    setAlbums((albumList) => [...albumList, data]);
+    setCreateItem(false);
+    reset();
   };
 
   return (
@@ -49,7 +43,7 @@ const CreateAlbumForm = ({ refresh, artist, setArtist, setRefresh }) => {
             })}
             type="text"
           />
-          <label className="releaseYear">Release Year</label>
+          <label className="releaseYearLabel">Year</label>
           &nbsp;
           <input
             className="albumreleaseYearInput"
@@ -60,14 +54,15 @@ const CreateAlbumForm = ({ refresh, artist, setArtist, setRefresh }) => {
           />
           &nbsp;
           <label className="albumLabel">Artist</label>
-          &nbsp;
-          <input
-            className="albumInput"
+          <select
             {...register('artist', {
               required: true,
             })}
-            type="text"
-          />
+          >
+            {artist?.map((a) => (
+              <option value={a?._id}>{a?.name}</option>
+            ))}
+          </select>
           <input className="albumCreateButton" type="submit" value="Add" />
         </div>
       </form>

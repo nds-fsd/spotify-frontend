@@ -31,6 +31,7 @@ const api = (method = 'GET', path, userOptions = {}, query) => {
   // Define default headers
   const defaultHeaders = {
     'content-type': 'application/json',
+    Accept: 'application/json',
     authorization: `Bearer ${getToken()}`,
   };
 
@@ -44,9 +45,6 @@ const api = (method = 'GET', path, userOptions = {}, query) => {
       ...userOptions.headers,
     },
   };
-
-  console.log('aaaaaa');
-  console.log(options);
 
   // Build Url
   let url = `${API_URL}/${path}`;

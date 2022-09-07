@@ -1,13 +1,13 @@
 .songCreateInputContainer {
-  /* background-color: rgb(12, 58, 82); */
-  color: BLACK;
+  background-color: rgba(186, 193, 184, 0.2);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: rgba(3, 0, 39);
   display: flex;
-  flex-direction: row;
-  width: 685px;
-  height: 220px;
+  width: 70%;
+  height: 100%;
   padding: 8px;
-  /* margin: -86px; */
-  margin-left: 80px;
+  margin-left: 107px;
 }
 
 .songCreateFormInput {
@@ -15,40 +15,50 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-top: 33px;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 18px;
+  padding: 10px;
 }
 .songInput {
   display: flex;
   padding: 3px;
-  width: 250px;
-
+  width: 240px;
   height: 25px;
+  margin-bottom: 8px;
+}
+
+select {
+  width: 250px;
+  height: 36px;
+  margin-bottom: 8px;
+  display: flex;
+  padding: 3px;
 }
 
 .releaseDateInput {
   display: flex;
   padding: 3px;
-  width: 220px;
-
+  width: 240px;
+  transform: translatex(-190px);
   height: 25px;
 }
 
 .songLabel {
   font-size: 19px;
   padding: 5px;
+  width: 75px;
 }
 
 .songCreateButton {
   padding: 5px;
-  width: 70px;
+  width: 71px;
   justify-content: center;
   margin-top: 8px;
   margin-left: 2px;
-  background-color: rgba(197, 158, 59, 0.9);
-  color: #ddd;
+  background-color: #db9d47;
+  color: rgba(3, 0, 39);
   font-size: 18px;
   border: transparent;
-  height: 30px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
