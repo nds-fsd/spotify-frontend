@@ -14,23 +14,21 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
   //   });
   // }, []);
 
-  const fetchSongs = () => {
+  useEffect(() => {
     api('GET', `genre/${id}`, {}, {}).then((data) => {
-      setGenre(data);
+      setGenre(data.song);
     });
-  };
-
+  }, []);
+  console.log(genre);
   return (
     <>
       {genre.map((g) => (
-        <button type="button" value={g.id}>
-          <div>
-            <h3 className="genre-info">{g?.song.title}</h3>
+        <div>
+          <h3 className="genre-info">{g?.title}</h3>
 
-            <h3 className="genre-info">{g?.song.artist}</h3>
-            <img src={g?.song?.photo} />
-          </div>
-        </button>
+          <h3 className="genre-info">{g?.artist}</h3>
+          <img src={g?.photo} />
+        </div>
       ))}
     </>
   );

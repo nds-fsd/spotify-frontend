@@ -59,3 +59,16 @@
 .btnPlay:hover{
  color: #fff;
 }
+
+.list-veiW{
+  position: absolute;
+  height: 80px;
+  overflow-y: scroll;
+  width: 200px;
+  cursor: pointer;
+
+}
+
+.list-veiW-not{
+display: none;
+}

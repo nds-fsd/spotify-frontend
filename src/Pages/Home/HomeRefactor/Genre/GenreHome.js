@@ -14,7 +14,11 @@ const GenrePage = () => {
   return (
     <>
       {' '}
-      {genre.length > 0 ? genre.map((c) => <Genre name={c.name} description={c.description} photo={c.photo} />) : <></>}
+      {genre.length > 0 ? (
+        genre.map((c) => <Genre name={c.name} description={c.description} photo={c.photo} lin={c._id} />)
+      ) : (
+        <></>
+      )}
     </>
   );
 };

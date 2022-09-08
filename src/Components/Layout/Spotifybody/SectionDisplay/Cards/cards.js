@@ -17,7 +17,26 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
     setCountSongs(playListSongs[indexSongs].soundUrl);
     setPlaying(false);
   }, [indexSongs, playListSongs]);
-  console.log(countSongs);
+  const [list, setList] = useState([]);
+  const [addplaylistIndex, setAddplaylistIndex] = useState();
+  const [addplaylist, setAddplaylist] = useState();
+  const [_id, setIdPlay] = useState({});
+  const [arraYsong, setArraYsong] = useState([]);
+  const [newarraYsong, setnewArraYsong] = useState([]);
+  const [cierto, setCierto] = useState(true);
+
+  useEffect(() => {
+    api('GET', 'playlist/', {}, {}).then((data) => {
+      setList(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    setAddplaylist(list[addplaylistIndex]);
+  }, [addplaylistIndex]);
+
+  const listVeiw = () => {};
+
   return (
     <button className="cards-container" onClick={openModal} type="button">
       <h3 className="card-info">{title}</h3>
@@ -31,10 +50,31 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
         onClick={() => {
           setIndex(indexUrl);
           setPlaying(true);
+          setCierto(true);
         }}
       >
         play
       </button>
+      <button type="button" onClick={listVeiw()}>
+        add
+      </button>
+      <div className="list-veiW">
+        <ul>
+          {list.map((listU, index) => (
+            <button
+              type="button"
+              onClick={() => {
+                setAddplaylistIndex(index);
+                setIdPlay(listU._id);
+                setArraYsong(addplaylist.song);
+                setnewArraYsong(listU._id, arraYsong);
+              }}
+            >
+              {listU.name}
+            </button>
+          ))}
+        </ul>
+      </div>
 
       {/* <button type="submit">
         ...
