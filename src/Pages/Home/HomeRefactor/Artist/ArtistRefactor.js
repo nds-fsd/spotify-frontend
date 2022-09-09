@@ -12,7 +12,7 @@ const RefactorArtist = () => {
     if (search !== '') {
       query.search = search;
     }
-    query.limit = 4;
+    query.limit = 8;
 
     if (search.length >= 3 || search.length === 0) {
       api('GET', 'artist', {}, query).then((data) => {
