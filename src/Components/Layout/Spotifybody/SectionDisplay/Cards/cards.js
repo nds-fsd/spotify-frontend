@@ -8,7 +8,7 @@ import usePlayer from '../../../../../Hooks/use-player';
 // import AddNamePlaylist from '../../../Sidebar/AddPlaylist/AddPlaylist';
 // import PlayListName from '../../../Sidebar/AddPlaylist/PlayList/PlayList';
 
-const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl }) => {
+const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, lin }) => {
   const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying, countSongs } =
     usePlayer();
 
@@ -19,10 +19,11 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
   const [list, setList] = useState([]);
   const [addplaylistIndex, setAddplaylistIndex] = useState();
   const [addplaylist, setAddplaylist] = useState();
-  const [_id, setIdPlay] = useState({});
-  const [arraYsong, setArraYsong] = useState([]);
-  const [newarraYsong, setnewArraYsong] = useState([]);
-  const [cierto, setCierto] = useState(true);
+  const [idS, setIdPlay] = useState({});
+  // const [arraYsong, setArraYsong] = useState([]);
+  // const [newarraYsong, setnewArraYsong] = useState([]);
+  const [cierto, setCierto] = useState(false);
+  const [cierto1, setCierto1] = useState(false);
 
   useEffect(() => {
     api('GET', 'playlist/', {}, {}).then((data) => {
@@ -33,8 +34,16 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
   useEffect(() => {
     setAddplaylist(list[addplaylistIndex]);
   }, [addplaylistIndex]);
+  console.log('ide playlis', idS);
+  console.log('ide musica', lin);
 
   const listVeiw = () => {};
+
+  useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
+    cierto &&
+      (api('PATCH', `playlist/${idS}/add-song`, { body: { songId: lin } }, {}).then(() => {}), setCierto(false));
+  }, [cierto]);
 
   return (
     <button className="cards-container" type="button">
@@ -49,31 +58,36 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
         onClick={() => {
           setIndex(indexUrl);
           setPlaying(true);
-          setCierto(true);
         }}
       >
         play
       </button>
-      <button type="button" onClick={listVeiw()}>
+      <button
+        type="button"
+        onClick={() => {
+          if (!cierto1 ? setCierto1(true) : setCierto1(false));
+        }}
+      >
         add
       </button>
-      <div className="list-veiW">
-        <ul>
-          {list.map((listU, index) => (
-            <button
-              type="button"
-              onClick={() => {
-                setAddplaylistIndex(index);
-                setIdPlay(listU._id);
-                setArraYsong(addplaylist.song);
-                setnewArraYsong(listU._id, arraYsong);
-              }}
-            >
-              {listU.name}
-            </button>
-          ))}
-        </ul>
-      </div>
+      {cierto1 && (
+        <div className="list-veiW">
+          <ul>
+            {list.map((listU, index) => (
+              <button
+                type="button"
+                onClick={() => {
+                  setAddplaylistIndex(index);
+                  setIdPlay(listU._id);
+                  setCierto(true);
+                }}
+              >
+                {listU.name}
+              </button>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* <button type="submit">
         ...
