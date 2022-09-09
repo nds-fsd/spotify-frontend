@@ -17,7 +17,6 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
     setCountSongs(playListSongs[indexSongs].soundUrl);
     setPlaying(false);
   }, [indexSongs, playListSongs]);
-  console.log(countSongs);
   return (
     <button className="cards-container" onClick={openModal} type="button">
       <h3 className="card-info">{title}</h3>
