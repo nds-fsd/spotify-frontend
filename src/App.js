@@ -17,8 +17,8 @@ import Albums from './Pages/Home/HomeRefactor/Albums/Albums';
 import PlayerProvider from './Providers/player-provider';
 import HomeRefactorBody from './Pages/Home/HomeRefactor/HomeRefactorBody/homeRefactorBody';
 import AllSongs from './Pages/Home/HomeRefactor/Songs/AllSongs';
-import Sidebar from './Components/Layout/Sidebar/sidebar';
-import SidebarMenu from './Components/Layout/Sidebar/Sidebarmenu/sibebarmenu';
+import ArtistSongs from './Pages/Home/HomeRefactor/Artist/ArtistSongs';
+import AlbumSongs from './Pages/Home/HomeRefactor/Albums/AlbumSongs';
 
 function App() {
   return (
@@ -44,9 +44,11 @@ function App() {
               <Route path="/" element={<HomeRefactorBody />} />
               <Route path="/songs" element={<AllSongs />} />
               <Route path="/artist" element={<ArtistPage />} />
+              <Route path="/artist/:id" element={<ArtistSongs />} />
               <Route path="/genre" element={<GenrePage />} />
               <Route path="/genre/:id" element={<GenreSongs />} />
               <Route path="/albums" element={<Albums />} />
+              <Route path="/albums/:id" element={<AlbumSongs />} />
               <Route path="/playlist/:id" element={<PlayListsShow />} />
             </Route>
           </Routes>

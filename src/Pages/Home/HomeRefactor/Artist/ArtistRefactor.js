@@ -13,7 +13,14 @@ const RefactorArtist = () => {
   }, []);
 
   return (
-    <> {refactorArtist.length > 0 ? refactorArtist.map((c) => <Artists name={c.name} photo={c.photo} />) : <></>}</>
+    <>
+      {' '}
+      {refactorArtist.length > 0 ? (
+        refactorArtist.map((c) => <Artists name={c.name} photo={c.photo} lin={c._id} />)
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 

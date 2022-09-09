@@ -12,7 +12,6 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
   const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying, countSongs } =
     usePlayer();
 
-  const [isOpen, openModal, closeModal] = useModal(false);
   useEffect(() => {
     setCountSongs(playListSongs[indexSongs].soundUrl);
     setPlaying(false);
@@ -38,7 +37,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl })
   const listVeiw = () => {};
 
   return (
-    <button className="cards-container" onClick={openModal} type="button">
+    <button className="cards-container" type="button">
       <h3 className="card-info">{title}</h3>
       <h3 className="card-info">{artist?.name}</h3>
       <img src={photo} alt={genre} />
