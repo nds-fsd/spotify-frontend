@@ -80,6 +80,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
                   setAddplaylistIndex(index);
                   setIdPlay(listU._id);
                   setCierto(true);
+                  setCierto1(false);
                 }}
               >
                 {listU.name}
