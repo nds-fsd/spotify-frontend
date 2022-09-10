@@ -20,7 +20,16 @@ const RefactorGenre = () => {
     }
   }, [search]);
 
-  return <> {refactorGender.length > 0 ? refactorGender.map((c) => <Genre name={c.name} photo={c.photo} />) : <></>}</>;
+  return (
+    <>
+      {' '}
+      {refactorGender.length > 0 ? (
+        refactorGender.map((c) => <Genre name={c.name} photo={c.photo} lin={c._id} />)
+      ) : (
+        <></>
+      )}
+    </>
+  );
 };
 
 export default RefactorGenre;
