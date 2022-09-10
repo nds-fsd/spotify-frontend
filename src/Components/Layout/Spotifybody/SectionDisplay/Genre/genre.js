@@ -1,6 +1,4 @@
 import './genre.css';
-import { useModal } from '../../../../Modals/cardModal/useModal';
-import Modal from '../../../../Modals/cardModal/Modal';
 
 const Genre = ({ name, description, photo, lin }) => {
   const [isOpen, openModal, closeModal] = useModal(false);

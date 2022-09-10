@@ -40,8 +40,7 @@
   border-radius: 15px;
 } */
 
-/* .refactorContainer {
-  flex-wrap: nowrap;
-  flex-direction: row;
-  overflow: scroll;
-} */
+.refactorContainer {
+  min-width: 100%;
+  min-height: 20px;
+}

@@ -1,45 +1,51 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
+import styles from '../SearchBar/searchBar.module.css';
 import Cards from '../../../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards';
 import api from '../../../../Utils/api';
 import usePlayer from '../../../../Hooks/use-player';
 
 const AllSongs = () => {
   const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying } = usePlayer();
-
   const [songs, setSongs] = useState([]);
-  const [searchText, setSearchText] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [search, setSearch] = useState(searchParams.get('search') ? searchParams.get('search') : '');
 
   useEffect(() => {
     const query = {};
-    if (searchText !== '') {
-      query.search = searchText;
+    if (search !== '') {
+      query.search = search;
     }
-    api('GET', 'songs', {}, query).then((data) => {
-      console.log(data);
-      setSongs(data);
-      setPlayListSongs(data);
-    });
-  }, [searchText]);
 
-  console.log(playListSongs);
+    if (search.length >= 3 || search.length === 0) {
+      api('GET', 'songs', {}, query).then((data) => {
+        setSongs(data);
+        setPlayListSongs(data);
+      });
+    }
+  }, [setSearch]);
+
   return (
     <>
       <nav>
-        <div className="styles.fixedSearchContainer">
+        <div className={styles.fixedSearchContainer}>
           <form>
-            <SearchIcon className="styles.searchIcon" />
-            <input
-              className="styles.searchInput"
-              type="text"
-              name="search"
-              placeholder="Search"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
+            <label className={styles.searchlabel}>
+              <SearchIcon className={styles.searchIcon} />
+              <input
+                className={styles.searchInput}
+                type="text"
+                name="search"
+                placeholder="Search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </label>
           </form>
         </div>
-      </nav>{' '}
+      </nav>
       {songs.length > 0 ? (
         songs.map((s, index) => (
           <Cards

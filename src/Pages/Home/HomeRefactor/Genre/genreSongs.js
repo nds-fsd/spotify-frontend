@@ -10,7 +10,8 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
 
   // useEffect(() => {
   //   api('GET', `genre/${id}`, {}, {}).then((data) => {
-  //     setGenre(data)
+  //     setGenre(data);
+  //     console.log('genre id', data);
   //   });
   // }, []);
 

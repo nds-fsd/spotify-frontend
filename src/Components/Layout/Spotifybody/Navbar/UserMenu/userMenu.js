@@ -20,8 +20,7 @@ const UserMenu = ({}) => {
   };
 
   const handleClickProfile = () => {
-    alert('Click Profile');
-    handleClose();
+    navigate('/', { replace: true });
   };
 
   const handleClickLogout = () => {
@@ -73,9 +72,7 @@ const UserMenu = ({}) => {
         }}
       >
         <MenuItem onClick={handleClickProfile}>Profile</MenuItem>
-        {/* <MenuItem onClick={handleClickAlbums}>Albums</MenuItem>
-        <MenuItem onClick={handleClickGenre}>Genre</MenuItem>
-        <MenuItem onClick={handleClickArtists}>Artist</MenuItem> */}
+
         {userRole === 'ADMIN' ? <MenuItem onClick={handleAdminSession}>Dashboard</MenuItem> : <> </>}
         <MenuItem onClick={handleClickLogout}>Logout</MenuItem>
       </Menu>

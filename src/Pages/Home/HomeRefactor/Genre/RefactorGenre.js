@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
 import api from '../../../../Utils/api';
 import Genre from '../../../../Components/Layout/Spotifybody/SectionDisplay/Genre/genre';
+import { useHomeContext } from '../HomeRefactorBody/homeRefactor.context';
 
 const RefactorGenre = () => {
+  const { search } = useHomeContext();
   const [refactorGender, setRefactorGenre] = useState([]);
 
   useEffect(() => {
-    api('GET', 'genre', {}, {}).then((data) => {
-      const fewGenres = data.slice(0, 4);
-      setRefactorGenre(fewGenres);
-    });
-  }, []);
+    const query = {};
+    if (search !== '') {
+      query.search = search;
+    }
+    query.limit = 4;
+    if (search.length >= 3 || search.length === 0) {
+      api('GET', 'genre', {}, query).then((data) => {
+        setRefactorGenre(data);
+      });
+    }
+  }, [search]);
 
   return (
     <>
