@@ -72,21 +72,20 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
       </button>
       {cierto1 && (
         <div className="list-veiW">
-          <ul>
-            {list.map((listU, index) => (
-              <button
-                type="button"
-                onClick={() => {
-                  setAddplaylistIndex(index);
-                  setIdPlay(listU._id);
-                  setCierto(true);
-                  setCierto1(false);
-                }}
-              >
-                {listU.name}
-              </button>
-            ))}
-          </ul>
+          {list.map((listU, index) => (
+            <button
+              type="button"
+              className="list-playlist"
+              onClick={() => {
+                setAddplaylistIndex(index);
+                setIdPlay(listU._id);
+                setCierto(true);
+                setCierto1(false);
+              }}
+            >
+              {listU.name}
+            </button>
+          ))}
         </div>
       )}
 

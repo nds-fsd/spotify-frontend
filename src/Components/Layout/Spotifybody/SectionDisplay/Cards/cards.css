@@ -66,9 +66,18 @@
   overflow-y: scroll;
   width: 200px;
   cursor: pointer;
+  background: #fff;
+  display: flex;
+flex-direction: column;
+
+ 
 
 }
+.list-playlist{
+  display:block;
+ 
+  
 
-.list-veiW-not{
-display: none;
+  
 }
+
