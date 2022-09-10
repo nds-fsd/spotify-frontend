@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../../../Utils/api';
 
-const GenreSongs = ({ song, artist, _id, photo }) => {
+const ArtistSongs = () => {
   const [viewSongs, setViewSongs] = useState(false);
-  const [genre, setGenre] = useState([]);
+  const [artist, setArtist] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -15,23 +15,22 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
   // }, []);
 
   useEffect(() => {
-    api('GET', `genre/${id}`, {}, {}).then((data) => {
-      setGenre(data.song);
+    api('GET', `artist/${id}`, {}, {}).then((data) => {
+      setArtist(data.song);
     });
   }, []);
-  console.log(genre);
   return (
     <>
-      {genre.map((g) => (
+      {artist.map((a) => (
         <div>
-          <h3 className="genre-info">{g?.title}</h3>
+          <h3 className="genre-info">{a?.title}</h3>
 
-          <h3 className="genre-info">{g?.artist}</h3>
-          <img src={g?.photo} />
+          <h3 className="genre-info">{a?.artist}</h3>
+          <img src={a?.photo} />
         </div>
       ))}
     </>
   );
 };
 
-export default GenreSongs;
+export default ArtistSongs;

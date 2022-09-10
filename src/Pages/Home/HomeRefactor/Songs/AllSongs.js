@@ -50,6 +50,7 @@ const AllSongs = () => {
             releaseDate={s.releaseDate}
             photo={s.photo}
             indexUrl={index}
+            lin={s._id}
           />
         ))
       ) : (

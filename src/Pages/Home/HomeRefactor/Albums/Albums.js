@@ -15,7 +15,9 @@ const Albums = () => {
     <>
       {' '}
       {album.length > 0 ? (
-        album.map((albums) => <AlbumCards name={albums?.name} photo={albums?.photo} artist={albums?.artist} />)
+        album.map((albums) => (
+          <AlbumCards name={albums?.name} photo={albums?.photo} artist={albums?.artist} lin={albums?._id} />
+        ))
       ) : (
         <></>
       )}

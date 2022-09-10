@@ -16,7 +16,14 @@ const ArtistPage = () => {
       {' '}
       {artist.length > 0 ? (
         artist.map((c) => (
-          <Artists name={c.name} photo={c.photo} bio={c.bio} monthlyUsers={c.monthlyUsers} albums={c.albums} />
+          <Artists
+            name={c.name}
+            photo={c.photo}
+            bio={c.bio}
+            monthlyUsers={c.monthlyUsers}
+            albums={c.albums}
+            lin={c._id}
+          />
         ))
       ) : (
         <></>

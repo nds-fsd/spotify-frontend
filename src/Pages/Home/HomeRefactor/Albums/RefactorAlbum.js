@@ -13,7 +13,14 @@ const RefactorAlbum = () => {
   }, []);
 
   return (
-    <> {refactorAlbum.length > 0 ? refactorAlbum.map((c) => <AlbumCards name={c.name} photo={c.photo} />) : <></>}</>
+    <>
+      {' '}
+      {refactorAlbum.length > 0 ? (
+        refactorAlbum.map((c) => <AlbumCards name={c.name} photo={c.photo} lin={c._id} />)
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
