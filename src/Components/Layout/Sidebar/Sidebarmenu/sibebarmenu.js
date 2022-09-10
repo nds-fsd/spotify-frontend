@@ -1,9 +1,9 @@
 import './sidebarmenu.css';
 
 const SidebarMenu = ({ title, Icon, link }) => (
-  <button className="sidebar-button obligado" type="button">
-    <span className="sidebar-button">{Icon && <Icon className="iconoS" />}</span>
-    <span className="">
+  <button className="sidebar-button" type="button">
+    <span className="sidebar-icon">{Icon && <Icon className="iconoS" />}</span>
+    <span className="sidebar-name">
       {Icon ? (
         <a href={`${link}`}>
           <h3>{title}</h3>

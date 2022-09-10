@@ -28,8 +28,10 @@ const ArtistPage = () => {
       <nav>
         <div className={styles.fixedSearchContainer}>
           <form>
+            <SearchIcon className={styles.searchIcon} />
             <label className={styles.searchlabel}>
-              <SearchIcon className={styles.searchIcon} />
+              {' '}
+              <span>Search</span>
               <input
                 className={styles.searchInput}
                 type="text"

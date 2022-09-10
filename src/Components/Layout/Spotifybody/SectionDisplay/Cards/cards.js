@@ -49,29 +49,33 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
     <button className="cards-container" type="button">
       <h3 className="card-info">{title}</h3>
       <h3 className="card-info">{artist?.name}</h3>
+      {/* <h4 className="card-info">{genre?.name}</h4> */}
       <img src={photo} alt={genre} />
-      <h4 className="card-info">{genre?.name}</h4>
 
-      <button
-        className="btnPlay"
-        type="button"
-        onClick={() => {
-          setIndex(indexUrl);
-          setPlaying(true);
-        }}
-      >
-        play
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          if (!cierto1 ? setCierto1(true) : setCierto1(false));
-        }}
-      >
-        add
-      </button>
+      <div className="btn-container">
+        <button
+          className="btnPlay"
+          type="button"
+          onClick={() => {
+            setIndex(indexUrl);
+            setPlaying(true);
+          }}
+        >
+          <span>Play</span>
+        </button>
+        <button
+          className="btnAdd"
+          type="button"
+          onClick={() => {
+            if (!cierto1 ? setCierto1(true) : setCierto1(false));
+          }}
+        >
+          ...
+        </button>
+      </div>
       {cierto1 && (
         <div className="list-veiW">
+          <span className="addToPlaylistBtn">Add to playlist</span>
           {list.map((listU, index) => (
             <button
               type="button"

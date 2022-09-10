@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import styles from '../SearchBar/searchBar.module.css';
 import api from '../../../../Utils/api';
 import Genre from '../../../../Components/Layout/Spotifybody/SectionDisplay/Genre/genre';
+import '../../../../Components/Layout/Spotifybody/SectionDisplay/Genre/genre.css';
 
 const GenrePage = () => {
   const [genre, setGenre] = useState([]);
@@ -27,13 +28,14 @@ const GenrePage = () => {
       <nav>
         <div className={styles.fixedSearchContainer}>
           <form>
+            <SearchIcon className={styles.searchIcon} />
             <label className={styles.searchlabel}>
-              <SearchIcon className={styles.searchIcon} />
+              {' '}
+              <span>Search</span>
               <input
                 className={styles.searchInput}
                 type="text"
                 name="search"
-                placeholder="Search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />

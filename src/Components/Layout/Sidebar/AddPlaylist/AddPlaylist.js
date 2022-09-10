@@ -40,11 +40,11 @@ const AddNamePlaylist = () => {
               ref={addPlaylistInput}
               type="text"
               {...register('name')}
-              placeholder="Add the name of the playlist"
+              placeholder="Name your playlist"
               className="playlist-add"
             />
             <button type="submit" className="button-add">
-              Crear
+              Add
             </button>
           </form>
         </div>

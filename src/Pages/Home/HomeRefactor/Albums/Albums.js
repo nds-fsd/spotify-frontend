@@ -25,13 +25,14 @@ const Albums = () => {
       <nav>
         <div className={styles.fixedSearchContainer}>
           <form>
+            <SearchIcon className={styles.searchIcon} />
             <label className={styles.searchlabel}>
-              <SearchIcon className={styles.searchIcon} />
+              {' '}
+              <span>Search</span>
               <input
                 className={styles.searchInput}
                 type="text"
                 name="search"
-                placeholder="Search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -41,7 +42,7 @@ const Albums = () => {
       </nav>
       {album.length > 0 ? (
         album.map((albums) => (
-          <AlbumCards name={albums?.name} photo={albums?.photo} artist={albums?.artist} lin={albums?._id} />
+          <AlbumCards name={albums?.name} photo={albums?.photo} artist={albums?.artist?.name} lin={albums?._id} />
         ))
       ) : (
         <></>

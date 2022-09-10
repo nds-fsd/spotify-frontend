@@ -9,13 +9,14 @@ const SearchBar = () => {
     <nav>
       <div className={styles.fixedSearchContainer}>
         <form>
+          <SearchIcon className={styles.searchIcon} />
           <label className={styles.searchlabel}>
-            <SearchIcon className={styles.searchIcon} />
+            {' '}
+            <span>Search</span>
             <input
               className={styles.searchInput}
               type="text"
               name="search"
-              placeholder="Search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
