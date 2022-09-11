@@ -49,16 +49,18 @@ const AllSongs = () => {
       </nav>
       {songs.length > 0 ? (
         songs.map((s, index) => (
-          <Cards
-            genre={s.genre}
-            title={s.title}
-            artist={s.artist}
-            duration={s.duration}
-            releaseDate={s.releaseDate}
-            photo={s.photo}
-            indexUrl={index}
-            lin={s._id}
-          />
+          <div>
+            <Cards
+              genre={s.genre}
+              title={s.title}
+              // artist={s.artist}
+              // duration={s.duration}
+              // releaseDate={s.releaseDate}
+              photo={s.photo}
+              indexUrl={index}
+              lin={s._id}
+            />
+          </div>
         ))
       ) : (
         <></>

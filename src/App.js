@@ -48,7 +48,7 @@ function App() {
               <Route path="/genre" element={<GenrePage />} />
               <Route path="/genre/:id" element={<GenreSongs />} />
               <Route path="/albums" element={<Albums />} />
-              <Route path="/albums/:id" element={<AlbumSongs />} />
+              <Route path="/album/:id" element={<AlbumSongs />} />
               <Route path="/playlist/:id" element={<PlayListsShow />} />
             </Route>
           </Routes>

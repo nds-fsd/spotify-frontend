@@ -48,7 +48,7 @@
 }
 
 .button-play {
-  position: absolute;
+  position: relative;
 }
 
 @keyframes cardsFadeIn {
@@ -63,6 +63,8 @@
   gap: 30px;
   margin-top: 15px;
   align-items: center;
+  position: relative;
+
 }
 
 .btnPlay {
@@ -107,17 +109,43 @@
 } */
 
 .list-veiW {
-  margin-top: 25px;
-  position: absolute;
-  height: 100%;
+  margin-top: 30px;
+  position:relative;
+  height: 200px;
   overflow-y: scroll;
-  width: 200px;
-  cursor: pointer;
   background: rgb(0, 31, 49);
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  
 }
+
+.list-veiW::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.list-veiW::-webkit-scrollbar:vertical {
+  width: 5px;
+}
+
+.list-veiW::-webkit-scrollbar-button:increment,
+.list-veiW::-webkit-scrollbar-button {
+  display: none;
+}
+
+.list-veiW::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.list-veiW::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 1px solid #f1f2f3;
+}
+
+.list-veiW::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
 
 .addToPlaylistBtn {
   color: #bac1b8;
@@ -131,4 +159,19 @@
   padding: 5px;
   border: 2px solid rgba(12, 58, 82, 0.85);
   cursor: pointer;
+}
+
+.list-veiW span {
+  color:rgba(219, 157, 71, 1);
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+
+  
+}
+
+.list-veiW button:hover{
+  color:#fff ;
+  font-size: 15px;
+
 }
