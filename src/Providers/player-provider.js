@@ -46,6 +46,9 @@ const PlayerProvider = ({ children }) => {
   const [progress, setProgress] = useState(0);
   const [countSongs, setCountSongs] = useState();
   const [playListSongs, setPlayListSongs] = useState([]);
+  const [footImg, setFootImg] = useState();
+  const [footTitle, setFootTitle] = useState();
+  const [newNamePlaylist, setNewNamePlaylist] = useState(false);
 
   useEffect(() => {
     playSong(playingQueue);
@@ -70,6 +73,12 @@ const PlayerProvider = ({ children }) => {
         setCountSongs,
         playListSongs,
         setPlayListSongs,
+        footImg,
+        setFootImg,
+        footTitle,
+        setFootTitle,
+        newNamePlaylist,
+        setNewNamePlaylist,
       }}
     >
       {children}

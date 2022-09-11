@@ -3,23 +3,16 @@ import { useEffect, useState } from 'react';
 import usePlayer from '../../../../Hooks/use-player';
 
 const FooterLeft = () => {
-  const { playListSongs, indexSongs } = usePlayer();
-  const [titleSong, setTiltesong] = useState();
-  useEffect(() => {
-    setTiltesong(playListSongs[indexSongs]);
-    console.log(playListSongs);
-  }, [playListSongs]);
+  const { playListSongs, indexSongs, footImg, footTitle } = usePlayer();
+
   console.log(playListSongs);
 
   return (
     <div className="FooterLeft-container">
-      <img
-        src="https://www.lahiguera.net/musicalia/artistas/varios/disco/0/tema/11279/king_of_everything-portada.jpg"
-        alt="albun"
-      />
+      <img src={footImg || 'https://nuclio.school/wp-content/uploads/2019/10/logo-nuclio-2019.png'} alt="albun" />
       <div>
-        <h5>title</h5>
-        <p>Fffgf</p>
+        <h5>{footTitle}</h5>
+        {/* <p></p> */}
       </div>
     </div>
   );

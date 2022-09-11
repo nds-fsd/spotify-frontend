@@ -1,66 +1,90 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import styles from './homeRefactor.module.css';
 import RefactorSongs from '../Songs/refactorSongs';
 import RefactorGenre from '../Genre/RefactorGenre';
 import RefactorArtist from '../Artist/ArtistRefactor';
 import RefactorAlbum from '../Albums/RefactorAlbum';
 import SearchBar from '../SearchBar/searchBar';
+import { HomeContextProvider } from './homeRefactor.context';
 
 const HomeRefactorBody = () => {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
+  const search = searchParams.get('search');
   const seeAllSongs = () => {
-    navigate('/songs', { replace: false });
+    let url = '/songs';
+    if (search) {
+      url = `${url}?search=${search}`;
+    }
+
+    navigate(url, { replace: false });
   };
 
   const seeAllGenres = () => {
-    navigate('/genre', { replace: false });
+    let url = '/genre';
+    if (search) {
+      url = `${url}?search=${search}`;
+    }
+
+    navigate(url, { replace: false });
   };
 
   const seeAllArtist = () => {
-    navigate('/artist', { replace: false });
+    let url = '/artist';
+    if (search) {
+      url = `${url}?search=${search}`;
+    }
+
+    navigate(url, { replace: false });
   };
 
   const seeAllAlbums = () => {
-    navigate('/albums', { replace: false });
+    let url = '/albums';
+    if (search) {
+      url = `${url}?search=${search}`;
+    }
+
+    navigate(url, { replace: false });
   };
 
   return (
-    <>
+    <HomeContextProvider>
       <div className={styles.refactorContainer}>
+        <SearchBar />
         <h3 className={styles.homeRefactorTitle}>SONGS</h3>
         <button className={styles.seeMore} type="button" onClick={seeAllSongs}>
-          See more...
+          See All
         </button>
         <hr className={styles.hrDivision} />
         <RefactorSongs />
       </div>
-      <div>
+      <div className={styles.refactorContainer}>
         <h3 className={styles.homeRefactorTitle}>GENRES </h3>
         <button className={styles.seeMore} type="button" onClick={seeAllGenres}>
-          See more...
+          See All
         </button>
         <hr className={styles.hrDivision} />
         <RefactorGenre />
       </div>
-      <div>
+      <div className={styles.refactorContainer}>
         <h3 className={styles.homeRefactorTitle}>ALBUMS </h3>
         <button className={styles.seeMore} type="button" onClick={seeAllAlbums}>
-          See more...
+          See All
         </button>
         <hr className={styles.hrDivision} />
         <RefactorAlbum />
       </div>
-      <div>
-        <h3 className={styles.homeRefactorTitle}>Artists</h3>
+      <div className={styles.refactorContainer}>
+        <h3 className={styles.homeRefactorTitle}>ARTISTS</h3>
         <button className={styles.seeMore} type="button" onClick={seeAllArtist}>
-          See more...
+          See All
         </button>
         <hr className={styles.hrDivision} />
         <RefactorArtist />
       </div>
-    </>
+    </HomeContextProvider>
   );
 };
 export default HomeRefactorBody;
