@@ -1,54 +1,46 @@
-.artist-container {
+.genresongs-container {
   color: #fff;
   background-color: rgb(0, 34, 53);
   margin: 9px 12px;
   padding: 5px;
-  /* line-height: 35px; */
-  font-size: 17.5px;
   font-weight: 600;
   border: 2px solid rgba(12, 58, 82, 0.85);
   border-radius: 10px;
   padding-left: 2px;
-  width: 250px;
-  min-height: 410px;
   margin-bottom: 35px;
+  width: 230px;
+  min-height: 325px;
+  position: relative;
   opacity: 0;
+  text-align: center;
   animation: cardsFadeIn 2s ease-in forwards;
 }
 
-.artist-container img {
+.genresongs-container img {
   width: 185px;
   height: 175px;
   margin: 2px;
   padding: 1px;
 }
 
-.artist-container img:hover {
+.genresongs-container img:hover {
   width: 185px;
   height: 175px;
   margin: 2px;
   padding: 1px;
 }
 
-.artist-container:hover {
+.genresongs-container:hover {
   background-color: rgba(6, 52, 78, 0.75);
-  /* border: 2px solid rgba(12, 58, 82, 0.85); */
 }
 
-.artist-info {
+.genresongs-info {
+  margin-top: 20px;
   display: flex;
   font-size: 20px;
   text-align: center;
   justify-content: center;
-  margin-bottom: 29px;
-}
-
-.artist-bio {
-  display: flex;
-  font-size: 13px;
-  margin-top: 5px;
-  text-align: center;
-  padding: 9px;
+  margin-bottom: 4px;
 }
 
 @keyframes cardsFadeIn {

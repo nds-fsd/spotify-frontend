@@ -5,7 +5,7 @@ import styles from '../SearchBar/searchBar.module.css';
 import Cards from '../../../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards';
 import usePlayer from '../../../../Hooks/use-player';
 import api from '../../../../Utils/api';
-import '../../../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards.css';
+import './AlbumsSongs.css';
 
 const AlbumSongs = ({ song, artist, _id, photo }) => {
   const [viewSongs, setViewSongs] = useState(false);
@@ -48,6 +48,7 @@ const AlbumSongs = ({ song, artist, _id, photo }) => {
           </form>
         </div>
       </nav>{' '}
+<<<<<<< HEAD
       {album.map((a, index) => (
         <div>
           <Cards

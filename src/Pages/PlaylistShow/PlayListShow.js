@@ -33,7 +33,7 @@ const PlayListsShow = () => {
   return (
     <>
       <div className="conteiner-layout-list">
-        Playlist
+        <span className="playlistTitle">PLAYLIST</span>
         <div className="banner-conteiner">
           <img
             className="banner-logo"
@@ -41,7 +41,7 @@ const PlayListsShow = () => {
           />
 
           <p>
-            <h2 className="banner">{listOne.name}</h2> lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem{' '}
+            <h2 className="banner">{listOne.name}</h2>{' '}
           </p>
         </div>
         <div className="List-name">
@@ -63,8 +63,6 @@ const PlayListsShow = () => {
                   Play
                 </button>
                 <h3>{objeto.title}</h3>
-                <h3>{objeto.genre}</h3>
-                <h3>{objeto.releaseDate}</h3>
               </>
             </div>
           ))}

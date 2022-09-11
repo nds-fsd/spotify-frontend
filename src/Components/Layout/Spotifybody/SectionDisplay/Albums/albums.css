@@ -1,4 +1,4 @@
-.cards-container {
+.album-container {
   color: #fff;
   background-color: rgb(0, 34, 53);
   margin: 9px 12px;
@@ -16,30 +16,32 @@
   animation: cardsFadeIn 2s ease-in forwards;
 }
 
-.cards-container img {
+.album-container img {
   width: 185px;
   height: 175px;
   margin: 2px;
   padding: 1px;
 }
 
-.cards-container img:hover {
+.album-container img:hover {
   width: 185px;
   height: 175px;
   margin: 2px;
   padding: 1px;
 }
 
-.cards-container:hover {
+.album-container:hover {
   background-color: rgba(6, 52, 78, 0.75);
   /* border: 2px solid rgba(12, 58, 82, 0.85); */
 }
 
-.card-info {
+.album-info {
   display: flex;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
   justify-content: center;
+  margin-top: -12px;
+  margin-bottom: 24px;
 }
 
 @keyframes cardsFadeIn {
