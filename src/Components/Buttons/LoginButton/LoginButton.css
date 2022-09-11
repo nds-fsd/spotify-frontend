@@ -3,23 +3,28 @@
   width: 100px;
   height: 44px;
   border-radius: 20px;
-  background-color: #ffb700;
+  background-color: #db9d47;
   color: black;
   font-size: 15px;
   border: none;
 }
 
 .login-button:hover {
-  width: 105px;
-  height: 48px;
-  font-size: 17px;
-  border-radius: 22px;
-  margin-right: 3px;
-  opacity: 0.9;
-  transition: 0.3s;
+  background-color: white;
+  color: black;
+  border: 2.5px solid #db9d47;
+  cursor: pointer;
 }
 
 .button-container {
   width: 412px;
   height: 44px;
+  opacity: 0;
+  animation: popUpForm 2s ease 5s forwards;
+}
+
+@keyframes popUpForm {
+  to {
+    opacity: 1;
+  }
 }

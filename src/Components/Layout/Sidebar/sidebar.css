@@ -3,7 +3,7 @@
   height: 100vh;
   background-color: #00101ab4;
   min-width: 240px;
-  color: #fff;
+  color: #bac1b8;
   position: fixed;
   left: 0;
   padding-left: 10px;
@@ -19,11 +19,8 @@
 
 .Sidebar-container hr {
   border: 1px solid #3a3a3a;
-  width: 75%;
+  width: 88%;
   margin: 25px 7px;
-}
-.Playlist-container {
-  margin: 30px 10px;
 }
 
 .logo {
@@ -35,5 +32,5 @@
   padding: 8px;
   padding-top: 40px;
   font-weight: bolder;
-  color: #ffb700;
+  color: #db9d47;
 }

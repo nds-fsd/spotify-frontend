@@ -1,31 +1,57 @@
 import './PlayListsShow.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAllCards } from '../../Api/utils';
+import { SubscriptionsOutlined } from '@mui/icons-material';
+import usePlayer from '../../Hooks/use-player';
+import api from '../../Utils/api';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-
-  const getOne = async () => {
-    const response = await fetch(`http://localhost:8080/playlist/${id}`);
-    return response.json();
-  };
+  const {
+    isPlaying,
+    setIndex,
+    indexSongs,
+    setCountSongs,
+    setPlayListSongs,
+    playListSongs,
+    setPlaying,
+    footImg,
+    setFootImg,
+    footTitle,
+    setFootTitle,
+  } = usePlayer();
 
   const [listOne, setListOne] = useState([]);
-  useEffect(() => {
-    getOne().then((data) => setListOne(data));
-  }, []);
-
-  const [cards, setCards] = useState([]);
+  const [footWait, setFootWait] = useState([]);
 
   useEffect(() => {
-    getAllCards().then((data) => setCards(data));
+    api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setPlaying(false);
+      setListOne(data.song);
+      setFootWait(data.song);
+    });
   }, []);
+  console.log(listOne);
 
+  useEffect(() => {
+    setPlayListSongs(listOne);
+  }, [listOne, playListSongs]);
+
+  useEffect(() => {
+    api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setCountSongs(playListSongs[indexSongs].soundUrl);
+      setFootImg(playListSongs[indexSongs].photo);
+      setFootTitle(playListSongs[indexSongs].name);
+
+      setPlaying(false);
+    });
+  }, [indexSongs, playListSongs]);
+  console.log(isPlaying);
+  console.log('imagen del foteer', footImg);
   return (
     <>
       <div className="conteiner-layout-list">
-        Playlist
+        <span className="playlistTitle">PLAYLIST</span>
         <div className="banner-conteiner">
           <img
             className="banner-logo"
@@ -33,20 +59,29 @@ const PlayListsShow = () => {
           />
 
           <p>
-            <h2 className="banner">{listOne.name}</h2> lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem{' '}
+            <h2 className="banner">{listOne.name}</h2>{' '}
           </p>
         </div>
-        <div className="List-names">
-          {cards.map((objeto) => (
-            <div className="conteiner-name">
+        <div className="List-name">
+          {listOne.map((objeto, index) => (
+            <div className="conteiner-name btn-playy">
               {' '}
               <>
                 <div>
                   <img src={objeto.photo} />
+                  <button
+                    className="btn-play"
+                    type="button"
+                    onClick={() => {
+                      setIndex(index);
+                      setPlaying(true);
+                    }}
+                  >
+                    <span>Play</span>
+                  </button>
                 </div>
+
                 <h3>{objeto.title}</h3>
-                <h3>{objeto.genre}</h3>
-                <h3>{objeto.releaseDate}</h3>
               </>
             </div>
           ))}

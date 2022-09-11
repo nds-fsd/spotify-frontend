@@ -1,49 +1,63 @@
-.button-add{
-background:#ffb700 ;
-width: 100px; 
-height: 30px;
-color: white;
-border-radius: 5px;
-font-size: 1em;
-outline: none;
-transform: translate(30px);
-
-
-}
-
-.button-daown{
- background: none;
- border: none;
- font-size: 1em;
- color: white;
- font-weight: 600;
-margin-left: 10px;
-}
-.playlist-add{
+.button-add {
+  background: #db9d47;
+  width: 84px;
   height: 30px;
-  border-radius: 5px;
+  color: #00101ab4;
+  font-size: 13px;
+  letter-spacing: 3px;
   outline: none;
+  border: none;
+  margin-top: 16px;
   margin-left: 8px;
-  margin-top: 5px;
- 
+  border-radius: 22px;
 }
-.container-Icon{
+
+.button-daown {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: #bac1b8;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.button-daown:hover {
+  color: #fff;
+  transition: 300ms color ease-in;
+}
+.playlist-add {
+  height: 30px;
+  border-radius: 22px;
+  outline: none;
+  border: none;
+  margin-left: 8px;
+  margin-top: 18px;
+  width: 220px;
+}
+
+.playlist-add:hover {
+  border: 2px solid #db9d47;
+}
+
+input::placeholder {
+  color: #bac1b8;
+  letter-spacing: 3px;
+}
+
+.container-Icon {
   display: flex;
-  width: 55px;
-  width: 235px;
+  width: 100%;
   align-items: center;
-  margin-left:6px ;
-  
-
+  margin-left: 13px;
 }
 
-.container-Icon h3{
+.container-Icon h3 {
   font-size: 1.2em;
   color: grey;
 }
 
-.container-Icon h3:hover{
-  color:#fff;
+.container-Icon:hover {
+  color: #fff;
   cursor: pointer;
+  transition: 300ms color ease-in;
 }
-

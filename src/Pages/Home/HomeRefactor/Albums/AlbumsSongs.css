@@ -1,0 +1,55 @@
+.albumSongs-container {
+  color: #fff;
+  background-color: rgb(0, 34, 53);
+  margin: 9px 12px;
+  padding: 5px;
+  font-weight: 600;
+  border: 2px solid rgba(12, 58, 82, 0.85);
+  border-radius: 10px;
+  padding-left: 2px;
+  margin-bottom: 35px;
+  width: 230px;
+  min-height: 325px;
+  position: relative;
+  opacity: 0;
+  text-align: center;
+  animation: cardsFadeIn 2s ease-in forwards;
+}
+.cards-container button h3 {
+ 
+  margin-left: -35px;
+
+}
+.albumSongs-container  img {
+  width: 185px;
+  height: 175px;
+  margin: 2px;
+  padding: 1px;
+}
+
+.albumSongs-container img:hover {
+  width: 185px;
+  height: 175px;
+  margin: 2px;
+  padding: 1px;
+}
+
+
+.albumSongs-container:hover {
+  background-color: rgba(6, 52, 78, 0.75);
+}
+
+.albumSongs-info {
+  margin-top: 20px;
+  display: flex;
+  font-size: 20px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+@keyframes cardsFadeIn {
+  to {
+    opacity: 1;
+  }
+}

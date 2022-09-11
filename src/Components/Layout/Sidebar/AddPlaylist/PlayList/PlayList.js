@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
-import { getAlllist } from '../../../../../Api/utils';
+import api from '../../../../../Utils/api';
 import './PlayList.css';
+import usePlayer from '../../../../../Hooks/use-player';
 
 const PlayListName = () => {
-  const [list, setList] = useState([]);
-  useEffect(() => {
-    getAlllist().then((data) => setList(data));
-  }, []);
+  const { newNamePlaylist } = usePlayer();
 
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    api('GET', 'playlist/', {}, {}).then((data) => {
+      setList(data);
+    });
+  }, [newNamePlaylist]);
   return (
     <div className="Conteiner-Playlist">
       {list.map((objeto) => (

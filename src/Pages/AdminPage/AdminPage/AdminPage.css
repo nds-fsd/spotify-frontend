@@ -1,0 +1,124 @@
+.adminPage {
+  background-color: white;
+  color: #bac1b8;
+  font-family: sans-serif, Arial, Helvetica;
+  text-align: center;
+  width: 100%;
+  min-height: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.logoContainer {
+  background: rgba(3, 0, 39);
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  color: #db9d47;
+}
+.logoContainer > h1 {
+  margin-top: 30px;
+  line-height: 60px;
+  letter-spacing: 10px;
+  font-size: 45px;
+  justify-content: center;
+}
+
+.logoContainer > p {
+  margin-top: 38px;
+  line-height: 60px;
+  letter-spacing: 10px;
+  font-size: 24px;
+  justify-content: center;
+  padding-left: 8px;
+}
+
+.userMenuDropdown {
+  justify-content: flex-end !important;
+  display: flex !important;
+  font-size: 15px !important;
+  height: 30px !important;
+  justify-content: flex-end !important;
+  transform: translate(500px, 50px) !important;
+}
+
+.categoriesContent {
+  height: 100vh;
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
+  margin-top: 169px;
+  margin-right: 48px;
+  overflow: scroll;
+}
+
+/* .categoriesContent::-webkit-scrollbar:vertical {
+  width: 100px;
+}
+
+.categoriesContent::-webkit-scrollbar-thumb {
+  background-color: #b7cab7;
+  border-radius: 20px;
+  border: 1px solid #f1f2f3;
+}
+
+.categoriesContent::-webkit-scrollbar-track {
+  border-radius: 10px;
+} */
+
+.dashboard {
+  background: rgba(3, 0, 39);
+  justify-content: center;
+  padding: 20px;
+  width: 20%;
+  flex-direction: column;
+  align-items: center;
+  /* position: absolute; */
+  color: #ddd;
+  height: 100vh;
+  margin-top: 170px;
+}
+
+.dashboardTitle {
+  display: flex;
+  font-size: 30px;
+  color: #ddd;
+
+  padding: 4px;
+  margin-bottom: 30px;
+  margin-top: 22px;
+  justify-content: center;
+}
+
+.dashboardContainer {
+  position: fixed;
+  width: 200px;
+  margin-left: 37px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonCategory {
+  /* display: flex; */
+  width: 100px;
+  margin: 15px;
+  background-color: transparent;
+  border: none;
+  padding: 11px;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+}
+
+.modelsContainer {
+  display: flex;
+  justify-content: center;
+  margin-left: -105px;
+  width: 97%;
+}

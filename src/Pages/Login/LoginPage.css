@@ -1,3 +1,9 @@
+.login-container {
+  height: 100vh;
+  background: rgba(3, 0, 39);
+  color: #bac1b8;
+}
+
 .header-container {
   width: 100%;
   justify-content: center;
@@ -21,10 +27,13 @@ img:hover {
 }
 
 .loginForm-container hr {
-  border: 0.5px solid rgb(68, 67, 67);
+  border: 4px solid #db9d47;
+  background-color: #db9d47;
   position: absolute;
   display: flex;
-  width: 100%;
+  width: 0%;
+  opacity: 0;
+  animation: hrFade 4s ease-in forwards;
 }
 
 .signup-container {
@@ -33,11 +42,14 @@ img:hover {
 }
 
 .signup-container hr {
-  border: 0.5px solid rgb(68, 67, 67);
+  border: 4px solid #db9d47;
+  background-color: #db9d47;
   position: absolute;
   display: flex;
-  width: 400px;
-  margin-top: 80px;
+  width: 0px;
+  margin-top: 60px;
+  opacity: 0;
+  animation: hrFade2 4s ease-in forwards;
 }
 
 .loginForm-container {
@@ -48,6 +60,7 @@ img:hover {
 
 .header-login {
   width: 100%;
+  color: #bac1b8;
   justify-content: center;
   position: absolute;
   padding: 10px;
@@ -55,26 +68,67 @@ img:hover {
   font-size: 19px;
   margin-top: 25px;
   font-weight: bold;
+  opacity: 0;
+  animation: popUpForm 2s ease 5s forwards;
 }
 
 .header-signup {
   width: 100%;
+  color: #bac1b8;
   justify-content: center;
   position: absolute;
   padding: 10px;
   display: flex;
   font-size: 20px;
-  margin-top: 120px;
+  margin-top: 85px;
+  opacity: 0;
+  animation: popUpForm 2s ease 5s forwards;
 }
 
 .logoLogin {
   display: flex;
   justify-content: center;
-  font-size: 52px;
+  font-size: 70px;
   margin: 15px;
   margin-top: 25px;
   padding: 8px;
   font-weight: 1000;
-  color: #ffb700;
-  letter-spacing: 6px;
+  color: #db9d47;
+  letter-spacing: 16px;
+  opacity: 0;
+  animation: logoFadeIn 4s ease-in forwards;
+}
+
+.signUpButtonContainer {
+  margin: -38px;
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    letter-spacing: 6px;
+    font-size: 52px;
+  }
+}
+
+@keyframes hrFade {
+  to {
+    opacity: 1;
+    width: 100%;
+    border: 0.8px solid #db9d47;
+  }
+}
+
+@keyframes hrFade2 {
+  to {
+    opacity: 1;
+    width: 500px;
+    border: 0.8px solid #db9d47;
+  }
+}
+
+@keyframes popUpForm {
+  to {
+    opacity: 1;
+  }
 }

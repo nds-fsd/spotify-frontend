@@ -1,0 +1,79 @@
+.albumCategoryTitle {
+  font-size: 50px;
+  color: rgba(3, 0, 39);
+  margin-top: 40px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 55px;
+}
+
+.albumCategoryContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(3, 0, 39);
+  border-radius: 10px;
+  color: #bac1b8;
+  margin-bottom: 20px;
+  height: 150px;
+  width: 97%;
+  gap: 48px;
+}
+
+.albumCategoryContainer:hover {
+  border: 2px #db9d47 solid;
+}
+
+.albumPhoto {
+  width: 120px;
+  height: 100px;
+}
+.albumPhoto:hover {
+  width: 120px;
+  height: 100px;
+}
+
+.addAlbumButton {
+  height: 50px;
+  width: 125px;
+  color: rgba(3, 0, 39);
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  margin-right: 73px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.addAlbumButton:hover {
+  border: 1px solid rgba(3, 0, 39);
+  border-radius: 10px;
+}
+
+.adminAlbumButton {
+  padding: 5px;
+  width: 70px;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 2px;
+  background-color: #db9d47;
+  color: rgba(3, 0, 39);
+  font-size: 18px;
+  border: transparent;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.albumHeaders {
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-start;
+  width: 20%;
+}
+
+.releaseYear {
+  width: 150px;
+}

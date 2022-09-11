@@ -24,14 +24,19 @@ p {
   height: 48px;
   cursor: pointer;
   transition: 300ms color ease-in;
-  margin-left: 5px;
-  padding-top: 7px;
+  margin-left: 7px;
+  padding-top: 5px;
   border: none;
   background-color: transparent;
   font-size: 17px;
   font-weight: 900;
 }
 
-.sidebar-button h3{
-font-size: 20px;
+.sidebar-name {
+  margin-top: -1px;
+}
+
+.sidebar-button h3 {
+  font-size: 20px;
+  margin-left: 17px;
 }

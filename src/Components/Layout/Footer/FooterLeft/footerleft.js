@@ -1,16 +1,21 @@
 import './footerleft.css';
+import { useEffect, useState } from 'react';
+import usePlayer from '../../../../Hooks/use-player';
 
-const FooterLeft = () => (
-  <div className="FooterLeft-container">
-    <img
-      src="https://www.lahiguera.net/musicalia/artistas/varios/disco/0/tema/11279/king_of_everything-portada.jpg"
-      alt="albun"
-    />
-    <div>
-      <h5>titulo de la cancion</h5>
-      <p>artista</p>
+const FooterLeft = () => {
+  const { playListSongs, indexSongs, footImg, footTitle } = usePlayer();
+
+  console.log(playListSongs);
+
+  return (
+    <div className="FooterLeft-container">
+      <img src={footImg || 'https://nuclio.school/wp-content/uploads/2019/10/logo-nuclio-2019.png'} alt="albun" />
+      <div>
+        <h5>{footTitle}</h5>
+        {/* <p></p> */}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default FooterLeft;

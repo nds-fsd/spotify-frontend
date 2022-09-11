@@ -1,0 +1,63 @@
+.genreCreateInputContainer {
+  background-color: rgba(186, 193, 184, 0.2);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: rgba(3, 0, 39);
+  display: flex;
+  width: 70%;
+  height: 100%;
+  padding: 8px;
+  margin-left: 107px;
+}
+
+.genreCreateFormInput {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 18px;
+  padding: 10px;
+}
+.genreInput {
+  display: flex;
+  padding: 3px;
+  width: 240px;
+  height: 25px;
+  margin-bottom: 8px;
+}
+
+.descriptionInput {
+  display: flex;
+  padding: 3px;
+  width: 240px;
+  height: 25px;
+  margin-left: -507px;
+}
+
+.descriptionLabel {
+  width: 140px;
+  font-size: 19px;
+  padding: 5px;
+  margin: 0;
+}
+
+.genreLabel {
+  font-size: 19px;
+  padding: 5px;
+  width: 75px;
+}
+
+.genreCreateButton {
+  padding: 5px;
+  width: 71px;
+  justify-content: center;
+  margin-top: 8px;
+  margin-left: 2px;
+  background-color: #db9d47;
+  color: rgba(3, 0, 39);
+  font-size: 18px;
+  border: transparent;
+  border-radius: 10px;
+}

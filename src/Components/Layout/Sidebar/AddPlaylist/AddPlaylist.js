@@ -3,15 +3,24 @@ import { useForm } from 'react-hook-form';
 import AddIcon from '@mui/icons-material/Add';
 import { useRef, useState } from 'react';
 import { createList } from '../../../../Api/utils';
+import api from '../../../../Utils/api';
+import usePlayer from '../../../../Hooks/use-player';
 
 const AddNamePlaylist = () => {
+  const { setNewNamePlaylist } = usePlayer();
+
   const addPlaylistInput = useRef(null);
   const [addPlayist, setAddPlaylist] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    setAddPlaylist(false);
-    createList(data);
+    api('POST', 'playlist', {
+      body: {
+        name: data.name,
+      },
+    });
     reset();
+    setAddPlaylist(false);
+    setNewNamePlaylist(true);
   };
 
   return (
@@ -23,7 +32,8 @@ const AddNamePlaylist = () => {
           onClick={() => {
             if (!addPlayist ? setAddPlaylist(true) : setAddPlaylist(false)) addPlaylistInput.current.focus();
           }}
-          className="button-daown">
+          className="button-daown"
+        >
           Add Playlist
         </button>
       </div>
@@ -34,11 +44,11 @@ const AddNamePlaylist = () => {
               ref={addPlaylistInput}
               type="text"
               {...register('name')}
-              placeholder="Add the name of the playlist"
+              placeholder="Name your playlist"
               className="playlist-add"
             />
             <button type="submit" className="button-add">
-              Crear
+              Add
             </button>
           </form>
         </div>
