@@ -48,7 +48,6 @@ const AlbumSongs = ({ song, artist, _id, photo }) => {
           </form>
         </div>
       </nav>{' '}
-<<<<<<< HEAD
       {album.map((a, index) => (
         <div>
           <Cards
