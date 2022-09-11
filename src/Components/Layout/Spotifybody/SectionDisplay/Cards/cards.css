@@ -15,6 +15,11 @@
   position: relative;
   opacity: 0;
   animation: cardsFadeIn 2s ease-in forwards;
+  
+}
+.cards-container h3{
+ 
+  margin-left: -35px;
 }
 
 .cards-container img {

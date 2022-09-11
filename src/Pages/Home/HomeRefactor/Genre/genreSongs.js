@@ -4,8 +4,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import api from '../../../../Utils/api';
 import styles from '../SearchBar/searchBar.module.css';
 import './genreSongs.css';
+import Cards from '../../../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards';
+import usePlayer from '../../../../Hooks/use-player';
 
 const GenreSongs = ({ song, artist, _id, photo }) => {
+  const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying } = usePlayer();
+
   const [viewSongs, setViewSongs] = useState(false);
   const [genre, setGenre] = useState([]);
   const navigate = useNavigate();
@@ -23,6 +27,8 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
   useEffect(() => {
     api('GET', `genre/${id}`, {}, {}).then((data) => {
       setGenre(data.song);
+      setPlayListSongs(data.song);
+
       console.log('songsdATA:', data.song);
     });
   }, []);
@@ -46,12 +52,18 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
           </form>
         </div>
       </nav>{' '}
-      {genre.map((g) => (
-        <div className="genresongs-container">
-          <h3 className="genresongs-info">{g?.title}</h3>
-
-          <h3 className="genresongs-info">{g?.artist?.name}</h3>
-          <img src={g?.photo} />
+      {genre.map((g, index) => (
+        <div>
+          <Cards
+            genre={g.genre}
+            title={g.title}
+            // artist={s.artist}
+            // duration={s.duration}
+            // releaseDate={s.releaseDate}
+            photo={g.photo}
+            indexUrl={index}
+            lin={g._id}
+          />
         </div>
       ))}
     </>

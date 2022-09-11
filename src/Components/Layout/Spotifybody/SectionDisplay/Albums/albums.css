@@ -15,7 +15,10 @@
   opacity: 0;
   animation: cardsFadeIn 2s ease-in forwards;
 }
-
+h3{
+ 
+  margin-left: -40px;
+}
 .album-container img {
   width: 185px;
   height: 175px;

@@ -57,21 +57,24 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  height: 75px;
+  height: 60px;
   align-items: center;
   grid-auto-columns: 2px;
   border: 1px solid rgba(255, 255, 255, 0.13);
 }
 .conteiner-name div {
-  display: flex;
+  
+ 
 
-  justify-items: center;
+  
 }
 .conteiner-name div img {
   height: 53px;
   margin-left: 15px;
   width: 52px;
   object-fit: contain;
+  transform: translatey(13px);
+  
 }
 
 .conteiner-name:hover {
@@ -80,17 +83,45 @@ h3 {
 }
 
 .btn-play {
-  position: absolute;
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
-  background: #ffb700;
-  opacity: 0.5;
-  transform: translateX(70px);
-  display: none;
+
+  
+ position: absolute;
   cursor: pointer;
+ transform: translateY(-60px);
+ 
+ 
+  
+  
+  
 }
 
-.conteiner-name:hover > .btn-play {
-  display: block;
+
+  
+  
+.btn-play {
+  /* background-color: rgba(219, 157, 71, 1);
+  width: 60px;
+  height: 20px; */
+  background: none;
+  width: 30px;
+  height: 30px;
+  border: solid 1.5px rgba(219, 157, 71, 1);
+  border-radius: 100%;
+  position: relative;
+  text-indent: -9999px;
+  box-shadow: 1px 1px 3px #999999;
+
+  
+  
+}
+
+.btn-play span {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 14px solid rgba(219, 157, 71, 1);
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  top: 20%;
+  left: 36%;
 }

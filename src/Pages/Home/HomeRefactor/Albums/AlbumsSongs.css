@@ -15,8 +15,12 @@
   text-align: center;
   animation: cardsFadeIn 2s ease-in forwards;
 }
+.cards-container button h3 {
+ 
+  margin-left: -35px;
 
-.albumSongs-container img {
+}
+.albumSongs-container  img {
   width: 185px;
   height: 175px;
   margin: 2px;
@@ -29,6 +33,7 @@
   margin: 2px;
   padding: 1px;
 }
+
 
 .albumSongs-container:hover {
   background-color: rgba(6, 52, 78, 0.75);

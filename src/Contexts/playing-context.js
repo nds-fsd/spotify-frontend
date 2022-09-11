@@ -1,6 +1,8 @@
 import { createContext } from 'react';
 
 export const PlayingContext = createContext({
+  footImg: undefined,
+  footTitle: undefined,
   indexSongs: undefined,
   countSongs: [],
   valueVol: undefined,
@@ -9,6 +11,7 @@ export const PlayingContext = createContext({
   isPlaying: false,
   progress: false,
   playListSong: [],
+  NewNamePlaylist: undefined,
   addSongToQueue: () => {},
   addQueue: () => {},
   deleteQueue: () => {},
@@ -20,4 +23,7 @@ export const PlayingContext = createContext({
   setProgress: () => {},
   setCountSongs: () => {},
   setPlayListSongs: () => {},
+  setFootImg: () => {},
+  setFootTitle: () => {},
+  setNewNamePlaylist: () => {},
 });

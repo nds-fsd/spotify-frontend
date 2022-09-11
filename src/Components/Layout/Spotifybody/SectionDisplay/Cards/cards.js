@@ -9,11 +9,23 @@ import usePlayer from '../../../../../Hooks/use-player';
 // import PlayListName from '../../../Sidebar/AddPlaylist/PlayList/PlayList';
 
 const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, lin }) => {
-  const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying, countSongs } =
-    usePlayer();
+  const {
+    isPlaying,
+    setIndex,
+    indexSongs,
+    setCountSongs,
+    setPlayListSongs,
+    playListSongs,
+    setPlaying,
+    countSongs,
+    setFootImg,
+    setFootTitle,
+  } = usePlayer();
 
   useEffect(() => {
     setCountSongs(playListSongs[indexSongs].soundUrl);
+    setFootImg(playListSongs[indexSongs].photo);
+    setFootTitle(playListSongs[indexSongs].title);
     setPlaying(false);
   }, [indexSongs, playListSongs]);
   const [list, setList] = useState([]);

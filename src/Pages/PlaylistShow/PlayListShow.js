@@ -7,13 +7,28 @@ import api from '../../Utils/api';
 
 const PlayListsShow = () => {
   const { id } = useParams();
-  const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying } = usePlayer();
+  const {
+    isPlaying,
+    setIndex,
+    indexSongs,
+    setCountSongs,
+    setPlayListSongs,
+    playListSongs,
+    setPlaying,
+    footImg,
+    setFootImg,
+    footTitle,
+    setFootTitle,
+  } = usePlayer();
 
   const [listOne, setListOne] = useState([]);
+  const [footWait, setFootWait] = useState([]);
 
   useEffect(() => {
     api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setPlaying(false);
       setListOne(data.song);
+      setFootWait(data.song);
     });
   }, []);
   console.log(listOne);
@@ -25,11 +40,14 @@ const PlayListsShow = () => {
   useEffect(() => {
     api('GET', `playlist/${id}`, {}, {}).then((data) => {
       setCountSongs(playListSongs[indexSongs].soundUrl);
+      setFootImg(playListSongs[indexSongs].photo);
+      setFootTitle(playListSongs[indexSongs].name);
+
       setPlaying(false);
     });
   }, [indexSongs, playListSongs]);
   console.log(isPlaying);
-
+  console.log('imagen del foteer', footImg);
   return (
     <>
       <div className="conteiner-layout-list">
@@ -51,17 +69,18 @@ const PlayListsShow = () => {
               <>
                 <div>
                   <img src={objeto.photo} />
+                  <button
+                    className="btn-play"
+                    type="button"
+                    onClick={() => {
+                      setIndex(index);
+                      setPlaying(true);
+                    }}
+                  >
+                    <span>Play</span>
+                  </button>
                 </div>
-                <button
-                  className="btn-play"
-                  type="button"
-                  onClick={() => {
-                    setIndex(index);
-                    setPlaying(true);
-                  }}
-                >
-                  Play
-                </button>
+
                 <h3>{objeto.title}</h3>
               </>
             </div>
