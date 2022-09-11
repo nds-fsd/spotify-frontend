@@ -1,23 +1,23 @@
- #**Nuclify**
+ # **Nuclify**
 
 **Nuclify** es un reproductor músical similar a los más exitosos servicios de música por streaming. Para poder desarrollar esta aplicación web, hemos aplicado todo lo aprendido en este Máster FullStack.
 
 Las tecnologías más destacadas que hemos utilizado, más allá de HTML y CSS han sido *React*[1] (FrontEnd), *NodeJS*[2] (BackEnd) y *MongoDB*(BBDD)[3]. También hemos aprovechado diferentes servicios/utilidades como *Express*[4] o *Mongoose*[5] entre otr@s.
 
-###FrontEnd
+### FrontEnd
 
 
 Como todos sabemos, esta es la parte visible del proyecto. La estructura, funciones visuales y el estilo de la aplicación ha sido desarrollado con el Framework de JavaScript React. 
 
 
 
-###BackEnd
+### BackEnd
 
 El lado del servidor se ejecuta en NodeJs (JavaScript ejecutado como servidor) utilizando el framework Express. Como base de datos hemos utilizado MongoDB y su framework Mongoose.
 
-##La aplicación
+## La aplicación
 
-###Formularios de registro y LogIn
+### Formularios de registro y LogIn
 
 Lo primero que se muestra al acceder a la aplicación  es el formulario de Log In. En caso de no disponer de una cuenta, disponemos la opción de crear nuestro usuario mediante el formulario de registro. Los formularios están gestionados mediante  *React Hook Forms*[6].
 
@@ -33,7 +33,7 @@ Una vez accedemos a nuestra cuenta, o tras haber creado una nueva cuenta y utili
 
 Tras validar nuestro correo y contraseña podemos ver que disponemos de un apartado para el usuario en la parte superior derecha, una barra lateral con enlace al inicio de la aplicación, la funcionalidad de búsqueda y la posibilidad de crear una playlist personalizada. Además de esto, en la parte central podemos observar las canciones, álbumes, géneros musicales y artistas. Por último podemos observar que en la parte inferior disponemos del reproductor multimedia en el cual podremos disfrutar de las canciones almacenadas en nuestra base de datos.
 
-###Aplicación tras el LogIn
+### Aplicación tras el LogIn
 
 Este es el aspecto visual de nuestra aplicación una vez hemos iniciado sesión con nuestro usuario:
 
@@ -51,22 +51,22 @@ Con esta funcionalidad podemos realizar una búsqueda en nuestra base de datos, 
 
 
 
-##Reproductor
+## Reproductor
 
 ![Reproductor multimedia](https://i.ibb.co/ByRhFLd/Repro.jpg)
 
 Para poder reproducir las canciones hemos utilizado el framework *ReactPlayer*[9]. Esta funcionalidad es capaz de reproducir tanto video como audio. Mediante el acceso a la información almacenada en nuestra base de datos, el reproductor inicia la canción que seleccionemos. Mediante sus ajustes, podemos cambiar de canción o controlar el volumen.
 
-##Admin page
+## Admin page
 
 Esta función se ha realizado para poder mantener la aplicación de manera lo más sencilla posible. Hemos realizado un *CRUD* (*Create, Read, Update Delete*) al que se puede acceder mediante software externo (como por ejemplo *Insomnia*). Para evitar depender de software de terceros, el o los usuarios que dispongan de rol de administrador podrá acceder a una página exclusiva donde podrá realizar las funciones necesarias para poder añadir, modificar o eliminar canciones, álbumes, géneros o artistas de la base de datos de la manera más sencilla posible. Este es el aspecto visual de nuestra página:
 
 ![Admin page](https://i.ibb.co/bFH3Nbk/Admin.jpg) 
 
-##Ejemplos de código
+## Ejemplos de código
 
 
-###Uso de librerías como Material UI
+### Uso de librerías como Material UI
 
 <div>
      <FormControl sx={{ m: 1, minWidth: 180 }}>
@@ -96,7 +96,7 @@ Esta función se ha realizado para poder mantener la aplicación de manera lo m�
          </MenuItem>
 
 
-###Uso de distintos hooks de react como *useEffect, useState, useForm* y *useContext*
+### Uso de distintos hooks de react como *useEffect, useState, useForm* y *useContext*
 
 const LoginForm = () => {
  const { register, handleSubmit } = useForm();
@@ -142,7 +142,7 @@ const LoginForm = () => {
        />
 
 
-###Función para play music
+### Función para play music
 
 const PlayListsShow = () => {
  const { id } = useParams();
@@ -229,22 +229,22 @@ const PlayListsShow = () => {
    </div>
 
 
-##Otros: 
+## Otros: 
 
-###Testing
+### Testing
 
 Para diversas funcionalidades hemos utilizado el Framework de JavaScript *Jest*[10]. Esta funcionalidad nos permite indicar una serie de funcionalidades y el resultado esperado de las mismas, de modo que Jest revisa la funcionalidad, comprueba si el resultado es el esperado y nos indica si el test es correcto o si por el contrario ha fallado porque la respuesta no ha sido la esperada. Estos tests se llevan a cabo tanto en el FrontEnd como en el BackEnd.
 
-###Librería: Material UI
+### Librería: Material UI
 
 *Material UI*[11] es una librería que ofrece diferentes posibilidades para mejorar de manera visual nuestra aplicación mediante componentes como iconos , desplegables o incluso calendarios. El uso de esta librería nos ha facilitado la mejora del apartado visual así como la experiencia del usuario a la hora de utilizar nuestra aplicación.
 
-###Deployment:
+### Deployment:
 
 La aplicación está almacenada en los servicios de *Heroku*[12] y en *SupaBase*[13]
 
 
-##Tecnologías utilizadas
+## Tecnologías utilizadas
 
 Aquí dejamos un listado de todas las tecnologías que hemos utilizado en el proyecto:
 
