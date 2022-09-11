@@ -4,7 +4,7 @@ import usePlayer from '../../../../Hooks/use-player';
 
 const FooterLeft = () => {
   const { playListSongs, indexSongs } = usePlayer();
-  const [titleSong, setTiltesong] = useState();
+  const [titleSong, setTiltesong] = useState('');
   useEffect(() => {
     setTiltesong(playListSongs[indexSongs]);
     console.log(playListSongs);
@@ -18,8 +18,8 @@ const FooterLeft = () => {
         alt="albun"
       />
       <div>
-        <h5>title</h5>
-        <p>Fffgf</p>
+        <h5>Title</h5>
+        {/* <p></p> */}
       </div>
     </div>
   );

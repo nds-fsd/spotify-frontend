@@ -3,7 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import api from '../../../../Utils/api';
 import styles from '../SearchBar/searchBar.module.css';
-import '../../../../Components/Layout/Spotifybody/SectionDisplay/Genre/genre.css';
+import './genreSongs.css';
 
 const GenreSongs = ({ song, artist, _id, photo }) => {
   const [viewSongs, setViewSongs] = useState(false);
@@ -23,6 +23,7 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
   useEffect(() => {
     api('GET', `genre/${id}`, {}, {}).then((data) => {
       setGenre(data.song);
+      console.log('songsdATA:', data.song);
     });
   }, []);
   return (
@@ -46,10 +47,10 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
         </div>
       </nav>{' '}
       {genre.map((g) => (
-        <div className="genre-container">
-          <h3 className="genre-info">{g?.title}</h3>
+        <div className="genresongs-container">
+          <h3 className="genresongs-info">{g?.title}</h3>
 
-          <h3 className="genre-info">{g?.song?.artist?.name}</h3>
+          <h3 className="genresongs-info">{g?.artist?.name}</h3>
           <img src={g?.photo} />
         </div>
       ))}

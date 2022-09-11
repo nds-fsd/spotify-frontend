@@ -3,7 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import api from '../../../../Utils/api';
 import styles from '../SearchBar/searchBar.module.css';
-import '../../../../Components/Layout/Spotifybody/SectionDisplay/Artists/artists.css';
+import './ArtistSongs.css';
 
 const ArtistSongs = () => {
   const [viewSongs, setViewSongs] = useState(false);
@@ -45,10 +45,10 @@ const ArtistSongs = () => {
         </div>
       </nav>{' '}
       {artist.map((a) => (
-        <div className="artist-container">
-          <h3 className="artist-info">{a?.title}</h3>
+        <div className="artistSongs-container">
+          <h3 className="artistSongs-info">{a?.title}</h3>
 
-          <h3 className="artist-info">{a?.artist}</h3>
+          <h3 className="artistSongs-info">{a?.artist.name}</h3>
           <img src={a?.photo} />
         </div>
       ))}

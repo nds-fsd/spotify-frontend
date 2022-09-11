@@ -27,7 +27,7 @@ const RefactorAlbum = () => {
     <>
       {' '}
       {refactorAlbum.length > 0 ? (
-        refactorAlbum.map((c) => <AlbumCards name={c.name} photo={c.photo} lin={c._id} />)
+        refactorAlbum.map((c) => <AlbumCards name={c.name} artist={c.artist.name} photo={c.photo} lin={c._id} />)
       ) : (
         <></>
       )}
