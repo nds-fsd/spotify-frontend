@@ -22,12 +22,13 @@ const RefactorAlbum = () => {
       });
     }
   }, [search]);
+  console.log('data de album', refactorAlbum);
 
   return (
     <>
       {' '}
       {refactorAlbum.length > 0 ? (
-        refactorAlbum.map((c) => <AlbumCards name={c.name} photo={c.photo} lin={c._id} />)
+        refactorAlbum.map((c) => <AlbumCards name={c.name} photo={c.photo} lin={c._id} artist={c.artist.name} />)
       ) : (
         <></>
       )}

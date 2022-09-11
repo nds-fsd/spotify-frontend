@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from '../SearchBar/searchBar.module.css';
+import Cards from '../../../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards';
+import usePlayer from '../../../../Hooks/use-player';
 import api from '../../../../Utils/api';
 import '../../../../Components/Layout/Spotifybody/SectionDisplay/Cards/cards.css';
 
@@ -12,6 +14,7 @@ const AlbumSongs = ({ song, artist, _id, photo }) => {
   const { id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get('search') ? searchParams.get('search') : '');
+  const { isPlaying, setIndex, indexSongs, setCountSongs, setPlayListSongs, playListSongs, setPlaying } = usePlayer();
 
   // useEffect(() => {
   //   api('GET', `genre/${id}`, {}, {}).then((data) => {
@@ -22,6 +25,7 @@ const AlbumSongs = ({ song, artist, _id, photo }) => {
   useEffect(() => {
     api('GET', `album/${id}`, {}, {}).then((data) => {
       setAlbum(data.songs);
+      setPlayListSongs(data.songs);
     });
   }, []);
   return (
@@ -44,12 +48,18 @@ const AlbumSongs = ({ song, artist, _id, photo }) => {
           </form>
         </div>
       </nav>{' '}
-      {album.map((a) => (
-        <div className="cards-container">
-          <h3 className="card-info">{a?.title}</h3>
-
-          <h3 className="card-info">{a?.artist?.name}</h3>
-          <img src={a?.photo} />
+      {album.map((a, index) => (
+        <div>
+          <Cards
+            genre={a.genre}
+            title={a.title}
+            // artist={s.artist}
+            // duration={s.duration}
+            // releaseDate={s.releaseDate}
+            photo={a.photo}
+            indexUrl={index}
+            lin={a._id}
+          />
         </div>
       ))}
     </>
