@@ -12,7 +12,7 @@
 }
 
 .logoContainer {
-  background: rgba(3, 0, 39);
+  background: rgb(0, 31, 49);
   display: flex;
   justify-content: center;
   z-index: 100;
@@ -58,22 +58,8 @@
   overflow: scroll;
 }
 
-/* .categoriesContent::-webkit-scrollbar:vertical {
-  width: 100px;
-}
-
-.categoriesContent::-webkit-scrollbar-thumb {
-  background-color: #b7cab7;
-  border-radius: 20px;
-  border: 1px solid #f1f2f3;
-}
-
-.categoriesContent::-webkit-scrollbar-track {
-  border-radius: 10px;
-} */
-
 .dashboard {
-  background: rgba(3, 0, 39);
+  background: rgb(0, 31, 49);
   justify-content: center;
   padding: 20px;
   width: 20%;

@@ -34,7 +34,7 @@
   justify-content: center;
   line-height: 28px;
   height: 30px;
-  transform: translateX(1013px);
+  transform: translate(810px, 44px);
   border: 1px solid rgba(12, 58, 82, 0.85);
   border-radius: 22px;
   cursor: pointer;
@@ -47,5 +47,8 @@
 
 .refactorContainer {
   min-width: 100%;
+  display: flex;
   min-height: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

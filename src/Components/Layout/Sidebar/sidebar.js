@@ -6,7 +6,7 @@ import SidebarMenu from './Sidebarmenu/sibebarmenu';
 import AddNamePlaylist from './AddPlaylist/AddPlaylist';
 import PlayListName from './AddPlaylist/PlayList/PlayList';
 
-const Sidebar = ({ onClick }) => {
+const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
@@ -20,10 +20,9 @@ const Sidebar = ({ onClick }) => {
         // onClick={(e) => handleHomeClick()}
         title="Home"
         Icon={HomeIcon}
-        path="/"
+        link="https://nuclify.netlify.app"
       />
       {/* <SidebarMenu title="Search" Icon={SearchIcon} /> */}
-      <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} link="#" />
       <br />
       <hr />
       <AddNamePlaylist />

@@ -93,8 +93,8 @@ const SongCategory = () => {
               <h3 className={styles.songHeaders}>{song.title}</h3>
               <h3 className={styles.songHeaders}>{song?.artist?.name || 'No artist'}</h3>
               <h3 className={styles.songHeaders}>{song.duration}</h3>
-              <h3 className={styles.songHeaders}>{song?.genre?.name || 'No genre'}</h3>\{' '}
-              <h3 className={styles.songUrl}>{song.soundUrl}</h3>
+              <h3 className={styles.songHeaders}>{song?.genre?.name || 'No genre'}</h3>{' '}
+              {/* <h3 className={styles.songUrl}>{song.soundUrl}</h3> */}
               <div className={styles.releaseYear}>{song.releaseYear}</div>
               <button
                 onClick={() => {
