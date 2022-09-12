@@ -45,7 +45,7 @@ const UserMenu = ({}) => {
 
   return (
     <div className="HeaderUsuario-container">
-      {userRole === 'ADMIN' || userRole === 'USER' ? <p className="userName">Welcome {userName}!</p> : <> </>}
+      {userRole === 'ADMIN' || (userRole === 'USER' && <p className="userName">Welcome {userName}!</p>)}
       <Avatar onClick={handleClick} />
 
       <Menu
@@ -59,7 +59,7 @@ const UserMenu = ({}) => {
       >
         <MenuItem onClick={handleClickProfile}>Profile</MenuItem>
 
-        {userRole === 'ADMIN' ? <MenuItem onClick={handleAdminSession}>Dashboard</MenuItem> : <> </>}
+        {userRole === 'ADMIN' && <MenuItem onClick={handleAdminSession}>Dashboard</MenuItem>}
         <MenuItem onClick={handleClickLogout}>Logout</MenuItem>
       </Menu>
     </div>

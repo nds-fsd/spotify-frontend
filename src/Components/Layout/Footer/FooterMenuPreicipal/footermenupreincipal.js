@@ -67,7 +67,7 @@ const FooterMenuPrincipal = () => {
     <div className="FooterMenuPrincipal-container">
       <ReactPlayer
         url={playingSong}
-        playing={isPlaying}
+        playing={!!isPlaying}
         volume={valueVol / 100}
         width={400}
         height={200}
@@ -77,7 +77,6 @@ const FooterMenuPrincipal = () => {
         loop={loopset}
       />
       <SkipPreviousIcon onClick={handlePre} />
-      <playIcon />
       {!isPlaying ? (
         <PlayCircleOutlineIcon onClick={handlePlayPause} />
       ) : (

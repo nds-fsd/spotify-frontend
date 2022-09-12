@@ -63,7 +63,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
       <img src={photo} alt={genre} />
 
       <div className="btn-container">
-        <button
+        <span
           className="btnPlay"
           type="button"
           onClick={() => {
@@ -72,8 +72,8 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
           }}
         >
           <span>Play</span>
-        </button>
-        <button
+        </span>
+        <span
           className="btnAdd"
           type="button"
           onClick={() => {
@@ -81,7 +81,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
           }}
         >
           ...
-        </button>
+        </span>
       </div>
       {cierto1 && (
         <div className="list-veiW">
@@ -102,25 +102,6 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
           ))}
         </div>
       )}
-
-      {/* <button type="submit">
-        ...
-        <AddNamePlaylist />
-        <PlayListName />
-      </button> */}
-
-      {/* <h6>{duration}</h6>
-      <h7>{releaseDate}</h7> */}
-      {/* <Modal
-        isOpen={isOpen}
-        closeModal={closeModal}
-        title={title}
-        artist={artist}
-        genre={genre}
-        duration={`${duration}` + `seg`}
-        releaseDate={releaseDate}
-        photo={photo}
-      /> */}
     </button>
   );
 };

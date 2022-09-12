@@ -36,9 +36,6 @@ function App() {
               <Route path="/adminpage/playlists" element={<PlaylistCategory />} />
               <Route path="/adminpage/users" element={<UserCategory />} />
             </Route>
-            {/* <Route path="/" element={<SidebarMenu />}>
-              <Route path="/songs" element={<AllSongs />} />
-            </Route> */}
 
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<HomeRefactorBody />} />
