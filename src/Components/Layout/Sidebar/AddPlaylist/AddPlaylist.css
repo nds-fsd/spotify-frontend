@@ -49,6 +49,8 @@ input::placeholder {
   width: 100%;
   align-items: center;
   margin-left: 13px;
+  margin-top: 37px;
+  margin-bottom: 20px;
 }
 
 .container-Icon h3 {

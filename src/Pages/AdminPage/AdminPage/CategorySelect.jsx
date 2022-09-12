@@ -67,7 +67,7 @@ const CategorySelect = () => {
           >
             Genres
           </MenuItem>
-          <MenuItem
+          {/* <MenuItem
             className="menuItem"
             onClick={() => {
               navigate('playlists');
@@ -76,7 +76,7 @@ const CategorySelect = () => {
             value={playlists}
           >
             Playlists
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem
             className="menuItem"
             onClick={() => {

@@ -30,6 +30,8 @@ p {
   background-color: transparent;
   font-size: 17px;
   font-weight: 900;
+  margin-bottom: -25px;
+  margin-top: 19px;
 }
 
 .sidebar-name {
