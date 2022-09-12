@@ -51,8 +51,10 @@ const PlayerProvider = ({ children }) => {
   const [newNamePlaylist, setNewNamePlaylist] = useState(false);
 
   useEffect(() => {
-    playSong(playingQueue);
-    setIndex(indexSongs);
+    setTimeout(() => {
+      playSong(playingQueue);
+      setIndex(indexSongs);
+    }, 3000);
   }, [playingQueue, isPlaying]);
 
   return (
