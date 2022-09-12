@@ -20,6 +20,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
     countSongs,
     setFootImg,
     setFootTitle,
+    newNamePlaylist,
   } = usePlayer();
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
     api('GET', 'playlist/', {}, {}).then((data) => {
       setList(data);
     });
-  }, []);
+  }, [newNamePlaylist]);
 
   useEffect(() => {
     setAddplaylist(list[addplaylistIndex]);

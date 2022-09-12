@@ -6,7 +6,7 @@ import './PlayList.css';
 import usePlayer from '../../../../../Hooks/use-player';
 
 const PlayListName = () => {
-  const { newNamePlaylist } = usePlayer();
+  const { newNamePlaylist, setNewNamePlaylist } = usePlayer();
 
   const [list, setList] = useState([]);
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const PlayListName = () => {
   useEffect(() => {
     api('GET', 'playlist', {}, {}).then((data) => {
       setList(data);
+      setNewNamePlaylist(false);
     });
   }, [newNamePlaylist]);
 
