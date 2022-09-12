@@ -16,8 +16,13 @@ const Sidebar = () => {
       </div>
       <br />
       <br />
-      <SidebarMenu title="Home" Icon={HomeIcon} onClick={() => navigate('/', { replace: true })} />
-      {/* <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} link="#" /> */}
+      <SidebarMenu
+        // onClick={(e) => handleHomeClick()}
+        title="Home"
+        Icon={HomeIcon}
+        link="https://nuclify.netlify.app"
+      />
+      {/* <SidebarMenu title="Search" Icon={SearchIcon} /> */}
       <br />
       <hr />
       <AddNamePlaylist />
