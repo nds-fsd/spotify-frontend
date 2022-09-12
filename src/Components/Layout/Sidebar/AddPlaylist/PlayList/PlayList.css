@@ -49,3 +49,7 @@ a:hover {
   margin-top: 10px;
   padding: 4px;
 }
+
+.list > div {
+  cursor: pointer;
+}
