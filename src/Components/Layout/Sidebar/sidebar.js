@@ -20,7 +20,7 @@ const Sidebar = ({ onClick }) => {
         // onClick={(e) => handleHomeClick()}
         title="Home"
         Icon={HomeIcon}
-        link="https://nuclify.netlify.app"
+        path="/"
       />
       {/* <SidebarMenu title="Search" Icon={SearchIcon} /> */}
       <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} link="#" />
