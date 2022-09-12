@@ -17,7 +17,7 @@
   border-radius: 10px;
   color: #bac1b8;
   margin-bottom: 20px;
-  height: 200px;
+  height: 220px;
   width: 97%;
   gap: 85px;
 }
@@ -70,6 +70,6 @@
 
 .genreDescription {
   width: 35%;
-  height: 150px;
+  height: 180px;
   text-align: justify;
 }
