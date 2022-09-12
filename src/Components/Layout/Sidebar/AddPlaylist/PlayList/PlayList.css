@@ -50,3 +50,7 @@ a:hover {
   padding: 4px;
   font-size: 14px;
 }
+
+.list > div {
+  cursor: pointer;
+}

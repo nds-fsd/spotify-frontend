@@ -18,6 +18,7 @@ const PlayListName = () => {
   }, [newNamePlaylist]);
 
   const handleClickLink = (playlistId) => {
+    console.log('click');
     navigate(`/playlist/${playlistId}`);
   };
   return (

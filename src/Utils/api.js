@@ -2,8 +2,7 @@
 import queryString from 'query-string';
 import { getToken } from './session';
 
-const API_URL =
-  window.location.hostname === 'nuclify.netlify.app' ? 'https://nuclify.herokuapp.com' : 'http://localhost:8080';
+const API_URL = 'https://nuclify.herokuapp.com';
 
 // Custom API error to throw
 function ApiError(message, data, status) {
