@@ -6,7 +6,6 @@ const GenreCreateForm = ({ setCreateItem, setGenres }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     await api('POST', 'genre', {
       body: {
         name: data.name,

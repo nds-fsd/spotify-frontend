@@ -8,7 +8,6 @@ const authLogin = async (data) => {
     body: JSON.stringify(data),
   });
   const token = await response.json();
-  console.log(token);
   if (token.token) {
     window.localStorage.setItem('token', token.token);
     return true;

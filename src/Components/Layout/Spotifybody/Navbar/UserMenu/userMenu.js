@@ -28,24 +28,10 @@ const UserMenu = ({}) => {
     navigate('/login', { replace: false });
   };
 
-  // const handleClickAlbums = () => {
-  //   navigate('/albums', { replace: false });
-  // };
-
-  // const handleClickGenre = () => {
-  //   navigate('/genre', { replace: false });
-  // };
-
-  // const handleClickArtists = () => {
-  //   navigate('/artist', { replace: false });
-  // };
-
   const handleAdminSession = (data) => {
     if (userRole === 'ADMIN') {
-      console.log('entra');
       hasUserSession(data);
       navigate('/adminpage/songs', { replace: true });
-      console.log('adminuser');
     }
   };
 

@@ -32,7 +32,6 @@ const SongCategory = () => {
       query.search = searchText;
     }
     api('GET', 'songs', {}, query).then((data) => {
-      console.log(data);
       setSongs(data);
       setRefresh(false);
     });
@@ -87,40 +86,37 @@ const SongCategory = () => {
         )}
         {editItem && <EditForm editData={editData} artist={artist} genres={genres} setEditItem={setEditItem} />}
 
-        {songs?.map((song) => {
-          console.log(song);
-          return (
-            <>
-              <div className={styles.container}>
-                <img className={styles.songPhoto} src={song.photo} alt="song picture" />
+        {songs?.map((song) => (
+          <>
+            <div className={styles.container}>
+              <img className={styles.songPhoto} src={song.photo} alt="song picture" />
 
-                <h3 className={styles.songHeaders}>{song.title}</h3>
-                <h3 className={styles.songHeaders}>{song?.artist?.name || 'No artist'}</h3>
-                <h3 className={styles.songHeaders}>{song.duration}</h3>
-                <h3 className={styles.songHeaders}>{song?.genre?.name || 'No genre'}</h3>
-                {/* no encuentra genre.name */}
-                <h3 className={styles.songUrl}>{song.soundUrl}</h3>
-                <div className={styles.releaseYear}>{song.releaseYear}</div>
+              <h3 className={styles.songHeaders}>{song.title}</h3>
+              <h3 className={styles.songHeaders}>{song?.artist?.name || 'No artist'}</h3>
+              <h3 className={styles.songHeaders}>{song.duration}</h3>
+              <h3 className={styles.songHeaders}>{song?.genre?.name || 'No genre'}</h3>
+              {/* no encuentra genre.name */}
+              <h3 className={styles.songUrl}>{song.soundUrl}</h3>
+              <div className={styles.releaseYear}>{song.releaseYear}</div>
 
-                <button
-                  onClick={() => {
-                    if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
-                    setEditData(song);
-                    setCreateItem(false);
-                  }}
-                  className={styles.songAdminButton}
-                  type="button"
-                >
-                  Update
-                </button>
+              <button
+                onClick={() => {
+                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                  setEditData(song);
+                  setCreateItem(false);
+                }}
+                className={styles.songAdminButton}
+                type="button"
+              >
+                Update
+              </button>
 
-                <button onClick={() => handleDeleteItem(song._id)} className={styles.songAdminButton} type="button">
-                  Delete
-                </button>
-              </div>
-            </>
-          );
-        })}
+              <button onClick={() => handleDeleteItem(song._id)} className={styles.songAdminButton} type="button">
+                Delete
+              </button>
+            </div>
+          </>
+        ))}
       </div>
     </>
   );

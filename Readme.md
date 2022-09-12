@@ -200,9 +200,7 @@ const PlayListsShow = () => {
    } else {
      setLoop(false);
    }
-   console.log(loopset);
  };
- console.log(loopset);
  
  return (
    <div className="FooterMenuPrincipal-container">

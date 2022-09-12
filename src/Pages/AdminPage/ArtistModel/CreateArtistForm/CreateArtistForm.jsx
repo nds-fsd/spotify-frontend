@@ -6,7 +6,6 @@ const CreateArtistForm = ({ albums, setArtist, setCreateItem }) => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     await api('POST', 'artist', {
       body: {
         name: data.name,
@@ -80,7 +79,6 @@ const CreateArtistForm = ({ albums, setArtist, setCreateItem }) => {
             {albums?.map((albumName) => (
               <option value={albumName?._id}>{albumName?.name}</option>
             ))}
-            {console.log('albums', albums)}
           </select>
           <input className="artistCreateButton" type="submit" value="Add" />
         </div>

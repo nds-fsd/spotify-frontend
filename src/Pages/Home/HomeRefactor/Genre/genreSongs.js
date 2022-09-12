@@ -17,19 +17,10 @@ const GenreSongs = ({ song, artist, _id, photo }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get('search') ? searchParams.get('search') : '');
 
-  // useEffect(() => {
-  //   api('GET', `genre/${id}`, {}, {}).then((data) => {
-  //     setGenre(data);
-  //     console.log('genre id', data);
-  //   });
-  // }, []);
-
   useEffect(() => {
     api('GET', `genre/${id}`, {}, {}).then((data) => {
       setGenre(data.song);
       setPlayListSongs(data.song);
-
-      console.log('songsdATA:', data.song);
     });
   }, []);
   return (

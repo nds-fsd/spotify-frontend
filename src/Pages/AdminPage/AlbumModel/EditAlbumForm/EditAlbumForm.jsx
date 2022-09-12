@@ -2,8 +2,6 @@ import { useForm } from 'react-hook-form';
 import api from '../../../../Utils/api';
 
 const EditAlbumForm = ({ editData, artist, setEditItem }) => {
-  // console.log('artist', artist);
-  // console.log(editAlbum);
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: editData?.name,
@@ -61,7 +59,6 @@ const EditAlbumForm = ({ editData, artist, setEditItem }) => {
               {artist?.map((a) => (
                 <option value={a?._id}>{a?.name}</option>
               ))}
-              {console.log('artistas', artist)}
             </select>
             <input className="albumCreateButton" type="submit" value="Update" />
           </div>

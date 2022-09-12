@@ -1,8 +1,6 @@
 export { createCard, editCard, getAllCards, getAllAlbums, getCard, deleteCard, createList, getAlllist };
 
 const createCard = async (song) => {
-  console.log(song);
-
   const response = await fetch('http://localhost:8080', {
     method: 'POST',
     headers: {
@@ -53,8 +51,6 @@ const deleteCard = async (song) => {
 };
 
 const createList = async (name) => {
-  console.log(name);
-
   const response = await fetch('http://localhost:8080/playlist', {
     method: 'POST',
     headers: {

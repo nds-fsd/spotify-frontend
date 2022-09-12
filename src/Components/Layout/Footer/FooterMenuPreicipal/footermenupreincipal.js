@@ -1,5 +1,4 @@
 import './footermenuprincipal.css';
-import ShuffleIcon from '@mui/icons-material/Shuffle';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import RepeatIcon from '@mui/icons-material/Repeat';
@@ -7,7 +6,6 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import ReactPlayer from 'react-player';
 import { useState, useEffect } from 'react';
-import { getAllCards } from '../../../../Api/utils';
 
 import usePlayer from '../../../../Hooks/use-player';
 
@@ -63,9 +61,7 @@ const FooterMenuPrincipal = () => {
     } else {
       setLoop(false);
     }
-    console.log(loopset);
   };
-  console.log(loopset);
 
   return (
     <div className="FooterMenuPrincipal-container">

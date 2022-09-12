@@ -20,7 +20,7 @@ const Sidebar = ({ onClick }) => {
         // onClick={(e) => handleHomeClick()}
         title="Home"
         Icon={HomeIcon}
-        link="http://localhost:3000/"
+        onClick={() => navigate('/', { replace: true })}
       />
       {/* <SidebarMenu title="Search" Icon={SearchIcon} /> */}
       <SidebarMenu title="Your Library" Icon={LibraryMusicIcon} link="#" />

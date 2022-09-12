@@ -24,7 +24,6 @@ const UserCategory = () => {
       query.search = searchText;
     }
     api('GET', 'user', {}, query).then((data) => {
-      console.log(data);
       setUsers(data);
       setRefresh(false);
     });
@@ -35,8 +34,6 @@ const UserCategory = () => {
       setRefresh(true);
     });
   };
-
-  console.log('users', users);
 
   return (
     <div>

@@ -56,35 +56,31 @@ const GenreCategory = () => {
       {createItem && <GenreCreateForm setGenres={setGenres} setCreateItem={setCreateItem} />}
       {editItem && <GenreEditForm editData={editData} setEditItem={setEditItem} />}
 
-      {genres.map((genre) => {
-        console.log('genre', genre);
+      {genres.map((genre) => (
+        <>
+          <div className="genreCategoryContainer">
+            <img className="genrePhoto" src={genre.photo} alt="genre picture" />
 
-        return (
-          <>
-            <div className="genreCategoryContainer">
-              <img className="genrePhoto" src={genre.photo} alt="genre picture" />
+            <h3>{genre.name}</h3>
+            <div className="genreDescription">{genre.description}</div>
 
-              <h3>{genre.name}</h3>
-              <div className="genreDescription">{genre.description}</div>
-
-              <button
-                onClick={() => {
-                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
-                  setEditData(genre);
-                  setCreateItem(false);
-                }}
-                className="adminGenreButton"
-                type="button"
-              >
-                Update
-              </button>
-              <button onClick={() => handleDeleteItem(genre._id)} className="adminGenreButton" type="button">
-                Delete
-              </button>
-            </div>
-          </>
-        );
-      })}
+            <button
+              onClick={() => {
+                if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                setEditData(genre);
+                setCreateItem(false);
+              }}
+              className="adminGenreButton"
+              type="button"
+            >
+              Update
+            </button>
+            <button onClick={() => handleDeleteItem(genre._id)} className="adminGenreButton" type="button">
+              Delete
+            </button>
+          </div>
+        </>
+      ))}
     </div>
   );
 };

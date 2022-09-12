@@ -32,7 +32,6 @@ const AlbumCategory = () => {
       query.search = searchText;
     }
     api('GET', 'album', {}, query).then((data) => {
-      console.log(data);
       setAlbums(data);
       setRefresh(false);
     });
@@ -80,40 +79,36 @@ const AlbumCategory = () => {
       )}
       {editItem && <EditAlbumForm editData={editData} artist={artist} songs={songs} setEditItem={setEditItem} />}
 
-      {albums.map((albumName) => {
-        console.log('albumName', albumName);
+      {albums.map((albumName) => (
+        <>
+          <div className="albumCategoryContainer">
+            <img className="albumPhoto" src={albumName.photo} alt="album picture" />
 
-        return (
-          <>
-            <div className="albumCategoryContainer">
-              <img className="albumPhoto" src={albumName.photo} alt="album picture" />
-
-              <h3 className="albumHeaders">{albumName.name}</h3>
-              <div className="releaseYear">{albumName.releaseYear}</div>
-              <h3 className="albumHeaders">{albumName.artist?.name || 'No Artist'}</h3>
-              <div className="songList">
-                {albums?.songs?.map((songName) => (
-                  <li className="albumSongs">{songName?.title || 'No Songs'}</li>
-                ))}
-              </div>
-              <button
-                onClick={() => {
-                  if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
-                  setEditData(albumName);
-                  setCreateItem(false);
-                }}
-                className="adminAlbumButton"
-                type="button"
-              >
-                Update
-              </button>
-              <button onClick={() => handleDeleteItem(albumName._id)} className="adminAlbumButton" type="button">
-                Delete
-              </button>
+            <h3 className="albumHeaders">{albumName.name}</h3>
+            <div className="releaseYear">{albumName.releaseYear}</div>
+            <h3 className="albumHeaders">{albumName.artist?.name || 'No Artist'}</h3>
+            <div className="songList">
+              {albums?.songs?.map((songName) => (
+                <li className="albumSongs">{songName?.title || 'No Songs'}</li>
+              ))}
             </div>
-          </>
-        );
-      })}
+            <button
+              onClick={() => {
+                if (!editItem ? setEditItem(true) : setEditItem(false)) editItemInput.current.focus();
+                setEditData(albumName);
+                setCreateItem(false);
+              }}
+              className="adminAlbumButton"
+              type="button"
+            >
+              Update
+            </button>
+            <button onClick={() => handleDeleteItem(albumName._id)} className="adminAlbumButton" type="button">
+              Delete
+            </button>
+          </div>
+        </>
+      ))}
     </div>
   );
 };

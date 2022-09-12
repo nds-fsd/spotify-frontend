@@ -43,7 +43,6 @@ const EditForm = ({ editData, artist, genres, setEditItem, setRefresh }) => {
             {artist?.map((a) => (
               <option value={a?._id}>{a?.name}</option>
             ))}
-            {console.log('artistas', artist)}
           </select>
           <label className="songLabel">Photo</label>
           &nbsp;
@@ -74,7 +73,6 @@ const EditForm = ({ editData, artist, genres, setEditItem, setRefresh }) => {
             {genres?.map((genre) => (
               <option value={genre?._id}>{genre?.name}</option>
             ))}
-            {console.log('artistas', artist)}
           </select>
           <label className="songLabel">Url</label>
           &nbsp;

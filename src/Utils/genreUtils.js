@@ -1,6 +1,4 @@
 const createGenre = async (genre) => {
-  console.log(genre);
-
   const response = await fetch('http://localhost:8080', {
     method: 'POST',
     headers: {

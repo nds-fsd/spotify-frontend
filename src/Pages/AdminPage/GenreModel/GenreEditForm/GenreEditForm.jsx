@@ -11,7 +11,6 @@ const GenreEditForm = ({ editData, setEditItem }) => {
   });
 
   const onSubmit = (updateData) => {
-    console.log('updateData', updateData, editData?._id);
     api('PATCH', `genre/${editData?._id}`, { body: updateData }, {}).then(() => {});
     reset();
     setEditItem(false);

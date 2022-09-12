@@ -22,7 +22,6 @@ const RefactorAlbum = () => {
       });
     }
   }, [search]);
-  console.log('data de album', refactorAlbum);
 
   return (
     <>

@@ -31,8 +31,7 @@ const Register = () => {
       });
     }
   };
-  console.log(errors);
-  console.log('isValid', isValid);
+
   return (
     <>
       {hasUserSession() && <Navigate to="/" replace />}

@@ -31,7 +31,6 @@ const PlayListsShow = () => {
       setFootWait(data.song);
     });
   }, []);
-  console.log(listOne);
 
   useEffect(() => {
     setPlayListSongs(listOne);
@@ -46,8 +45,6 @@ const PlayListsShow = () => {
       setPlaying(false);
     });
   }, [indexSongs, playListSongs]);
-  console.log(isPlaying);
-  console.log('imagen del foteer', footImg);
   return (
     <>
       <div className="conteiner-layout-list">

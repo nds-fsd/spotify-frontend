@@ -43,7 +43,6 @@ export const ListContextProvider = ({ children }) => {
     setSongs,
     artist,
     setArtist: (date) => {
-      console.log(date);
       setArtist(date);
     },
     albums,

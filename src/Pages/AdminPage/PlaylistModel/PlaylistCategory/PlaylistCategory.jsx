@@ -32,7 +32,6 @@ const PlaylistCategory = () => {
       query.search = searchText;
     }
     api('GET', 'playlist', {}, query).then((data) => {
-      console.log(data);
       setPlaylists(data);
       setRefresh(false);
     });

@@ -30,7 +30,6 @@ const ArtistCategory = () => {
       query.search = searchText;
     }
     api('GET', 'artist', {}, query).then((data) => {
-      console.log(data);
       setArtist(data);
       setRefresh(false);
     });
@@ -39,7 +38,6 @@ const ArtistCategory = () => {
   useEffect(() => {
     if (refresh) {
       api('GET', 'album', {}, {}).then((data) => {
-        console.log('albums', data);
         setAlbums(data);
         setRefresh(false);
       });

@@ -46,8 +46,6 @@ const Cards = ({ photo, genre, title, releaseDate, duration, artist, indexUrl, l
   useEffect(() => {
     setAddplaylist(list[addplaylistIndex]);
   }, [addplaylistIndex]);
-  console.log('ide playlis', idS);
-  console.log('ide musica', lin);
 
   const listVeiw = () => {};
 
