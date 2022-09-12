@@ -50,16 +50,7 @@ const AlbumSongs = ({ song, artist, _id, photo }) => {
       </nav>{' '}
       {album.map((a, index) => (
         <div>
-          <Cards
-            genre={a.genre}
-            title={a.title}
-            // artist={s.artist}
-            // duration={s.duration}
-            // releaseDate={s.releaseDate}
-            photo={a.photo}
-            indexUrl={index}
-            lin={a._id}
-          />
+          <Cards genre={a.genre} title={a.title} photo={a.photo} indexUrl={index} lin={a._id} />
         </div>
       ))}
     </>

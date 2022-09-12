@@ -45,7 +45,9 @@ const UserMenu = ({}) => {
 
   return (
     <div className="HeaderUsuario-container">
-      {userRole === 'ADMIN' || (userRole === 'USER' && <p className="userName">Welcome {userName}!</p>)}
+      {userRole === 'USER' && <p className="userName">Welcome {userName}!</p>}
+      {userRole === 'ADMIN' && <p className="userName">Welcome {userName}!</p>}
+
       <Avatar onClick={handleClick} />
 
       <Menu

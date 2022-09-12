@@ -24,7 +24,7 @@ const PlayListName = () => {
     <div className="Conteiner-Playlist">
       {list.map((objeto) => (
         <div className="list">
-          <div onClick={() => handleClickLink(objeto._.id)}>{objeto.name}</div>
+          <div onClick={() => handleClickLink(objeto._id)}>{objeto.name}</div>
         </div>
       ))}
     </div>
