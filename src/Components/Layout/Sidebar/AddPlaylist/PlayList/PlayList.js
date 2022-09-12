@@ -9,7 +9,7 @@ const PlayListName = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    api('GET', 'playlist/', {}, {}).then((data) => {
+    api('GET', 'playlist', {}, {}).then((data) => {
       setList(data);
     });
   }, [newNamePlaylist]);
@@ -17,7 +17,7 @@ const PlayListName = () => {
     <div className="Conteiner-Playlist">
       {list.map((objeto) => (
         <div className="list">
-          <a href={`https://nuclify.netlify.app/playlist/${objeto._id}`}>{objeto.name}</a>
+          <a href={`http://localhost:3000/playlist/${objeto._id}`}>{objeto.name}</a>
         </div>
       ))}
     </div>
