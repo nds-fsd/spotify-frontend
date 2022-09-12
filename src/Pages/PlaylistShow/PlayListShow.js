@@ -27,23 +27,26 @@ const PlayListsShow = () => {
   useEffect(() => {
     api('GET', `playlist/${id}`, {}, {}).then((data) => {
       setPlaying(false);
-      setListOne(data.song);
-      setFootWait(data.song);
+      setTimeout(() => {
+        setListOne(data.song);
+        setFootWait(data.song);
+      }, 1000);
     });
   }, []);
   console.log(listOne);
 
   useEffect(() => {
+    setPlaying(false);
+
     setPlayListSongs(listOne);
   }, [listOne, playListSongs]);
 
   useEffect(() => {
     api('GET', `playlist/${id}`, {}, {}).then((data) => {
+      setPlaying(false);
       setCountSongs(playListSongs[indexSongs].soundUrl);
       setFootImg(playListSongs[indexSongs].photo);
       setFootTitle(playListSongs[indexSongs].name);
-
-      setPlaying(false);
     });
   }, [indexSongs, playListSongs]);
   console.log(isPlaying);
